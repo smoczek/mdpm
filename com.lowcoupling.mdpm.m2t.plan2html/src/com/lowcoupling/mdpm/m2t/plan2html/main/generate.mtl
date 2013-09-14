@@ -1,0 +1,176 @@
+[comment encoding = UTF-8 /]
+
+[module generate('http://www.lowcoupling.com/mdpm/lng/plan/Plan','http://www.lowcoupling.com/mdpm/lng/resources/Resources')]
+
+[query public generateOccupationDiagram(plan:Project,zoom:Integer, name:String) : String = invoke('com.lowcoupling.mdpm.m2t.plan2html.main.OccupationImageExporter',
+                      'generateDiagram(com.lowcoupling.mdpm.lng.plan.plan.impl.PlanImpl,int,java.lang.String)',Sequence{plan,zoom,name})/]
+
+
+[query public generateOccupationDiagrams(plans:Program) : String = invoke('com.lowcoupling.mdpm.m2t.plan2html.main.OccupationImageExporter',
+                      'generateDiagram(com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl)',Sequence{plans})/]
+
+[query public generateGanttDiagram(plan:Project,name:String): String = invoke('com.lowcoupling.mdpm.m2t.plan2html.main.GanttImageExporter',
+                      'generateGanttDiagram(com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl,java.lang.String)',Sequence{plan,name}) /]
+
+[query public test(plan:Project,k:Integer): String = invoke('com.lowcoupling.mdpm.m2t.plan2html.main.OccupationImageExporter',
+                      'test(com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl,int)',Sequence{plan,k}) /]
+[query public generateWBSDiagrams(plan:Project) : String = invoke('com.lowcoupling.mdpm.m2t.plan2html.main.WBSImageExporter',
+                      'generateDiagram(com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl)',Sequence{plan})/]
+
+[template public generateDoc(model : Program )]
+[comment @main/]
+
+[comment model.generateGanttDiagram()/]
+[comment model.generateOccupationDiagrams()/]
+
+[for (pl:Project|model.projects)]
+
+[file (pl.name+'PMP.html', false, 'UTF-8')]
+[ pl.generateWBSDiagrams()/]
+<html lang="en">
+   <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+	  h1 {font-size:30px;}
+	  h2 {font-size:20px;}
+    </style>
+   </head>
+  <body>
+  <div class="container">
+		<div class="row">
+		<h1>Introduction </h1>
+		<h2>Purpose of Project Management Project </h2>
+		The intended audience of the [pl.name/] PMP is all project stakeholders 
+		including the project sponsor, senior leadership and the project team.
+		<h2>Assumptions and Contraints</h2>
+		[if pl.assumptions->notEmpty()]
+		The following assumptions have been made:
+			<ul>
+			[for (a:Assumption|pl.assumptions)]
+			<li>[a.value/] </li>
+			[/for]
+			</ul>
+		[else]
+		No assumptions have been made.
+		[/if]
+		[if pl.constraints->notEmpty()]
+		The following constraints hold:
+			<ul>
+			[for (c:Constraint|pl.constraints)]
+			<li>[c.value/] </li>
+			[/for]
+			</ul>
+		[else]
+		No constraints hold.
+		[/if]
+		<h2></h2>
+		<h1>Scope Management</h1>
+		<h2>Work Breakdown Structure</h2>
+		<h2>Deployment Project</h2>
+		<h2>Change Control Management</h2>
+		<h1>Schedule/Time Management</h1>
+		<img src="./[pl.name/]Data/img/ganttCharts/[pl.name.concat('ganttChart.png')/]"/>
+			[pl.generateGanttDiagram(pl.name.concat('ganttChart'))/]
+		
+		<table border = 1>
+				<tr> 
+					<b> <td>Name</td> 
+						<td>start date</td> 
+						<td>end date </td> 
+						<td>check point</td> 
+						<td> completeness </td> 
+					</b>
+				</tr>
+			[for (a:ActivityElement|pl.activities)]
+				<tr>
+				[if a.oclIsKindOf(Activity)]
+				[let activity:Activity = a.oclAsType(Activity)]
+				<td> [a.name/] </td>
+					<td> [if a.oclIsTypeOf(Activity)] [a.oclAsType(Activity).start/] [else] [activity.end/] [/if] </td>
+					<td> [activity.end/] </td>
+					<td> [if a.oclIsTypeOf(CheckPoint)] X [/if] </td>
+					<td> [activity.completeness/] %</td>
+				[/let]
+				[/if]
+				</tr>
+			[/for]
+			</table>
+		[for (a:ActivityElement|pl.activities)]
+		<h3>[a.name/]</h3>
+			[if a.oclIsKindOf(Activity)]
+				[let activity:Activity = a.oclAsType(Activity)]
+					[activity.description.oclAsType(String).comment2String()/]					
+				[/let]
+			[/if]
+		[/for]
+		<h2>Milestones</h2>
+ 		<h2> [pl.name/] Schedule </h2>
+		<h1>Cost and Budget Management</h1>
+		<h1>Quality Management</h1>
+		<h1>Human Resources Management</h1>
+		[if pl.activities->selectByKind(Activity).involvedResources->notEmpty()]
+		<h2>Responsibility Assignment Matrix </h2>
+		<ul>
+		<li>
+		<strong> Responsible </strong>
+    	Those who do the work to achieve the task. 
+		There is at least one role with a participation type of responsible, although others can be delegated to assist in the work required (see also RASCI below for separately identifying those who participate in a supporting role).
+		</li>
+		<li>
+		<strong> Accountable </strong>
+    	The one ultimately answerable for the correct and thorough completion of the deliverable or task, and the one who delegates the work to those responsible.
+		In other words, an accountable must sign off (approve) on work that responsible provides. There must be only one accountable specified for each task or deliverable.
+		</li>
+		<li>
+		<strong> Consulted </strong>
+    	Those whose opinions are sought, typically subject matter experts; and with whom there is two-way communication.
+		</li>
+		<li>
+		<strong> Informed </strong>
+    	Those who are kept up-to-date on progress, often only on completion of the task or deliverable; and with whom there is just one-way communication.  
+		</li>
+		</ul>
+		
+		<table  border=1>
+		<tr><td></td>
+	 
+		[for (res:Resource|(pl.activities->selectByKind(Activity).involvedResources.resource)->asSet())]
+			<td>[res.name/] </td>
+		[/for]
+		 
+		</tr>
+		</table>
+		<h2>Resources Occupation</h2>	
+			<img src="./[pl.name/]Data/img/occupationCharts/[pl.name.concat('OccupationChartZoom0.png')/]"/>
+			[pl.generateOccupationDiagram(0, pl.name.concat('OccupationchartZoom0.png'))/]
+			<img src="./[pl.name/]Data/img/occupationCharts/[pl.name.concat('OccupationChartZoom1.png')/]"/>
+			[pl.generateOccupationDiagram(1, pl.name.concat('OccupationchartZoom1.png'))/]
+			<img src="./[pl.name/]Data/img/occupationCharts/[pl.name.concat('OccupationChartZoom2.png')/]"/>
+			[pl.generateOccupationDiagram(2, pl.name.concat('OccupationchartZoom2.png'))/]
+		[/if]
+		<h1>Communication Management</h1>
+		<h1>Risk Management</h1>
+			
+<hr/>
+	</div>
+      </div>
+    
+  </body>
+</html>
+ 
+[/file]
+[/for]
+ 
+[/template]
+
+[template public comment2String(cm:String) post (replaceAll('\\/',''))]
+[cm.replaceAll('\\*','')/]
+[/template]
