@@ -1,0 +1,66 @@
+grammar com.lowcoupling.mdpm.lng.wbs.WBS with org.eclipse.xtext.common.Terminals hidden(WS, SL_COMMENT)
+
+generate wBS "http://www.lowcoupling.com/mdpm/lng/wbs/WBS"
+
+WBS:
+	WBSProgram|WBSProject
+;
+
+WBSProgram:
+	description=ML_COMMENT?
+	'Program ' name= ID 
+	 OPENCURLY
+	 (projects+=WBSProject)*
+	 CLOSEDCURLY
+;
+	
+ WBSProject:
+ 	description=ML_COMMENT?
+	'Project ' name= ID OPENCURLY
+	 (wbsNodes+=WBSNode)*
+	 CLOSEDCURLY
+;
+
+WBSNode:
+	WBSActivity|
+	WBSWorkPackage|
+	WBSDeliverable
+;
+
+WBSActivity:
+	description=ML_COMMENT?
+	'Activity ' name= ID (
+	( 
+			OPENCURLY
+				(wbsNodes+=WBSNode*)
+			CLOSEDCURLY 
+	) | ENDLINE)
+;
+
+WBSWorkPackage:
+	description=ML_COMMENT?
+	'WorkPackage ' name= ID (
+	( 
+			OPENCURLY
+				(wbsNodes+=WBSNode*)
+			CLOSEDCURLY 
+	) | ENDLINE)
+;
+WBSDeliverable:
+	description=ML_COMMENT?
+	'Deliverable ' name= ID (
+	( 
+			OPENCURLY
+				//(workpackages+=WorkPackage*)
+				(wbsNodes+=WBSNode*)
+			CLOSEDCURLY 
+	) | ENDLINE)
+;
+
+terminal ENDLINE :';'; 
+terminal OPENCURLY :
+	'{'
+;
+terminal CLOSEDCURLY :
+	'}'
+;
