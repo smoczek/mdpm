@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.lowcoupling.mdpm.defaultFeatures"
+      label="MDM Default Configuration"
+      version="0.0.1"
+      provider-name="LOWCOUPLING">
+
+   <description url="http://www.example.com/description">
+      Contains the basic features of the MDPM Project encompassing:
+
+ - WBS: A domain specific language for WBS Modeling
+ - WBS Tree View: a view depicting WBS tree diagrams
+ - Resources: a domain specific language enabling the modeling of resources
+ - Plan: A domain specific language for Project plans and Scheduling
+ - Gantt View: a view depicting a Gantt representation of Plan models
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      [Eclipse Public Lincese - v 1.0]
+   </license>
+
+   <url>
+      <discovery label="Low Coupling" url="http://www.lowcoupling.com"/>
+   </url>
+
+   <includes
+         id="com.lowcouplind.mdpm.files.feature"
+         version="0.0.2"/>
+
+   <includes
+         id="com.lowcoupling.mdpm.lng.pbs.sdk"
+         version="0.0.2"/>
+
+   <includes
+         id="com.lowcoupling.mdpm.lng.plan.sdk"
+         version="0.0.2"/>
+
+   <includes
+         id="com.lowcoupling.mdpm.lng.resources.sdk"
+         version="0.0.2"/>
+
+   <includes
+         id="com.lowcoupling.mdpm.lng.wbs.sdk"
+         version="0.0.2"/>
+
+   <plugin
+         id="com.lowcoupling.mdpm.commons"
+         download-size="0"
+         install-size="0"
+         version="0.0.2"
+         unpack="false"/>
+
+   <plugin
+         id="com.lowcoupling.mdpm.ui.preferences"
+         download-size="0"
+         install-size="0"
+         version="0.0.2"
+         unpack="false"/>
+
+</feature>
