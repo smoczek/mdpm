@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.lowcoupling.mdpm.lng.plan.sdk"
+      label="Plan"
+      version="0.0.2">
+
+   <plugin
+         id="com.lowcoupling.mdpm.lng.plan"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.lowcoupling.mdpm.lng.plan.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.lowcoupling.mdpm.lng.plan.ganttview"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
