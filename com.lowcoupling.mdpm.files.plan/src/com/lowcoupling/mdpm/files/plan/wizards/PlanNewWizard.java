@@ -154,10 +154,6 @@ public class PlanNewWizard extends Wizard implements INewWizard {
 						"	//import resourcesFile\n"+
 						"   /*Activity description*/\n"+
 						"	Activity activityName1 {\n"+
-						"		//involves {\n" +
-						"		//	 Resource1 at 100%;\n"+
-						"		//	 Resource2 at 50%;\n"+
-						"		//}\n"+
 						"		starts '"+startString+"';\n"+
 						"		duration 20;\n"+
 						"		completeness 20%;\n"+
@@ -165,15 +161,14 @@ public class PlanNewWizard extends Wizard implements INewWizard {
 						"	\n"+
 						"	Activity activityName2 {\n"+
 						"		//involves {Resource;}\n"+
-						"		starts '10/2/2013';\n"+
+						"		after projectName.activityName1 offset 1;\n"+
 						"		duration 5;\n"+
-						"		//ends '15/01/2013';\n"+
 						"		completeness 0%;\n"+
 						"		dependsOn projectName.activityName1;\n"+
 						"	}\n"+
 						"	\n"+
 						"	CheckPoint checkPointName {\n"+
-						"		date '21/2/2013';\n"+
+						"		after projectName.activityName2 offset 2;\n"+
 						"		completeness 0%;\n"+
 						"		dependsOn projectName.activityName2;\n"+
 						"	}\n"+
