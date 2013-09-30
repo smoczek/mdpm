@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.lowcoupling.mdpm.defaultFeatures"
-      label="MDM Default Configuration"
+      label="MDPM Default Configuration"
       version="0.0.1.qualifier"
       provider-name="LowCoupling">
 
@@ -20,7 +20,7 @@
    </copyright>
 
    <license url="http://www.eclipse.org/legal/epl-v10.html">
-      [Eclipse Public Lincese - v 1.0]
+      Eclipse Public Lincese - v 1.0
    </license>
 
    <url>
