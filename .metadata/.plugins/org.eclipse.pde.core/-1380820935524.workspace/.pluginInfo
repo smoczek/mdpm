@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="1800" class="com.lowcoupling.mdpm.files.resources.Activator" localization="OSGI-INF/l10n/bundle" name="Resources" project="com.lowcoupling.mdpm.files.resources" provider="LowCoupling"/>
+	<bundle bundleID="1801" class="com.lowcoupling.mdpm.files.wbs.Activator" localization="OSGI-INF/l10n/bundle" name="Wbs" project="com.lowcoupling.mdpm.files.wbs" provider="LowCoupling"/>
+	<bundle bundleID="1804" class="com.lowcoupling.mdpm.lng.pbs.ui.internal.PBSActivator" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.pbs.ui" project="com.lowcoupling.mdpm.lng.pbs.ui" provider="LowCoupling"/>
+	<bundle bundleID="1816" class="com.lowcoupling.mdpm.m2t.plan2html.ui.Activator" localization="OSGI-INF/l10n/bundle" name="Acceleo Project Management Plan Module IDE Plug-in" project="com.lowcoupling.mdpm.m2t.plan2html.ui" provider="LowCoupling"/>
+	<bundle bundleID="1813" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.wbs.tests" project="com.lowcoupling.mdpm.lng.wbs.tests" provider="LowCoupling"/>
+	<bundle bundleID="1822" class="com.lowcoupling.mdpm.ui.raciview.Activator" localization="OSGI-INF/l10n/bundle" name="Raciview" project="com.lowcoupling.mdpm.ui.raciview" provider="LowCoupling"/>
+	<bundle bundleID="1820" class="com.lowcoupling.mdpm.ui.pbstreeview.Activator" localization="OSGI-INF/l10n/bundle" name="Pbstreeview" project="com.lowcoupling.mdpm.ui.pbstreeview" provider="LowCoupling"/>
+	<bundle bundleID="1805" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.plan" project="com.lowcoupling.mdpm.lng.plan" provider="LowCoupling">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="1810" class="com.lowcoupling.mdpm.lng.resources.ui.internal.ResourcesActivator" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.resources.ui" project="com.lowcoupling.mdpm.lng.resources.ui" provider="My Company"/>
+	<bundle bundleID="1798" class="com.lowcoupling.mdpm.console.Activator" localization="OSGI-INF/l10n/bundle" name="MDPM Console" project="com.lowcoupling.mdpm.console" provider="LowCoupling"/>
+	<bundle bundleID="1812" class="com.lowcoupling.mdpm.lng.wbs.editor.Activator" localization="OSGI-INF/l10n/bundle" name="Editor" project="com.lowcoupling.mdpm.lng.wbs.editor" provider="LowCoupling"/>
+	<bundle bundleID="1807" class="com.lowcoupling.mdpm.lng.plan.ui.internal.PlanActivator" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.plan.ui" project="com.lowcoupling.mdpm.lng.plan.ui" provider="LowCoupling"/>
+	<bundle bundleID="1821" class="com.lowcoupling.mdpm.ui.preferences.Activator" localization="OSGI-INF/l10n/bundle" name="Preferences" project="com.lowcoupling.mdpm.ui.preferences" provider="LowCoupling"/>
+	<bundle bundleID="1799" class="com.lowcoupling.mdpm.files.plan.Activator" localization="OSGI-INF/l10n/bundle" name="Plan" project="com.lowcoupling.mdpm.files.plan" provider="LowCoupling"/>
+	<bundle bundleID="1806" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.plan.tests" project="com.lowcoupling.mdpm.lng.plan.tests" provider="LowCoupling"/>
+	<bundle bundleID="1815" class="com.lowcoupling.mdpm.m2t.plan2html.Activator" localization="OSGI-INF/l10n/bundle" name="Acceleo Plan2text Module Runtime Plug-in" project="com.lowcoupling.mdpm.m2t.plan2html" provider="LowCoupling"/>
+	<bundle bundleID="1803" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.pbs.tests" project="com.lowcoupling.mdpm.lng.pbs.tests" provider="LowCoupling"/>
+	<bundle bundleID="1819" class="com.lowcoupling.mdpm.ui.occupationview.Activator" localization="OSGI-INF/l10n/bundle" name="Occupationview" project="com.lowcoupling.mdpm.ui.occupationview" provider="LowCoupling">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="1818" class="com.lowcoupling.mdpm.ui.ganttview.Activator" localization="OSGI-INF/l10n/bundle" name="Ganttview" project="com.lowcoupling.mdpm.ui.ganttview" provider="LowCoupling"/>
+	<bundle bundleID="1797" class="com.lowcoupling.mdpm.commons.Activator" localization="OSGI-INF/l10n/bundle" name="Util" project="com.lowcoupling.mdpm.commons" provider="LowCoupling">
+		<library name="libs/joda-time-2.0.jar"/>
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="1814" class="com.lowcoupling.mdpm.lng.wbs.ui.internal.WBSActivator" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.wbs.ui" project="com.lowcoupling.mdpm.lng.wbs.ui" provider="LowCoupling"/>
+	<bundle bundleID="1796" class="com.lowcoupling.charthelper.Activator" localization="OSGI-INF/l10n/bundle" name="ChartHelper" project="com.lowcoupling.chartHelper" provider="LowCoupling"/>
+	<bundle bundleID="1823" class="com.lowcoupling.mdpm.ui.wbstreeview.Activator" localization="OSGI-INF/l10n/bundle" name="Wbstreeview" project="com.lowcoupling.mdpm.ui.wbstreeview" provider="LowCoupling"/>
+	<bundle bundleID="1802" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.pbs" project="com.lowcoupling.mdpm.lng.pbs" provider="LowCoupling"/>
+	<bundle bundleID="1809" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.resources.tests" project="com.lowcoupling.mdpm.lng.resources.tests" provider="LowCoupling"/>
+	<bundle bundleID="1808" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.resources" project="com.lowcoupling.mdpm.lng.resources" provider="LowCoupling"/>
+	<bundle bundleID="1795" class="com.lowcoupling.mdpm.project.wizard.Activator" localization="OSGI-INF/l10n/bundle" name="MDPM Wizard" project="com.lowcoupling.mdpm.project.wizard" provider="LowCoupling"/>
+	<bundle bundleID="1817" class="com.lowcoupling.mdpm.perspective.Activator" localization="OSGI-INF/l10n/bundle" name="Perspective" project="com.lowcoupling.mdpm.perspective" provider="LowCoupling"/>
+	<bundle bundleID="1811" localization="OSGI-INF/l10n/bundle" name="com.lowcoupling.mdpm.lng.wbs" project="com.lowcoupling.mdpm.lng.wbs" provider="LowCoupling"/>
+</map>
