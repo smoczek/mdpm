@@ -2,15 +2,21 @@
  */
 package com.lowcoupling.mdpm.lng.wbs.wBS.impl;
 
-import com.lowcoupling.mdpm.lng.wbs.wBS.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBS;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSDeliverable;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSFactory;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSNode;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProgram;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSWorkPackage;
 
 /**
  * <!-- begin-user-doc -->

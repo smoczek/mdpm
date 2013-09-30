@@ -5,7 +5,6 @@ package com.lowcoupling.mdpm.lng.plan.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
-import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 
 /**

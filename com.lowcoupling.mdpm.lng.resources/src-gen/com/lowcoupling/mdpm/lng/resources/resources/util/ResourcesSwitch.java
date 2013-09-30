@@ -2,12 +2,14 @@
  */
 package com.lowcoupling.mdpm.lng.resources.resources.util;
 
-import com.lowcoupling.mdpm.lng.resources.resources.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import com.lowcoupling.mdpm.lng.resources.resources.Resource;
+import com.lowcoupling.mdpm.lng.resources.resources.ResourceGroup;
+import com.lowcoupling.mdpm.lng.resources.resources.Resources;
+import com.lowcoupling.mdpm.lng.resources.resources.ResourcesPackage;
 
 /**
  * <!-- begin-user-doc -->

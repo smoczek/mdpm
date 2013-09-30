@@ -3,7 +3,6 @@
 */
 package com.lowcoupling.mdpm.lng.wbs.ui.contentassist;
 
-import com.lowcoupling.mdpm.lng.wbs.ui.contentassist.AbstractWBSProposalProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */

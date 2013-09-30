@@ -1,6 +1,5 @@
 package com.lowcoupling.mdpm.lng.plan.util;
 
-import java.lang.reflect.InvocationTargetException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,25 +7,14 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.service.prefs.Preferences;
- 
 
-import com.lowcoupling.mdpm.lng.plan.plan.Activity; 
+import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
-import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
 
 public class ActivityElementDecorator {
 
@@ -39,6 +27,14 @@ public class ActivityElementDecorator {
 		this.element = activity;
 
 	}
+	
+//	public String getName(){
+//		if (element.getLongName()!=""){
+//			return element.getLongName();
+//		}else{
+//			return element.getName();
+//		}
+//	}
 
 	public String getFullQualifiedName(){
 		EObject container = element.eContainer();

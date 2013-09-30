@@ -1,6 +1,5 @@
 package com.lowcoupling.mdpm.console;
 
-import java.awt.Color;
 import java.io.IOException;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -238,6 +237,7 @@ public class MDPMConsole extends IOConsole implements ISelectionListener {
 	            StyledText textWidget = getTextWidget();
 	            if (textWidget != null && !textWidget.isDisposed()) {
 	            	System.out.println("Caret End: "+textWidget.getCharCount()+ " offset count "+outputOffset);
+	            	
 	            	textWidget.setCaretOffset(textWidget.getCharCount()+outputOffset);
 	            }
 	            return Status.OK_STATUS;
@@ -276,6 +276,7 @@ public class MDPMConsole extends IOConsole implements ISelectionListener {
 							outputOffset += outputString.length();
 							output.write(outputString);
 							output.flush();
+							Thread.sleep(100);
 							((MDPMConsoleViewer) console.getPage().getViewer()).cursorEnd(outputOffset);
 
 						}
@@ -283,6 +284,9 @@ public class MDPMConsole extends IOConsole implements ISelectionListener {
 					
 				}
 			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

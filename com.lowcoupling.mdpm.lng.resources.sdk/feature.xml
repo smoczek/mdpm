@@ -2,27 +2,21 @@
 <feature
       id="com.lowcoupling.mdpm.lng.resources.sdk"
       label="Resources"
-      version="0.0.2">
+      version="0.0.1.qualifier"
+      provider-name="LowCoupling">
 
    <plugin
          id="com.lowcoupling.mdpm.lng.resources"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.0.1.qualifier"
          unpack="false"/>
 
    <plugin
          id="com.lowcoupling.mdpm.lng.resources.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.lowcoupling.mdpm.ui.wbstreeview"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         version="0.0.1.qualifier"
          unpack="false"/>
 
 </feature>

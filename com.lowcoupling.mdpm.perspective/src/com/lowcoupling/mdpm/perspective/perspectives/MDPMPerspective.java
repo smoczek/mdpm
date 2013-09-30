@@ -1,10 +1,10 @@
 package com.lowcoupling.mdpm.perspective.perspectives;
 
+import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.console.IConsoleConstants;
-import org.eclipse.jdt.ui.JavaUI;
 
 
 /**

@@ -2,8 +2,8 @@
 <feature
       id="com.lowcoupling.mdpm.defaultFeatures"
       label="MDM Default Configuration"
-      version="0.0.1"
-      provider-name="LOWCOUPLING">
+      version="0.0.1.qualifier"
+      provider-name="LowCoupling">
 
    <description url="http://www.example.com/description">
       Contains the basic features of the MDPM Project encompassing:
@@ -29,36 +29,36 @@
 
    <includes
          id="com.lowcouplind.mdpm.files.feature"
-         version="0.0.2"/>
+         version="0.0.1.qualifier"/>
 
    <includes
          id="com.lowcoupling.mdpm.lng.pbs.sdk"
-         version="0.0.2"/>
+         version="0.0.1.qualifier"/>
 
    <includes
          id="com.lowcoupling.mdpm.lng.plan.sdk"
-         version="0.0.2"/>
+         version="0.0.1.qualifier"/>
 
    <includes
          id="com.lowcoupling.mdpm.lng.resources.sdk"
-         version="0.0.2"/>
+         version="0.0.1.qualifier"/>
 
    <includes
          id="com.lowcoupling.mdpm.lng.wbs.sdk"
-         version="0.0.2"/>
-
-   <plugin
-         id="com.lowcoupling.mdpm.commons"
-         download-size="0"
-         install-size="0"
-         version="0.0.2"
-         unpack="false"/>
+         version="0.0.1.qualifier"/>
 
    <plugin
          id="com.lowcoupling.mdpm.ui.preferences"
          download-size="0"
          install-size="0"
-         version="0.0.2"
+         version="0.0.1.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.lowcoupling.mdpm.commons"
+         download-size="0"
+         install-size="0"
+         version="0.0.1.qualifier"
          unpack="false"/>
 
 </feature>

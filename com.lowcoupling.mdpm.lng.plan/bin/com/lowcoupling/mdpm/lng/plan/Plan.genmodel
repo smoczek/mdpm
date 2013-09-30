@@ -16,6 +16,7 @@
     <genClasses ecoreClass="Plan.ecore#//Program">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//Program/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//Program/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//Program/longName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Plan.ecore#//Program/plans"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Plan.ecore#//Program/referencedProjects"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Plan.ecore#//Program/projects"/>
@@ -23,6 +24,7 @@
     <genClasses ecoreClass="Plan.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//Project/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//Project/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//Project/longName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Plan.ecore#//Project/wbs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Plan.ecore#//Project/resources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Plan.ecore#//Project/plans"/>
@@ -51,6 +53,7 @@
     <genClasses ecoreClass="Plan.ecore#//ActivityElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//ActivityElement/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//ActivityElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Plan.ecore#//ActivityElement/longName"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Plan.ecore#//ActivityElement/dependencies"/>
     </genClasses>
     <genClasses ecoreClass="Plan.ecore#//CheckPoint">

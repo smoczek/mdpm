@@ -4,6 +4,7 @@
 package com.lowcoupling.mdpm.lng.wbs.parser.antlr;
 
 import java.io.InputStream;
+
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 
 public class WBSAntlrTokenFileProvider implements IAntlrTokenFileProvider {

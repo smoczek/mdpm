@@ -2,6 +2,13 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
@@ -17,16 +24,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
 import com.lowcoupling.mdpm.lng.plan.plan.Responsibility;
 import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
-
 import com.lowcoupling.mdpm.lng.resources.resources.ResourcesPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -228,9 +226,9 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Plans()
+  public EAttribute getProgram_LongName()
   {
-    return (EReference)programEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)programEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -238,7 +236,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_ReferencedProjects()
+  public EReference getProgram_Plans()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(3);
   }
@@ -248,9 +246,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Projects()
+  public EReference getProgram_ReferencedProjects()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProgram_Projects()
+  {
+    return (EReference)programEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -288,9 +296,9 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Wbs()
+  public EAttribute getProject_LongName()
   {
-    return (EReference)projectEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)projectEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -298,7 +306,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Resources()
+  public EReference getProject_Wbs()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(3);
   }
@@ -308,7 +316,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Plans()
+  public EReference getProject_Resources()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(4);
   }
@@ -318,7 +326,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Assumptions()
+  public EReference getProject_Plans()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(5);
   }
@@ -328,7 +336,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Constraints()
+  public EReference getProject_Assumptions()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(6);
   }
@@ -338,9 +346,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Activities()
+  public EReference getProject_Constraints()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProject_Activities()
+  {
+    return (EReference)projectEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -498,9 +516,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getActivityElement_LongName()
+  {
+    return (EAttribute)activityElementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getActivityElement_Dependencies()
   {
-    return (EReference)activityElementEClass.getEStructuralFeatures().get(2);
+    return (EReference)activityElementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -716,6 +744,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     programEClass = createEClass(PROGRAM);
     createEAttribute(programEClass, PROGRAM__DESCRIPTION);
     createEAttribute(programEClass, PROGRAM__NAME);
+    createEAttribute(programEClass, PROGRAM__LONG_NAME);
     createEReference(programEClass, PROGRAM__PLANS);
     createEReference(programEClass, PROGRAM__REFERENCED_PROJECTS);
     createEReference(programEClass, PROGRAM__PROJECTS);
@@ -723,6 +752,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     projectEClass = createEClass(PROJECT);
     createEAttribute(projectEClass, PROJECT__DESCRIPTION);
     createEAttribute(projectEClass, PROJECT__NAME);
+    createEAttribute(projectEClass, PROJECT__LONG_NAME);
     createEReference(projectEClass, PROJECT__WBS);
     createEReference(projectEClass, PROJECT__RESOURCES);
     createEReference(projectEClass, PROJECT__PLANS);
@@ -751,6 +781,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     activityElementEClass = createEClass(ACTIVITY_ELEMENT);
     createEAttribute(activityElementEClass, ACTIVITY_ELEMENT__DESCRIPTION);
     createEAttribute(activityElementEClass, ACTIVITY_ELEMENT__NAME);
+    createEAttribute(activityElementEClass, ACTIVITY_ELEMENT__LONG_NAME);
     createEReference(activityElementEClass, ACTIVITY_ELEMENT__DEPENDENCIES);
 
     checkPointEClass = createEClass(CHECK_POINT);
@@ -817,6 +848,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProgram_Description(), ecorePackage.getEString(), "description", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProgram_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Plans(), this.getPlanImport(), null, "plans", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_ReferencedProjects(), this.getProject(), null, "referencedProjects", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Projects(), this.getProject(), null, "projects", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -824,6 +856,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProject_Description(), ecorePackage.getEString(), "description", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProject_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Wbs(), this.getWBSImport(), null, "wbs", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Resources(), this.getResourcesImport(), null, "resources", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Plans(), this.getPlanImport(), null, "plans", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -852,6 +885,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     initEClass(activityElementEClass, ActivityElement.class, "ActivityElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActivityElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ActivityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActivityElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActivityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActivityElement_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, ActivityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActivityElement_Dependencies(), this.getActivityElement(), null, "dependencies", null, 0, -1, ActivityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkPointEClass, CheckPoint.class, "CheckPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

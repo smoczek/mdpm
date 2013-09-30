@@ -2,15 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Raciview
 Bundle-SymbolicName: com.lowcoupling.mdpm.ui.raciview;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.lowcoupling.mdpm.ui.raciview.Activator
-Bundle-Vendor: LOWCOUPLING
+Bundle-Vendor: LowCoupling
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.nebula.widgets.grid;bundle-version="1.0.0",
  org.eclipse.xtext;bundle-version="2.4.2",
- com.lowcoupling.mdpm.lng.resources;bundle-version="1.0.0",
- com.lowcoupling.mdpm.lng.plan;bundle-version="1.0.0",
+ com.lowcoupling.mdpm.lng.resources,
+ com.lowcoupling.mdpm.lng.plan,
  com.lowcoupling.mdpm.commons,
  org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

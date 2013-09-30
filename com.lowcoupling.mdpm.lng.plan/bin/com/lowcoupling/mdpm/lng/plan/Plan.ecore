@@ -5,6 +5,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Program">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plans" upperBound="-1"
         eType="#//PlanImport" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedProjects" unique="false"
@@ -15,6 +16,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wbs" eType="#//WBSImport"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" eType="#//ResourcesImport"
@@ -50,6 +52,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ActivityElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" unique="false"
         upperBound="-1" eType="#//ActivityElement"/>
   </eClassifiers>

@@ -86,13 +86,22 @@ public interface PlanPackage extends EPackage
   int PROGRAM__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__LONG_NAME = 2;
+
+  /**
    * The feature id for the '<em><b>Plans</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM__PLANS = 2;
+  int PROGRAM__PLANS = 3;
 
   /**
    * The feature id for the '<em><b>Referenced Projects</b></em>' reference list.
@@ -101,7 +110,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__REFERENCED_PROJECTS = 3;
+  int PROGRAM__REFERENCED_PROJECTS = 4;
 
   /**
    * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -110,7 +119,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__PROJECTS = 4;
+  int PROGRAM__PROJECTS = 5;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -119,7 +128,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 5;
+  int PROGRAM_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl <em>Project</em>}' class.
@@ -150,13 +159,22 @@ public interface PlanPackage extends EPackage
   int PROJECT__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__LONG_NAME = 2;
+
+  /**
    * The feature id for the '<em><b>Wbs</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT__WBS = 2;
+  int PROJECT__WBS = 3;
 
   /**
    * The feature id for the '<em><b>Resources</b></em>' containment reference.
@@ -165,7 +183,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__RESOURCES = 3;
+  int PROJECT__RESOURCES = 4;
 
   /**
    * The feature id for the '<em><b>Plans</b></em>' containment reference list.
@@ -174,7 +192,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__PLANS = 4;
+  int PROJECT__PLANS = 5;
 
   /**
    * The feature id for the '<em><b>Assumptions</b></em>' containment reference list.
@@ -183,7 +201,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__ASSUMPTIONS = 5;
+  int PROJECT__ASSUMPTIONS = 6;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -192,7 +210,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__CONSTRAINTS = 6;
+  int PROJECT__CONSTRAINTS = 7;
 
   /**
    * The feature id for the '<em><b>Activities</b></em>' containment reference list.
@@ -201,7 +219,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__ACTIVITIES = 7;
+  int PROJECT__ACTIVITIES = 8;
 
   /**
    * The number of structural features of the '<em>Project</em>' class.
@@ -210,7 +228,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT_FEATURE_COUNT = 8;
+  int PROJECT_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.impl.AssumptionImpl <em>Assumption</em>}' class.
@@ -297,13 +315,22 @@ public interface PlanPackage extends EPackage
   int ACTIVITY_ELEMENT__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_ELEMENT__LONG_NAME = 2;
+
+  /**
    * The feature id for the '<em><b>Dependencies</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVITY_ELEMENT__DEPENDENCIES = 2;
+  int ACTIVITY_ELEMENT__DEPENDENCIES = 3;
 
   /**
    * The number of structural features of the '<em>Activity Element</em>' class.
@@ -312,7 +339,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY_ELEMENT_FEATURE_COUNT = 3;
+  int ACTIVITY_ELEMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityGroupImpl <em>Activity Group</em>}' class.
@@ -341,6 +368,15 @@ public interface PlanPackage extends EPackage
    * @ordered
    */
   int ACTIVITY_GROUP__NAME = ACTIVITY_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_GROUP__LONG_NAME = ACTIVITY_ELEMENT__LONG_NAME;
 
   /**
    * The feature id for the '<em><b>Dependencies</b></em>' reference list.
@@ -482,6 +518,15 @@ public interface PlanPackage extends EPackage
   int CHECK_POINT__NAME = ACTIVITY_ELEMENT__NAME;
 
   /**
+   * The feature id for the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_POINT__LONG_NAME = ACTIVITY_ELEMENT__LONG_NAME;
+
+  /**
    * The feature id for the '<em><b>Dependencies</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -610,6 +655,15 @@ public interface PlanPackage extends EPackage
   int ACTIVITY__NAME = ACTIVITY_ELEMENT__NAME;
 
   /**
+   * The feature id for the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY__LONG_NAME = ACTIVITY_ELEMENT__LONG_NAME;
+
+  /**
    * The feature id for the '<em><b>Dependencies</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -734,6 +788,17 @@ public interface PlanPackage extends EPackage
   EAttribute getProgram_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getLongName <em>Long Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Long Name</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.Program#getLongName()
+   * @see #getProgram()
+   * @generated
+   */
+  EAttribute getProgram_LongName();
+
+  /**
    * Returns the meta object for the containment reference list '{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getPlans <em>Plans</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -797,6 +862,17 @@ public interface PlanPackage extends EPackage
    * @generated
    */
   EAttribute getProject_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getLongName <em>Long Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Long Name</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.Project#getLongName()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_LongName();
 
   /**
    * Returns the meta object for the containment reference '{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getWbs <em>Wbs</em>}'.
@@ -1021,6 +1097,17 @@ public interface PlanPackage extends EPackage
    * @generated
    */
   EAttribute getActivityElement_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.lowcoupling.mdpm.lng.plan.plan.ActivityElement#getLongName <em>Long Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Long Name</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.ActivityElement#getLongName()
+   * @see #getActivityElement()
+   * @generated
+   */
+  EAttribute getActivityElement_LongName();
 
   /**
    * Returns the meta object for the reference list '{@link com.lowcoupling.mdpm.lng.plan.plan.ActivityElement#getDependencies <em>Dependencies</em>}'.
@@ -1277,6 +1364,14 @@ public interface PlanPackage extends EPackage
     EAttribute PROGRAM__NAME = eINSTANCE.getProgram_Name();
 
     /**
+     * The meta object literal for the '<em><b>Long Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROGRAM__LONG_NAME = eINSTANCE.getProgram_LongName();
+
+    /**
      * The meta object literal for the '<em><b>Plans</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1325,6 +1420,14 @@ public interface PlanPackage extends EPackage
      * @generated
      */
     EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Long Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__LONG_NAME = eINSTANCE.getProject_LongName();
 
     /**
      * The meta object literal for the '<em><b>Wbs</b></em>' containment reference feature.
@@ -1507,6 +1610,14 @@ public interface PlanPackage extends EPackage
      * @generated
      */
     EAttribute ACTIVITY_ELEMENT__NAME = eINSTANCE.getActivityElement_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Long Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVITY_ELEMENT__LONG_NAME = eINSTANCE.getActivityElement_LongName();
 
     /**
      * The meta object literal for the '<em><b>Dependencies</b></em>' reference list feature.

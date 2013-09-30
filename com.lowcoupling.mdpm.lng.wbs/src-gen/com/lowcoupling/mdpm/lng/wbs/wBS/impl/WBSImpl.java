@@ -2,15 +2,13 @@
  */
 package com.lowcoupling.mdpm.lng.wbs.wBS.impl;
 
-import com.lowcoupling.mdpm.lng.wbs.wBS.WBS;
-import com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBS;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage;
 
 /**
  * <!-- begin-user-doc -->

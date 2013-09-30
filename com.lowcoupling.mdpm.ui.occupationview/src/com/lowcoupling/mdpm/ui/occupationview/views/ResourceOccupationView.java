@@ -39,8 +39,8 @@ import com.lowcoupling.charthelper.LineChart;
 import com.lowcoupling.mdpm.commons.util.PlanUtil;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.Program;
+import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.util.ActivityElementDecorator;
 import com.lowcoupling.mdpm.lng.resources.resources.Resource;
 

@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Util
 Bundle-SymbolicName: com.lowcoupling.mdpm.commons
-Bundle-Version: 0.0.2
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.lowcoupling.mdpm.commons.Activator
-Bundle-Vendor: LOWCOUPLING
+Bundle-Vendor: LowCoupling
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- com.lowcoupling.mdpm.lng.plan;bundle-version="1.0.0"
+ com.lowcoupling.mdpm.lng.plan
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: libs/joda-time-2.0.jar,

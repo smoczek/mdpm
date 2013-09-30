@@ -3,7 +3,6 @@
 */
 package com.lowcoupling.mdpm.lng.resources.ui.contentassist;
 
-import com.lowcoupling.mdpm.lng.resources.ui.contentassist.AbstractResourcesProposalProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */

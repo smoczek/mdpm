@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.lowcoupling.mdpm.lng.plan
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: LowCoupling
+Bundle-Version: 0.0.1.qualifier
 Bundle-SymbolicName: com.lowcoupling.mdpm.lng.plan;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.common,
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- com.lowcoupling.mdpm.lng.resources;bundle-version="1.0.0"
+ com.lowcoupling.mdpm.lng.resources
 Import-Package: org.apache.log4j,
  org.eclipse.core.runtime.preferences;version="3.3.0",
  org.eclipse.xtext.xbase.lib,

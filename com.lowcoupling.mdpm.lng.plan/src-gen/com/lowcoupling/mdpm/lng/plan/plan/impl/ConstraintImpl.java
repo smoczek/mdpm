@@ -2,15 +2,13 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import com.lowcoupling.mdpm.lng.plan.plan.Constraint;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import com.lowcoupling.mdpm.lng.plan.plan.Constraint;
+import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
 
 /**
  * <!-- begin-user-doc -->

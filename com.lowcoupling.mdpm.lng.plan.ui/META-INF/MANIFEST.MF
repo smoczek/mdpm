@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.lowcoupling.mdpm.lng.plan.ui
-Bundle-Vendor: Low Coupling
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: LowCoupling
+Bundle-Version: 0.0.1.qualifier
 Bundle-SymbolicName: com.lowcoupling.mdpm.lng.plan.ui;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.lowcoupling.mdpm.lng.plan;visibility:=reexport,
@@ -17,7 +17,8 @@ Require-Bundle: com.lowcoupling.mdpm.lng.plan;visibility:=reexport,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare,
  org.eclipse.core.runtime
-Import-Package: com.lowcoupling.mdpm.lng.plan,
+Import-Package: com.ibm.icu.text;version="50.1.1",
+ com.lowcoupling.mdpm.lng.plan,
  com.lowcoupling.mdpm.ui.ganttview,
  org.apache.log4j
 Export-Package: com.lowcoupling.mdpm.lng.plan.ui.contentassist,

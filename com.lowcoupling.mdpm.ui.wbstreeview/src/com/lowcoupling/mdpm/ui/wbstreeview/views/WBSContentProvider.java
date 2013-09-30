@@ -8,9 +8,9 @@ import java.util.Iterator;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.zest.core.viewers.IGraphEntityContentProvider;
 
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSNode;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProgram;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
-import com.lowcoupling.mdpm.lng.wbs.wBS.WBSNode;
 
 public class WBSContentProvider implements IGraphEntityContentProvider {
 

@@ -3,16 +3,27 @@
 */
 package com.lowcoupling.mdpm.lng.plan.services;
 
-import com.google.inject.Singleton;
-import com.google.inject.Inject;
-
 import java.util.List;
 
-import org.eclipse.xtext.*;
-import org.eclipse.xtext.service.GrammarProvider;
-import org.eclipse.xtext.service.AbstractElementFinder.*;
-
+import org.eclipse.xtext.Alternatives;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
+import org.eclipse.xtext.Grammar;
+import org.eclipse.xtext.GrammarUtil;
+import org.eclipse.xtext.Group;
+import org.eclipse.xtext.Keyword;
+import org.eclipse.xtext.ParserRule;
+import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.TerminalRule;
+import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
+import org.eclipse.xtext.service.GrammarProvider;
+
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Singleton
 public class PlanGrammarAccess extends AbstractGrammarElementFinder {
@@ -30,36 +41,41 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0_1_1_0 = (RuleCall)cNameAssignment_0_1_1.eContents().get(0);
 		private final RuleCall cOPENCURLYTerminalRuleCall_0_1_2 = (RuleCall)cGroup_0_1.eContents().get(2);
 		private final Group cGroup_0_1_3 = (Group)cGroup_0_1.eContents().get(3);
-		private final Assignment cPlansAssignment_0_1_3_0 = (Assignment)cGroup_0_1_3.eContents().get(0);
-		private final RuleCall cPlansPlanImportParserRuleCall_0_1_3_0_0 = (RuleCall)cPlansAssignment_0_1_3_0.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_0_1_3_1 = (RuleCall)cGroup_0_1_3.eContents().get(1);
+		private final Keyword cNameKeyword_0_1_3_0 = (Keyword)cGroup_0_1_3.eContents().get(0);
+		private final Assignment cLongNameAssignment_0_1_3_1 = (Assignment)cGroup_0_1_3.eContents().get(1);
+		private final RuleCall cLongNameSTRINGTerminalRuleCall_0_1_3_1_0 = (RuleCall)cLongNameAssignment_0_1_3_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_0_1_3_2 = (RuleCall)cGroup_0_1_3.eContents().get(2);
 		private final Group cGroup_0_1_4 = (Group)cGroup_0_1.eContents().get(4);
-		private final Keyword cProjectKeyword_0_1_4_0 = (Keyword)cGroup_0_1_4.eContents().get(0);
-		private final Assignment cReferencedProjectsAssignment_0_1_4_1 = (Assignment)cGroup_0_1_4.eContents().get(1);
-		private final CrossReference cReferencedProjectsProjectCrossReference_0_1_4_1_0 = (CrossReference)cReferencedProjectsAssignment_0_1_4_1.eContents().get(0);
-		private final RuleCall cReferencedProjectsProjectQualifiedNameParserRuleCall_0_1_4_1_0_1 = (RuleCall)cReferencedProjectsProjectCrossReference_0_1_4_1_0.eContents().get(1);
-		private final RuleCall cENDLINEParserRuleCall_0_1_4_2 = (RuleCall)cGroup_0_1_4.eContents().get(2);
-		private final Assignment cProjectsAssignment_0_1_5 = (Assignment)cGroup_0_1.eContents().get(5);
-		private final RuleCall cProjectsProjectParserRuleCall_0_1_5_0 = (RuleCall)cProjectsAssignment_0_1_5.eContents().get(0);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_0_1_6 = (RuleCall)cGroup_0_1.eContents().get(6);
+		private final Assignment cPlansAssignment_0_1_4_0 = (Assignment)cGroup_0_1_4.eContents().get(0);
+		private final RuleCall cPlansPlanImportParserRuleCall_0_1_4_0_0 = (RuleCall)cPlansAssignment_0_1_4_0.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_0_1_4_1 = (RuleCall)cGroup_0_1_4.eContents().get(1);
+		private final Group cGroup_0_1_5 = (Group)cGroup_0_1.eContents().get(5);
+		private final Keyword cProjectKeyword_0_1_5_0 = (Keyword)cGroup_0_1_5.eContents().get(0);
+		private final Assignment cReferencedProjectsAssignment_0_1_5_1 = (Assignment)cGroup_0_1_5.eContents().get(1);
+		private final CrossReference cReferencedProjectsProjectCrossReference_0_1_5_1_0 = (CrossReference)cReferencedProjectsAssignment_0_1_5_1.eContents().get(0);
+		private final RuleCall cReferencedProjectsProjectQualifiedNameParserRuleCall_0_1_5_1_0_1 = (RuleCall)cReferencedProjectsProjectCrossReference_0_1_5_1_0.eContents().get(1);
+		private final RuleCall cENDLINEParserRuleCall_0_1_5_2 = (RuleCall)cGroup_0_1_5.eContents().get(2);
+		private final Assignment cProjectsAssignment_0_1_6 = (Assignment)cGroup_0_1.eContents().get(6);
+		private final RuleCall cProjectsProjectParserRuleCall_0_1_6_0 = (RuleCall)cProjectsAssignment_0_1_6.eContents().get(0);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_0_1_7 = (RuleCall)cGroup_0_1.eContents().get(7);
 		private final Assignment cProjectsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cProjectsProjectParserRuleCall_1_0 = (RuleCall)cProjectsAssignment_1.eContents().get(0);
 		
 		//Program:
 		//
-		//	description=ML_COMMENT? ("Program" name=ID OPENCURLY (plans+=PlanImport ENDLINE)* ("project"
+		//	description=ML_COMMENT? ("Program" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (plans+=PlanImport ENDLINE)*
 		//
-		//	referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY) | projects+=Project;
+		//	("project" referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY) | projects+=Project;
 		public ParserRule getRule() { return rule; }
 
-		//description=ML_COMMENT? ("Program" name=ID OPENCURLY (plans+=PlanImport ENDLINE)* ("project"
+		//description=ML_COMMENT? ("Program" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (plans+=PlanImport ENDLINE)*
 		//
-		//referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY) | projects+=Project
+		//("project" referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY) | projects+=Project
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//description=ML_COMMENT? ("Program" name=ID OPENCURLY (plans+=PlanImport ENDLINE)* ("project"
+		//description=ML_COMMENT? ("Program" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (plans+=PlanImport ENDLINE)*
 		//
-		//referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY)
+		//("project" referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY)
 		public Group getGroup_0() { return cGroup_0; }
 
 		//description=ML_COMMENT?
@@ -68,9 +84,9 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		//ML_COMMENT
 		public RuleCall getDescriptionML_COMMENTTerminalRuleCall_0_0_0() { return cDescriptionML_COMMENTTerminalRuleCall_0_0_0; }
 
-		//"Program" name=ID OPENCURLY (plans+=PlanImport ENDLINE)* ("project" referencedProjects+=[Project|QualifiedName]
+		//"Program" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (plans+=PlanImport ENDLINE)* ("project"
 		//
-		//ENDLINE)* projects+=Project* CLOSEDCURLY
+		//referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY
 		public Group getGroup_0_1() { return cGroup_0_1; }
 
 		//"Program"
@@ -85,44 +101,59 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		//OPENCURLY
 		public RuleCall getOPENCURLYTerminalRuleCall_0_1_2() { return cOPENCURLYTerminalRuleCall_0_1_2; }
 
-		//(plans+=PlanImport ENDLINE)*
+		//("name" longName=STRING ENDLINE)?
 		public Group getGroup_0_1_3() { return cGroup_0_1_3; }
 
-		//plans+=PlanImport
-		public Assignment getPlansAssignment_0_1_3_0() { return cPlansAssignment_0_1_3_0; }
+		//"name"
+		public Keyword getNameKeyword_0_1_3_0() { return cNameKeyword_0_1_3_0; }
 
-		//PlanImport
-		public RuleCall getPlansPlanImportParserRuleCall_0_1_3_0_0() { return cPlansPlanImportParserRuleCall_0_1_3_0_0; }
+		//longName=STRING
+		public Assignment getLongNameAssignment_0_1_3_1() { return cLongNameAssignment_0_1_3_1; }
+
+		//STRING
+		public RuleCall getLongNameSTRINGTerminalRuleCall_0_1_3_1_0() { return cLongNameSTRINGTerminalRuleCall_0_1_3_1_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_0_1_3_1() { return cENDLINEParserRuleCall_0_1_3_1; }
+		public RuleCall getENDLINEParserRuleCall_0_1_3_2() { return cENDLINEParserRuleCall_0_1_3_2; }
 
-		//("project" referencedProjects+=[Project|QualifiedName] ENDLINE)*
+		//(plans+=PlanImport ENDLINE)*
 		public Group getGroup_0_1_4() { return cGroup_0_1_4; }
 
-		//"project"
-		public Keyword getProjectKeyword_0_1_4_0() { return cProjectKeyword_0_1_4_0; }
+		//plans+=PlanImport
+		public Assignment getPlansAssignment_0_1_4_0() { return cPlansAssignment_0_1_4_0; }
 
-		//referencedProjects+=[Project|QualifiedName]
-		public Assignment getReferencedProjectsAssignment_0_1_4_1() { return cReferencedProjectsAssignment_0_1_4_1; }
-
-		//[Project|QualifiedName]
-		public CrossReference getReferencedProjectsProjectCrossReference_0_1_4_1_0() { return cReferencedProjectsProjectCrossReference_0_1_4_1_0; }
-
-		//QualifiedName
-		public RuleCall getReferencedProjectsProjectQualifiedNameParserRuleCall_0_1_4_1_0_1() { return cReferencedProjectsProjectQualifiedNameParserRuleCall_0_1_4_1_0_1; }
+		//PlanImport
+		public RuleCall getPlansPlanImportParserRuleCall_0_1_4_0_0() { return cPlansPlanImportParserRuleCall_0_1_4_0_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_0_1_4_2() { return cENDLINEParserRuleCall_0_1_4_2; }
+		public RuleCall getENDLINEParserRuleCall_0_1_4_1() { return cENDLINEParserRuleCall_0_1_4_1; }
+
+		//("project" referencedProjects+=[Project|QualifiedName] ENDLINE)*
+		public Group getGroup_0_1_5() { return cGroup_0_1_5; }
+
+		//"project"
+		public Keyword getProjectKeyword_0_1_5_0() { return cProjectKeyword_0_1_5_0; }
+
+		//referencedProjects+=[Project|QualifiedName]
+		public Assignment getReferencedProjectsAssignment_0_1_5_1() { return cReferencedProjectsAssignment_0_1_5_1; }
+
+		//[Project|QualifiedName]
+		public CrossReference getReferencedProjectsProjectCrossReference_0_1_5_1_0() { return cReferencedProjectsProjectCrossReference_0_1_5_1_0; }
+
+		//QualifiedName
+		public RuleCall getReferencedProjectsProjectQualifiedNameParserRuleCall_0_1_5_1_0_1() { return cReferencedProjectsProjectQualifiedNameParserRuleCall_0_1_5_1_0_1; }
+
+		//ENDLINE
+		public RuleCall getENDLINEParserRuleCall_0_1_5_2() { return cENDLINEParserRuleCall_0_1_5_2; }
 
 		//projects+=Project*
-		public Assignment getProjectsAssignment_0_1_5() { return cProjectsAssignment_0_1_5; }
+		public Assignment getProjectsAssignment_0_1_6() { return cProjectsAssignment_0_1_6; }
 
 		//Project
-		public RuleCall getProjectsProjectParserRuleCall_0_1_5_0() { return cProjectsProjectParserRuleCall_0_1_5_0; }
+		public RuleCall getProjectsProjectParserRuleCall_0_1_6_0() { return cProjectsProjectParserRuleCall_0_1_6_0; }
 
 		//CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_0_1_6() { return cCLOSEDCURLYTerminalRuleCall_0_1_6; }
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_0_1_7() { return cCLOSEDCURLYTerminalRuleCall_0_1_7; }
 
 		//projects+=Project
 		public Assignment getProjectsAssignment_1() { return cProjectsAssignment_1; }
@@ -141,47 +172,54 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final RuleCall cOPENCURLYTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cWbsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cWbsWBSImportParserRuleCall_4_0_0 = (RuleCall)cWbsAssignment_4_0.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLongNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLongNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLongNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_4_2 = (RuleCall)cGroup_4.eContents().get(2);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cResourcesAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final RuleCall cResourcesResourcesImportParserRuleCall_5_0_0 = (RuleCall)cResourcesAssignment_5_0.eContents().get(0);
+		private final Assignment cWbsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cWbsWBSImportParserRuleCall_5_0_0 = (RuleCall)cWbsAssignment_5_0.eContents().get(0);
 		private final RuleCall cENDLINEParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Assignment cPlansAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
-		private final RuleCall cPlansPlanImportParserRuleCall_6_0_0 = (RuleCall)cPlansAssignment_6_0.eContents().get(0);
+		private final Assignment cResourcesAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cResourcesResourcesImportParserRuleCall_6_0_0 = (RuleCall)cResourcesAssignment_6_0.eContents().get(0);
 		private final RuleCall cENDLINEParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cAssumptionsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final RuleCall cOPENCURLYTerminalRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
-		private final Assignment cAssumptionsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cAssumptionsAssumptionParserRuleCall_7_2_0 = (RuleCall)cAssumptionsAssignment_7_2.eContents().get(0);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_7_3 = (RuleCall)cGroup_7.eContents().get(3);
+		private final Assignment cPlansAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
+		private final RuleCall cPlansPlanImportParserRuleCall_7_0_0 = (RuleCall)cPlansAssignment_7_0.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_7_1 = (RuleCall)cGroup_7.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cConstraintsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cAssumptionsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final RuleCall cOPENCURLYTerminalRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
-		private final Assignment cConstraintsAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cConstraintsConstraintParserRuleCall_8_2_0 = (RuleCall)cConstraintsAssignment_8_2.eContents().get(0);
+		private final Assignment cAssumptionsAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cAssumptionsAssumptionParserRuleCall_8_2_0 = (RuleCall)cAssumptionsAssignment_8_2.eContents().get(0);
 		private final RuleCall cCLOSEDCURLYTerminalRuleCall_8_3 = (RuleCall)cGroup_8.eContents().get(3);
-		private final Assignment cActivitiesAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cActivitiesActivityElementParserRuleCall_9_0 = (RuleCall)cActivitiesAssignment_9.eContents().get(0);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_10 = (RuleCall)cGroup.eContents().get(10);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cConstraintsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final RuleCall cOPENCURLYTerminalRuleCall_9_1 = (RuleCall)cGroup_9.eContents().get(1);
+		private final Assignment cConstraintsAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cConstraintsConstraintParserRuleCall_9_2_0 = (RuleCall)cConstraintsAssignment_9_2.eContents().get(0);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_9_3 = (RuleCall)cGroup_9.eContents().get(3);
+		private final Assignment cActivitiesAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cActivitiesActivityElementParserRuleCall_10_0 = (RuleCall)cActivitiesAssignment_10.eContents().get(0);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
 		
 		//Project:
 		//
-		//	description=ML_COMMENT? "Project" name=ID OPENCURLY (wbs=WBSImport ENDLINE)? (resources=ResourcesImport ENDLINE)?
+		//	description=ML_COMMENT? "Project" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (wbs=WBSImport ENDLINE)?
 		//
-		//	(plans+=PlanImport ENDLINE)* ("assumptions" OPENCURLY assumptions+=Assumption* CLOSEDCURLY)? ("constraints" OPENCURLY
+		//	(resources=ResourcesImport ENDLINE)? (plans+=PlanImport ENDLINE)* ("assumptions" OPENCURLY assumptions+=Assumption*
 		//
-		//	constraints+=Constraint* CLOSEDCURLY)? activities+=ActivityElement* CLOSEDCURLY;
+		//	CLOSEDCURLY)? ("constraints" OPENCURLY constraints+=Constraint* CLOSEDCURLY)? activities+=ActivityElement*
+		//
+		//	CLOSEDCURLY;
 		public ParserRule getRule() { return rule; }
 
-		//description=ML_COMMENT? "Project" name=ID OPENCURLY (wbs=WBSImport ENDLINE)? (resources=ResourcesImport ENDLINE)?
+		//description=ML_COMMENT? "Project" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (wbs=WBSImport ENDLINE)?
 		//
-		//(plans+=PlanImport ENDLINE)* ("assumptions" OPENCURLY assumptions+=Assumption* CLOSEDCURLY)? ("constraints" OPENCURLY
+		//(resources=ResourcesImport ENDLINE)? (plans+=PlanImport ENDLINE)* ("assumptions" OPENCURLY assumptions+=Assumption*
 		//
-		//constraints+=Constraint* CLOSEDCURLY)? activities+=ActivityElement* CLOSEDCURLY
+		//CLOSEDCURLY)? ("constraints" OPENCURLY constraints+=Constraint* CLOSEDCURLY)? activities+=ActivityElement* CLOSEDCURLY
 		public Group getGroup() { return cGroup; }
 
 		//description=ML_COMMENT?
@@ -202,86 +240,101 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		//OPENCURLY
 		public RuleCall getOPENCURLYTerminalRuleCall_3() { return cOPENCURLYTerminalRuleCall_3; }
 
-		//(wbs=WBSImport ENDLINE)?
+		//("name" longName=STRING ENDLINE)?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//wbs=WBSImport
-		public Assignment getWbsAssignment_4_0() { return cWbsAssignment_4_0; }
+		//"name"
+		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//WBSImport
-		public RuleCall getWbsWBSImportParserRuleCall_4_0_0() { return cWbsWBSImportParserRuleCall_4_0_0; }
+		//longName=STRING
+		public Assignment getLongNameAssignment_4_1() { return cLongNameAssignment_4_1; }
+
+		//STRING
+		public RuleCall getLongNameSTRINGTerminalRuleCall_4_1_0() { return cLongNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_4_1() { return cENDLINEParserRuleCall_4_1; }
+		public RuleCall getENDLINEParserRuleCall_4_2() { return cENDLINEParserRuleCall_4_2; }
 
-		//(resources=ResourcesImport ENDLINE)?
+		//(wbs=WBSImport ENDLINE)?
 		public Group getGroup_5() { return cGroup_5; }
 
-		//resources=ResourcesImport
-		public Assignment getResourcesAssignment_5_0() { return cResourcesAssignment_5_0; }
+		//wbs=WBSImport
+		public Assignment getWbsAssignment_5_0() { return cWbsAssignment_5_0; }
 
-		//ResourcesImport
-		public RuleCall getResourcesResourcesImportParserRuleCall_5_0_0() { return cResourcesResourcesImportParserRuleCall_5_0_0; }
+		//WBSImport
+		public RuleCall getWbsWBSImportParserRuleCall_5_0_0() { return cWbsWBSImportParserRuleCall_5_0_0; }
 
 		//ENDLINE
 		public RuleCall getENDLINEParserRuleCall_5_1() { return cENDLINEParserRuleCall_5_1; }
 
-		//(plans+=PlanImport ENDLINE)*
+		//(resources=ResourcesImport ENDLINE)?
 		public Group getGroup_6() { return cGroup_6; }
 
-		//plans+=PlanImport
-		public Assignment getPlansAssignment_6_0() { return cPlansAssignment_6_0; }
+		//resources=ResourcesImport
+		public Assignment getResourcesAssignment_6_0() { return cResourcesAssignment_6_0; }
 
-		//PlanImport
-		public RuleCall getPlansPlanImportParserRuleCall_6_0_0() { return cPlansPlanImportParserRuleCall_6_0_0; }
+		//ResourcesImport
+		public RuleCall getResourcesResourcesImportParserRuleCall_6_0_0() { return cResourcesResourcesImportParserRuleCall_6_0_0; }
 
 		//ENDLINE
 		public RuleCall getENDLINEParserRuleCall_6_1() { return cENDLINEParserRuleCall_6_1; }
 
-		//("assumptions" OPENCURLY assumptions+=Assumption* CLOSEDCURLY)?
+		//(plans+=PlanImport ENDLINE)*
 		public Group getGroup_7() { return cGroup_7; }
 
-		//"assumptions"
-		public Keyword getAssumptionsKeyword_7_0() { return cAssumptionsKeyword_7_0; }
+		//plans+=PlanImport
+		public Assignment getPlansAssignment_7_0() { return cPlansAssignment_7_0; }
 
-		//OPENCURLY
-		public RuleCall getOPENCURLYTerminalRuleCall_7_1() { return cOPENCURLYTerminalRuleCall_7_1; }
+		//PlanImport
+		public RuleCall getPlansPlanImportParserRuleCall_7_0_0() { return cPlansPlanImportParserRuleCall_7_0_0; }
 
-		//assumptions+=Assumption*
-		public Assignment getAssumptionsAssignment_7_2() { return cAssumptionsAssignment_7_2; }
+		//ENDLINE
+		public RuleCall getENDLINEParserRuleCall_7_1() { return cENDLINEParserRuleCall_7_1; }
 
-		//Assumption
-		public RuleCall getAssumptionsAssumptionParserRuleCall_7_2_0() { return cAssumptionsAssumptionParserRuleCall_7_2_0; }
-
-		//CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_7_3() { return cCLOSEDCURLYTerminalRuleCall_7_3; }
-
-		//("constraints" OPENCURLY constraints+=Constraint* CLOSEDCURLY)?
+		//("assumptions" OPENCURLY assumptions+=Assumption* CLOSEDCURLY)?
 		public Group getGroup_8() { return cGroup_8; }
 
-		//"constraints"
-		public Keyword getConstraintsKeyword_8_0() { return cConstraintsKeyword_8_0; }
+		//"assumptions"
+		public Keyword getAssumptionsKeyword_8_0() { return cAssumptionsKeyword_8_0; }
 
 		//OPENCURLY
 		public RuleCall getOPENCURLYTerminalRuleCall_8_1() { return cOPENCURLYTerminalRuleCall_8_1; }
 
-		//constraints+=Constraint*
-		public Assignment getConstraintsAssignment_8_2() { return cConstraintsAssignment_8_2; }
+		//assumptions+=Assumption*
+		public Assignment getAssumptionsAssignment_8_2() { return cAssumptionsAssignment_8_2; }
 
-		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_8_2_0() { return cConstraintsConstraintParserRuleCall_8_2_0; }
+		//Assumption
+		public RuleCall getAssumptionsAssumptionParserRuleCall_8_2_0() { return cAssumptionsAssumptionParserRuleCall_8_2_0; }
 
 		//CLOSEDCURLY
 		public RuleCall getCLOSEDCURLYTerminalRuleCall_8_3() { return cCLOSEDCURLYTerminalRuleCall_8_3; }
 
-		//activities+=ActivityElement*
-		public Assignment getActivitiesAssignment_9() { return cActivitiesAssignment_9; }
+		//("constraints" OPENCURLY constraints+=Constraint* CLOSEDCURLY)?
+		public Group getGroup_9() { return cGroup_9; }
 
-		//ActivityElement
-		public RuleCall getActivitiesActivityElementParserRuleCall_9_0() { return cActivitiesActivityElementParserRuleCall_9_0; }
+		//"constraints"
+		public Keyword getConstraintsKeyword_9_0() { return cConstraintsKeyword_9_0; }
+
+		//OPENCURLY
+		public RuleCall getOPENCURLYTerminalRuleCall_9_1() { return cOPENCURLYTerminalRuleCall_9_1; }
+
+		//constraints+=Constraint*
+		public Assignment getConstraintsAssignment_9_2() { return cConstraintsAssignment_9_2; }
+
+		//Constraint
+		public RuleCall getConstraintsConstraintParserRuleCall_9_2_0() { return cConstraintsConstraintParserRuleCall_9_2_0; }
 
 		//CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_10() { return cCLOSEDCURLYTerminalRuleCall_10; }
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_9_3() { return cCLOSEDCURLYTerminalRuleCall_9_3; }
+
+		//activities+=ActivityElement*
+		public Assignment getActivitiesAssignment_10() { return cActivitiesAssignment_10; }
+
+		//ActivityElement
+		public RuleCall getActivitiesActivityElementParserRuleCall_10_0() { return cActivitiesActivityElementParserRuleCall_10_0; }
+
+		//CLOSEDCURLY
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_11() { return cCLOSEDCURLYTerminalRuleCall_11; }
 	}
 
 	public class AssumptionElements extends AbstractParserRuleElementFinder {
@@ -352,27 +405,36 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final RuleCall cOPENCURLYTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cDependsOnKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDependenciesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cDependenciesActivityElementCrossReference_4_1_0 = (CrossReference)cDependenciesAssignment_4_1.eContents().get(0);
-		private final RuleCall cDependenciesActivityElementQualifiedNameParserRuleCall_4_1_0_1 = (RuleCall)cDependenciesActivityElementCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLongNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLongNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLongNameAssignment_4_1.eContents().get(0);
 		private final RuleCall cENDLINEParserRuleCall_4_2 = (RuleCall)cGroup_4.eContents().get(2);
-		private final Assignment cActivitiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cActivitiesActivityElementParserRuleCall_5_0 = (RuleCall)cActivitiesAssignment_5.eContents().get(0);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cDependsOnKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cDependenciesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cDependenciesActivityElementCrossReference_5_1_0 = (CrossReference)cDependenciesAssignment_5_1.eContents().get(0);
+		private final RuleCall cDependenciesActivityElementQualifiedNameParserRuleCall_5_1_0_1 = (RuleCall)cDependenciesActivityElementCrossReference_5_1_0.eContents().get(1);
+		private final RuleCall cENDLINEParserRuleCall_5_2 = (RuleCall)cGroup_5.eContents().get(2);
+		private final Assignment cActivitiesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cActivitiesActivityElementParserRuleCall_6_0 = (RuleCall)cActivitiesAssignment_6.eContents().get(0);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//ActivityGroup:
 		//
-		//	description=ML_COMMENT? "Group" name=ID OPENCURLY ("dependsOn" dependencies+=[ActivityElement|QualifiedName]*
+		//	description=ML_COMMENT? "Group" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? ("dependsOn"
 		//
-		//	ENDLINE)? activities+=ActivityElement* //groups += ActivityGroup*
-		// CLOSEDCURLY;
+		//	dependencies+=[ActivityElement|QualifiedName]* ENDLINE)? activities+=ActivityElement* //groups += ActivityGroup*
+		//
+		//
+		//	CLOSEDCURLY;
 		public ParserRule getRule() { return rule; }
 
-		//description=ML_COMMENT? "Group" name=ID OPENCURLY ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
+		//description=ML_COMMENT? "Group" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? ("dependsOn"
 		//
-		//activities+=ActivityElement* //groups += ActivityGroup*
-		// CLOSEDCURLY
+		//dependencies+=[ActivityElement|QualifiedName]* ENDLINE)? activities+=ActivityElement* //groups += ActivityGroup*
+		//
+		//
+		//CLOSEDCURLY
 		public Group getGroup() { return cGroup; }
 
 		//description=ML_COMMENT?
@@ -393,33 +455,48 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		//OPENCURLY
 		public RuleCall getOPENCURLYTerminalRuleCall_3() { return cOPENCURLYTerminalRuleCall_3; }
 
-		//("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
+		//("name" longName=STRING ENDLINE)?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"dependsOn"
-		public Keyword getDependsOnKeyword_4_0() { return cDependsOnKeyword_4_0; }
+		//"name"
+		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//dependencies+=[ActivityElement|QualifiedName]*
-		public Assignment getDependenciesAssignment_4_1() { return cDependenciesAssignment_4_1; }
+		//longName=STRING
+		public Assignment getLongNameAssignment_4_1() { return cLongNameAssignment_4_1; }
 
-		//[ActivityElement|QualifiedName]
-		public CrossReference getDependenciesActivityElementCrossReference_4_1_0() { return cDependenciesActivityElementCrossReference_4_1_0; }
-
-		//QualifiedName
-		public RuleCall getDependenciesActivityElementQualifiedNameParserRuleCall_4_1_0_1() { return cDependenciesActivityElementQualifiedNameParserRuleCall_4_1_0_1; }
+		//STRING
+		public RuleCall getLongNameSTRINGTerminalRuleCall_4_1_0() { return cLongNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//ENDLINE
 		public RuleCall getENDLINEParserRuleCall_4_2() { return cENDLINEParserRuleCall_4_2; }
 
+		//("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"dependsOn"
+		public Keyword getDependsOnKeyword_5_0() { return cDependsOnKeyword_5_0; }
+
+		//dependencies+=[ActivityElement|QualifiedName]*
+		public Assignment getDependenciesAssignment_5_1() { return cDependenciesAssignment_5_1; }
+
+		//[ActivityElement|QualifiedName]
+		public CrossReference getDependenciesActivityElementCrossReference_5_1_0() { return cDependenciesActivityElementCrossReference_5_1_0; }
+
+		//QualifiedName
+		public RuleCall getDependenciesActivityElementQualifiedNameParserRuleCall_5_1_0_1() { return cDependenciesActivityElementQualifiedNameParserRuleCall_5_1_0_1; }
+
+		//ENDLINE
+		public RuleCall getENDLINEParserRuleCall_5_2() { return cENDLINEParserRuleCall_5_2; }
+
 		//activities+=ActivityElement*
-		public Assignment getActivitiesAssignment_5() { return cActivitiesAssignment_5; }
+		public Assignment getActivitiesAssignment_6() { return cActivitiesAssignment_6; }
 
 		//ActivityElement
-		public RuleCall getActivitiesActivityElementParserRuleCall_5_0() { return cActivitiesActivityElementParserRuleCall_5_0; }
+		public RuleCall getActivitiesActivityElementParserRuleCall_6_0() { return cActivitiesActivityElementParserRuleCall_6_0; }
 
 		////groups += ActivityGroup*
 		// CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_6() { return cCLOSEDCURLYTerminalRuleCall_6; }
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_7() { return cCLOSEDCURLYTerminalRuleCall_7; }
 	}
 
 	public class WBSImportElements extends AbstractParserRuleElementFinder {
@@ -606,50 +683,55 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final RuleCall cOPENCURLYTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
-		private final Alternatives cAlternatives_4_0 = (Alternatives)cUnorderedGroup_4.eContents().get(0);
-		private final Group cGroup_4_0_0 = (Group)cAlternatives_4_0.eContents().get(0);
-		private final Keyword cDateKeyword_4_0_0_0 = (Keyword)cGroup_4_0_0.eContents().get(0);
-		private final Assignment cEndAssignment_4_0_0_1 = (Assignment)cGroup_4_0_0.eContents().get(1);
-		private final RuleCall cEndSTRINGTerminalRuleCall_4_0_0_1_0 = (RuleCall)cEndAssignment_4_0_0_1.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_4_0_0_2 = (RuleCall)cGroup_4_0_0.eContents().get(2);
-		private final Group cGroup_4_0_1 = (Group)cAlternatives_4_0.eContents().get(1);
-		private final Keyword cAfterKeyword_4_0_1_0 = (Keyword)cGroup_4_0_1.eContents().get(0);
-		private final Assignment cAfterAssignment_4_0_1_1 = (Assignment)cGroup_4_0_1.eContents().get(1);
-		private final CrossReference cAfterActivityElementCrossReference_4_0_1_1_0 = (CrossReference)cAfterAssignment_4_0_1_1.eContents().get(0);
-		private final RuleCall cAfterActivityElementQualifiedNameParserRuleCall_4_0_1_1_0_1 = (RuleCall)cAfterActivityElementCrossReference_4_0_1_1_0.eContents().get(1);
-		private final Keyword cOffsetKeyword_4_0_1_2 = (Keyword)cGroup_4_0_1.eContents().get(2);
-		private final Assignment cOffsetAssignment_4_0_1_3 = (Assignment)cGroup_4_0_1.eContents().get(3);
-		private final RuleCall cOffsetINTTerminalRuleCall_4_0_1_3_0 = (RuleCall)cOffsetAssignment_4_0_1_3.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_4_0_1_4 = (RuleCall)cGroup_4_0_1.eContents().get(4);
-		private final Group cGroup_4_1 = (Group)cUnorderedGroup_4.eContents().get(1);
-		private final Keyword cCompletenessKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cCompletenessAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cCompletenessINTTerminalRuleCall_4_1_1_0 = (RuleCall)cCompletenessAssignment_4_1_1.eContents().get(0);
-		private final Keyword cPercentSignKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
-		private final RuleCall cENDLINEParserRuleCall_4_1_3 = (RuleCall)cGroup_4_1.eContents().get(3);
-		private final Group cGroup_4_2 = (Group)cUnorderedGroup_4.eContents().get(2);
-		private final Keyword cDependsOnKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cDependenciesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final CrossReference cDependenciesActivityElementCrossReference_4_2_1_0 = (CrossReference)cDependenciesAssignment_4_2_1.eContents().get(0);
-		private final RuleCall cDependenciesActivityElementQualifiedNameParserRuleCall_4_2_1_0_1 = (RuleCall)cDependenciesActivityElementCrossReference_4_2_1_0.eContents().get(1);
-		private final RuleCall cENDLINEParserRuleCall_4_2_2 = (RuleCall)cGroup_4_2.eContents().get(2);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLongNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLongNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLongNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_4_2 = (RuleCall)cGroup_4.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_5 = (UnorderedGroup)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_5_0 = (Alternatives)cUnorderedGroup_5.eContents().get(0);
+		private final Group cGroup_5_0_0 = (Group)cAlternatives_5_0.eContents().get(0);
+		private final Keyword cDateKeyword_5_0_0_0 = (Keyword)cGroup_5_0_0.eContents().get(0);
+		private final Assignment cEndAssignment_5_0_0_1 = (Assignment)cGroup_5_0_0.eContents().get(1);
+		private final RuleCall cEndSTRINGTerminalRuleCall_5_0_0_1_0 = (RuleCall)cEndAssignment_5_0_0_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_5_0_0_2 = (RuleCall)cGroup_5_0_0.eContents().get(2);
+		private final Group cGroup_5_0_1 = (Group)cAlternatives_5_0.eContents().get(1);
+		private final Keyword cAfterKeyword_5_0_1_0 = (Keyword)cGroup_5_0_1.eContents().get(0);
+		private final Assignment cAfterAssignment_5_0_1_1 = (Assignment)cGroup_5_0_1.eContents().get(1);
+		private final CrossReference cAfterActivityElementCrossReference_5_0_1_1_0 = (CrossReference)cAfterAssignment_5_0_1_1.eContents().get(0);
+		private final RuleCall cAfterActivityElementQualifiedNameParserRuleCall_5_0_1_1_0_1 = (RuleCall)cAfterActivityElementCrossReference_5_0_1_1_0.eContents().get(1);
+		private final Keyword cOffsetKeyword_5_0_1_2 = (Keyword)cGroup_5_0_1.eContents().get(2);
+		private final Assignment cOffsetAssignment_5_0_1_3 = (Assignment)cGroup_5_0_1.eContents().get(3);
+		private final RuleCall cOffsetINTTerminalRuleCall_5_0_1_3_0 = (RuleCall)cOffsetAssignment_5_0_1_3.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_5_0_1_4 = (RuleCall)cGroup_5_0_1.eContents().get(4);
+		private final Group cGroup_5_1 = (Group)cUnorderedGroup_5.eContents().get(1);
+		private final Keyword cCompletenessKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Assignment cCompletenessAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
+		private final RuleCall cCompletenessINTTerminalRuleCall_5_1_1_0 = (RuleCall)cCompletenessAssignment_5_1_1.eContents().get(0);
+		private final Keyword cPercentSignKeyword_5_1_2 = (Keyword)cGroup_5_1.eContents().get(2);
+		private final RuleCall cENDLINEParserRuleCall_5_1_3 = (RuleCall)cGroup_5_1.eContents().get(3);
+		private final Group cGroup_5_2 = (Group)cUnorderedGroup_5.eContents().get(2);
+		private final Keyword cDependsOnKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cDependenciesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final CrossReference cDependenciesActivityElementCrossReference_5_2_1_0 = (CrossReference)cDependenciesAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cDependenciesActivityElementQualifiedNameParserRuleCall_5_2_1_0_1 = (RuleCall)cDependenciesActivityElementCrossReference_5_2_1_0.eContents().get(1);
+		private final RuleCall cENDLINEParserRuleCall_5_2_2 = (RuleCall)cGroup_5_2.eContents().get(2);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//CheckPoint:
 		//
-		//	description=ML_COMMENT? "CheckPoint" name=ID OPENCURLY (("date" end=STRING ENDLINE | "after"
+		//	description=ML_COMMENT? "CheckPoint" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (("date" end=STRING ENDLINE
 		//
-		//	after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness" completeness=INT "%" ENDLINE &
+		//	| "after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness" completeness=INT "%"
 		//
-		//	("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
+		//	ENDLINE & ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
 		public ParserRule getRule() { return rule; }
 
-		//description=ML_COMMENT? "CheckPoint" name=ID OPENCURLY (("date" end=STRING ENDLINE | "after"
+		//description=ML_COMMENT? "CheckPoint" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (("date" end=STRING ENDLINE |
 		//
-		//after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness" completeness=INT "%" ENDLINE &
+		//"after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness" completeness=INT "%"
 		//
-		//("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY
+		//ENDLINE & ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY
 		public Group getGroup() { return cGroup; }
 
 		//description=ML_COMMENT?
@@ -670,94 +752,109 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		//OPENCURLY
 		public RuleCall getOPENCURLYTerminalRuleCall_3() { return cOPENCURLYTerminalRuleCall_3; }
 
+		//("name" longName=STRING ENDLINE)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"name"
+		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
+
+		//longName=STRING
+		public Assignment getLongNameAssignment_4_1() { return cLongNameAssignment_4_1; }
+
+		//STRING
+		public RuleCall getLongNameSTRINGTerminalRuleCall_4_1_0() { return cLongNameSTRINGTerminalRuleCall_4_1_0; }
+
+		//ENDLINE
+		public RuleCall getENDLINEParserRuleCall_4_2() { return cENDLINEParserRuleCall_4_2; }
+
 		//("date" end=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness"
 		//
 		//completeness=INT "%" ENDLINE & ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
-		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
+		public UnorderedGroup getUnorderedGroup_5() { return cUnorderedGroup_5; }
 
 		//"date" end=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE
-		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
+		public Alternatives getAlternatives_5_0() { return cAlternatives_5_0; }
 
 		//"date" end=STRING ENDLINE
-		public Group getGroup_4_0_0() { return cGroup_4_0_0; }
+		public Group getGroup_5_0_0() { return cGroup_5_0_0; }
 
 		//"date"
-		public Keyword getDateKeyword_4_0_0_0() { return cDateKeyword_4_0_0_0; }
+		public Keyword getDateKeyword_5_0_0_0() { return cDateKeyword_5_0_0_0; }
 
 		//end=STRING
-		public Assignment getEndAssignment_4_0_0_1() { return cEndAssignment_4_0_0_1; }
+		public Assignment getEndAssignment_5_0_0_1() { return cEndAssignment_5_0_0_1; }
 
 		//STRING
-		public RuleCall getEndSTRINGTerminalRuleCall_4_0_0_1_0() { return cEndSTRINGTerminalRuleCall_4_0_0_1_0; }
+		public RuleCall getEndSTRINGTerminalRuleCall_5_0_0_1_0() { return cEndSTRINGTerminalRuleCall_5_0_0_1_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_4_0_0_2() { return cENDLINEParserRuleCall_4_0_0_2; }
+		public RuleCall getENDLINEParserRuleCall_5_0_0_2() { return cENDLINEParserRuleCall_5_0_0_2; }
 
 		//"after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE
-		public Group getGroup_4_0_1() { return cGroup_4_0_1; }
+		public Group getGroup_5_0_1() { return cGroup_5_0_1; }
 
 		//"after"
-		public Keyword getAfterKeyword_4_0_1_0() { return cAfterKeyword_4_0_1_0; }
+		public Keyword getAfterKeyword_5_0_1_0() { return cAfterKeyword_5_0_1_0; }
 
 		//after=[ActivityElement|QualifiedName]
-		public Assignment getAfterAssignment_4_0_1_1() { return cAfterAssignment_4_0_1_1; }
+		public Assignment getAfterAssignment_5_0_1_1() { return cAfterAssignment_5_0_1_1; }
 
 		//[ActivityElement|QualifiedName]
-		public CrossReference getAfterActivityElementCrossReference_4_0_1_1_0() { return cAfterActivityElementCrossReference_4_0_1_1_0; }
+		public CrossReference getAfterActivityElementCrossReference_5_0_1_1_0() { return cAfterActivityElementCrossReference_5_0_1_1_0; }
 
 		//QualifiedName
-		public RuleCall getAfterActivityElementQualifiedNameParserRuleCall_4_0_1_1_0_1() { return cAfterActivityElementQualifiedNameParserRuleCall_4_0_1_1_0_1; }
+		public RuleCall getAfterActivityElementQualifiedNameParserRuleCall_5_0_1_1_0_1() { return cAfterActivityElementQualifiedNameParserRuleCall_5_0_1_1_0_1; }
 
 		//"offset"
-		public Keyword getOffsetKeyword_4_0_1_2() { return cOffsetKeyword_4_0_1_2; }
+		public Keyword getOffsetKeyword_5_0_1_2() { return cOffsetKeyword_5_0_1_2; }
 
 		//offset=INT
-		public Assignment getOffsetAssignment_4_0_1_3() { return cOffsetAssignment_4_0_1_3; }
+		public Assignment getOffsetAssignment_5_0_1_3() { return cOffsetAssignment_5_0_1_3; }
 
 		//INT
-		public RuleCall getOffsetINTTerminalRuleCall_4_0_1_3_0() { return cOffsetINTTerminalRuleCall_4_0_1_3_0; }
+		public RuleCall getOffsetINTTerminalRuleCall_5_0_1_3_0() { return cOffsetINTTerminalRuleCall_5_0_1_3_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_4_0_1_4() { return cENDLINEParserRuleCall_4_0_1_4; }
+		public RuleCall getENDLINEParserRuleCall_5_0_1_4() { return cENDLINEParserRuleCall_5_0_1_4; }
 
 		//"completeness" completeness=INT "%" ENDLINE
-		public Group getGroup_4_1() { return cGroup_4_1; }
+		public Group getGroup_5_1() { return cGroup_5_1; }
 
 		//"completeness"
-		public Keyword getCompletenessKeyword_4_1_0() { return cCompletenessKeyword_4_1_0; }
+		public Keyword getCompletenessKeyword_5_1_0() { return cCompletenessKeyword_5_1_0; }
 
 		//completeness=INT
-		public Assignment getCompletenessAssignment_4_1_1() { return cCompletenessAssignment_4_1_1; }
+		public Assignment getCompletenessAssignment_5_1_1() { return cCompletenessAssignment_5_1_1; }
 
 		//INT
-		public RuleCall getCompletenessINTTerminalRuleCall_4_1_1_0() { return cCompletenessINTTerminalRuleCall_4_1_1_0; }
+		public RuleCall getCompletenessINTTerminalRuleCall_5_1_1_0() { return cCompletenessINTTerminalRuleCall_5_1_1_0; }
 
 		//"%"
-		public Keyword getPercentSignKeyword_4_1_2() { return cPercentSignKeyword_4_1_2; }
+		public Keyword getPercentSignKeyword_5_1_2() { return cPercentSignKeyword_5_1_2; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_4_1_3() { return cENDLINEParserRuleCall_4_1_3; }
+		public RuleCall getENDLINEParserRuleCall_5_1_3() { return cENDLINEParserRuleCall_5_1_3; }
 
 		//("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
-		public Group getGroup_4_2() { return cGroup_4_2; }
+		public Group getGroup_5_2() { return cGroup_5_2; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_4_2_0() { return cDependsOnKeyword_4_2_0; }
+		public Keyword getDependsOnKeyword_5_2_0() { return cDependsOnKeyword_5_2_0; }
 
 		//dependencies+=[ActivityElement|QualifiedName]*
-		public Assignment getDependenciesAssignment_4_2_1() { return cDependenciesAssignment_4_2_1; }
+		public Assignment getDependenciesAssignment_5_2_1() { return cDependenciesAssignment_5_2_1; }
 
 		//[ActivityElement|QualifiedName]
-		public CrossReference getDependenciesActivityElementCrossReference_4_2_1_0() { return cDependenciesActivityElementCrossReference_4_2_1_0; }
+		public CrossReference getDependenciesActivityElementCrossReference_5_2_1_0() { return cDependenciesActivityElementCrossReference_5_2_1_0; }
 
 		//QualifiedName
-		public RuleCall getDependenciesActivityElementQualifiedNameParserRuleCall_4_2_1_0_1() { return cDependenciesActivityElementQualifiedNameParserRuleCall_4_2_1_0_1; }
+		public RuleCall getDependenciesActivityElementQualifiedNameParserRuleCall_5_2_1_0_1() { return cDependenciesActivityElementQualifiedNameParserRuleCall_5_2_1_0_1; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_4_2_2() { return cENDLINEParserRuleCall_4_2_2; }
+		public RuleCall getENDLINEParserRuleCall_5_2_2() { return cENDLINEParserRuleCall_5_2_2; }
 
 		//CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_5() { return cCLOSEDCURLYTerminalRuleCall_5; }
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_6() { return cCLOSEDCURLYTerminalRuleCall_6; }
 	}
 
 	public class ResourceInvolvementElements extends AbstractParserRuleElementFinder {
@@ -835,70 +932,79 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final RuleCall cOPENCURLYTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cInvolvesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final RuleCall cOPENCURLYTerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
-		private final Assignment cInvolvedResourcesAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cInvolvedResourcesResourceInvolvementParserRuleCall_4_2_0 = (RuleCall)cInvolvedResourcesAssignment_4_2.eContents().get(0);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_4_3 = (RuleCall)cGroup_4.eContents().get(3);
-		private final UnorderedGroup cUnorderedGroup_5 = (UnorderedGroup)cGroup.eContents().get(5);
-		private final Alternatives cAlternatives_5_0 = (Alternatives)cUnorderedGroup_5.eContents().get(0);
-		private final Group cGroup_5_0_0 = (Group)cAlternatives_5_0.eContents().get(0);
-		private final Keyword cStartsKeyword_5_0_0_0 = (Keyword)cGroup_5_0_0.eContents().get(0);
-		private final Assignment cStartAssignment_5_0_0_1 = (Assignment)cGroup_5_0_0.eContents().get(1);
-		private final RuleCall cStartSTRINGTerminalRuleCall_5_0_0_1_0 = (RuleCall)cStartAssignment_5_0_0_1.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_5_0_0_2 = (RuleCall)cGroup_5_0_0.eContents().get(2);
-		private final Group cGroup_5_0_1 = (Group)cAlternatives_5_0.eContents().get(1);
-		private final Keyword cAfterKeyword_5_0_1_0 = (Keyword)cGroup_5_0_1.eContents().get(0);
-		private final Assignment cAfterAssignment_5_0_1_1 = (Assignment)cGroup_5_0_1.eContents().get(1);
-		private final CrossReference cAfterActivityElementCrossReference_5_0_1_1_0 = (CrossReference)cAfterAssignment_5_0_1_1.eContents().get(0);
-		private final RuleCall cAfterActivityElementQualifiedNameParserRuleCall_5_0_1_1_0_1 = (RuleCall)cAfterActivityElementCrossReference_5_0_1_1_0.eContents().get(1);
-		private final Keyword cOffsetKeyword_5_0_1_2 = (Keyword)cGroup_5_0_1.eContents().get(2);
-		private final Assignment cOffsetAssignment_5_0_1_3 = (Assignment)cGroup_5_0_1.eContents().get(3);
-		private final RuleCall cOffsetINTTerminalRuleCall_5_0_1_3_0 = (RuleCall)cOffsetAssignment_5_0_1_3.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_5_0_1_4 = (RuleCall)cGroup_5_0_1.eContents().get(4);
-		private final Group cGroup_5_1 = (Group)cUnorderedGroup_5.eContents().get(1);
-		private final Alternatives cAlternatives_5_1_0 = (Alternatives)cGroup_5_1.eContents().get(0);
-		private final Group cGroup_5_1_0_0 = (Group)cAlternatives_5_1_0.eContents().get(0);
-		private final Keyword cEndsKeyword_5_1_0_0_0 = (Keyword)cGroup_5_1_0_0.eContents().get(0);
-		private final Assignment cEndAssignment_5_1_0_0_1 = (Assignment)cGroup_5_1_0_0.eContents().get(1);
-		private final RuleCall cEndSTRINGTerminalRuleCall_5_1_0_0_1_0 = (RuleCall)cEndAssignment_5_1_0_0_1.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_5_1_0_0_2 = (RuleCall)cGroup_5_1_0_0.eContents().get(2);
-		private final Group cGroup_5_1_0_1 = (Group)cAlternatives_5_1_0.eContents().get(1);
-		private final Keyword cDurationKeyword_5_1_0_1_0 = (Keyword)cGroup_5_1_0_1.eContents().get(0);
-		private final Assignment cDurationAssignment_5_1_0_1_1 = (Assignment)cGroup_5_1_0_1.eContents().get(1);
-		private final RuleCall cDurationINTTerminalRuleCall_5_1_0_1_1_0 = (RuleCall)cDurationAssignment_5_1_0_1_1.eContents().get(0);
-		private final RuleCall cENDLINEParserRuleCall_5_1_0_1_2 = (RuleCall)cGroup_5_1_0_1.eContents().get(2);
-		private final Keyword cCompletenessKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
-		private final Assignment cCompletenessAssignment_5_1_2 = (Assignment)cGroup_5_1.eContents().get(2);
-		private final RuleCall cCompletenessINTTerminalRuleCall_5_1_2_0 = (RuleCall)cCompletenessAssignment_5_1_2.eContents().get(0);
-		private final Keyword cPercentSignKeyword_5_1_3 = (Keyword)cGroup_5_1.eContents().get(3);
-		private final RuleCall cENDLINEParserRuleCall_5_1_4 = (RuleCall)cGroup_5_1.eContents().get(4);
-		private final Group cGroup_5_2 = (Group)cUnorderedGroup_5.eContents().get(2);
-		private final Keyword cDependsOnKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
-		private final Assignment cDependenciesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
-		private final CrossReference cDependenciesActivityElementCrossReference_5_2_1_0 = (CrossReference)cDependenciesAssignment_5_2_1.eContents().get(0);
-		private final RuleCall cDependenciesActivityElementQualifiedNameParserRuleCall_5_2_1_0_1 = (RuleCall)cDependenciesActivityElementCrossReference_5_2_1_0.eContents().get(1);
-		private final RuleCall cENDLINEParserRuleCall_5_2_2 = (RuleCall)cGroup_5_2.eContents().get(2);
-		private final RuleCall cCLOSEDCURLYTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLongNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLongNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cLongNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_4_2 = (RuleCall)cGroup_4.eContents().get(2);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cInvolvesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final RuleCall cOPENCURLYTerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Assignment cInvolvedResourcesAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cInvolvedResourcesResourceInvolvementParserRuleCall_5_2_0 = (RuleCall)cInvolvedResourcesAssignment_5_2.eContents().get(0);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_5_3 = (RuleCall)cGroup_5.eContents().get(3);
+		private final UnorderedGroup cUnorderedGroup_6 = (UnorderedGroup)cGroup.eContents().get(6);
+		private final Alternatives cAlternatives_6_0 = (Alternatives)cUnorderedGroup_6.eContents().get(0);
+		private final Group cGroup_6_0_0 = (Group)cAlternatives_6_0.eContents().get(0);
+		private final Keyword cStartsKeyword_6_0_0_0 = (Keyword)cGroup_6_0_0.eContents().get(0);
+		private final Assignment cStartAssignment_6_0_0_1 = (Assignment)cGroup_6_0_0.eContents().get(1);
+		private final RuleCall cStartSTRINGTerminalRuleCall_6_0_0_1_0 = (RuleCall)cStartAssignment_6_0_0_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_6_0_0_2 = (RuleCall)cGroup_6_0_0.eContents().get(2);
+		private final Group cGroup_6_0_1 = (Group)cAlternatives_6_0.eContents().get(1);
+		private final Keyword cAfterKeyword_6_0_1_0 = (Keyword)cGroup_6_0_1.eContents().get(0);
+		private final Assignment cAfterAssignment_6_0_1_1 = (Assignment)cGroup_6_0_1.eContents().get(1);
+		private final CrossReference cAfterActivityElementCrossReference_6_0_1_1_0 = (CrossReference)cAfterAssignment_6_0_1_1.eContents().get(0);
+		private final RuleCall cAfterActivityElementQualifiedNameParserRuleCall_6_0_1_1_0_1 = (RuleCall)cAfterActivityElementCrossReference_6_0_1_1_0.eContents().get(1);
+		private final Keyword cOffsetKeyword_6_0_1_2 = (Keyword)cGroup_6_0_1.eContents().get(2);
+		private final Assignment cOffsetAssignment_6_0_1_3 = (Assignment)cGroup_6_0_1.eContents().get(3);
+		private final RuleCall cOffsetINTTerminalRuleCall_6_0_1_3_0 = (RuleCall)cOffsetAssignment_6_0_1_3.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_6_0_1_4 = (RuleCall)cGroup_6_0_1.eContents().get(4);
+		private final Group cGroup_6_1 = (Group)cUnorderedGroup_6.eContents().get(1);
+		private final Alternatives cAlternatives_6_1_0 = (Alternatives)cGroup_6_1.eContents().get(0);
+		private final Group cGroup_6_1_0_0 = (Group)cAlternatives_6_1_0.eContents().get(0);
+		private final Keyword cEndsKeyword_6_1_0_0_0 = (Keyword)cGroup_6_1_0_0.eContents().get(0);
+		private final Assignment cEndAssignment_6_1_0_0_1 = (Assignment)cGroup_6_1_0_0.eContents().get(1);
+		private final RuleCall cEndSTRINGTerminalRuleCall_6_1_0_0_1_0 = (RuleCall)cEndAssignment_6_1_0_0_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_6_1_0_0_2 = (RuleCall)cGroup_6_1_0_0.eContents().get(2);
+		private final Group cGroup_6_1_0_1 = (Group)cAlternatives_6_1_0.eContents().get(1);
+		private final Keyword cDurationKeyword_6_1_0_1_0 = (Keyword)cGroup_6_1_0_1.eContents().get(0);
+		private final Assignment cDurationAssignment_6_1_0_1_1 = (Assignment)cGroup_6_1_0_1.eContents().get(1);
+		private final RuleCall cDurationINTTerminalRuleCall_6_1_0_1_1_0 = (RuleCall)cDurationAssignment_6_1_0_1_1.eContents().get(0);
+		private final RuleCall cENDLINEParserRuleCall_6_1_0_1_2 = (RuleCall)cGroup_6_1_0_1.eContents().get(2);
+		private final Keyword cCompletenessKeyword_6_1_1 = (Keyword)cGroup_6_1.eContents().get(1);
+		private final Assignment cCompletenessAssignment_6_1_2 = (Assignment)cGroup_6_1.eContents().get(2);
+		private final RuleCall cCompletenessINTTerminalRuleCall_6_1_2_0 = (RuleCall)cCompletenessAssignment_6_1_2.eContents().get(0);
+		private final Keyword cPercentSignKeyword_6_1_3 = (Keyword)cGroup_6_1.eContents().get(3);
+		private final RuleCall cENDLINEParserRuleCall_6_1_4 = (RuleCall)cGroup_6_1.eContents().get(4);
+		private final Group cGroup_6_2 = (Group)cUnorderedGroup_6.eContents().get(2);
+		private final Keyword cDependsOnKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
+		private final Assignment cDependenciesAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
+		private final CrossReference cDependenciesActivityElementCrossReference_6_2_1_0 = (CrossReference)cDependenciesAssignment_6_2_1.eContents().get(0);
+		private final RuleCall cDependenciesActivityElementQualifiedNameParserRuleCall_6_2_1_0_1 = (RuleCall)cDependenciesActivityElementCrossReference_6_2_1_0.eContents().get(1);
+		private final RuleCall cENDLINEParserRuleCall_6_2_2 = (RuleCall)cGroup_6_2.eContents().get(2);
+		private final RuleCall cCLOSEDCURLYTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//Activity:
 		//
-		//	description=ML_COMMENT? "Activity" name=ID OPENCURLY ("involves" OPENCURLY involvedResources+=ResourceInvolvement*
+		//	description=ML_COMMENT? "Activity" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? ("involves" OPENCURLY
 		//
-		//	CLOSEDCURLY)? (("starts" start=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT
+		//	involvedResources+=ResourceInvolvement* CLOSEDCURLY)? (("starts" start=STRING ENDLINE | "after"
 		//
-		//	ENDLINE) & ("ends" end=STRING ENDLINE | "duration" duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE
+		//	after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & ("ends" end=STRING ENDLINE | "duration"
 		//
-		//	& ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
+		//	duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE & ("dependsOn"
+		//
+		//	dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
 		public ParserRule getRule() { return rule; }
 
-		//description=ML_COMMENT? "Activity" name=ID OPENCURLY ("involves" OPENCURLY involvedResources+=ResourceInvolvement*
+		//description=ML_COMMENT? "Activity" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? ("involves" OPENCURLY
 		//
-		//CLOSEDCURLY)? (("starts" start=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT
+		//involvedResources+=ResourceInvolvement* CLOSEDCURLY)? (("starts" start=STRING ENDLINE | "after"
 		//
-		//ENDLINE) & ("ends" end=STRING ENDLINE | "duration" duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE &
+		//after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & ("ends" end=STRING ENDLINE | "duration"
 		//
-		//("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY
+		//duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE & ("dependsOn"
+		//
+		//dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY
 		public Group getGroup() { return cGroup; }
 
 		//description=ML_COMMENT?
@@ -919,147 +1025,162 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 		//OPENCURLY
 		public RuleCall getOPENCURLYTerminalRuleCall_3() { return cOPENCURLYTerminalRuleCall_3; }
 
-		//("involves" OPENCURLY involvedResources+=ResourceInvolvement* CLOSEDCURLY)?
+		//("name" longName=STRING ENDLINE)?
 		public Group getGroup_4() { return cGroup_4; }
 
+		//"name"
+		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
+
+		//longName=STRING
+		public Assignment getLongNameAssignment_4_1() { return cLongNameAssignment_4_1; }
+
+		//STRING
+		public RuleCall getLongNameSTRINGTerminalRuleCall_4_1_0() { return cLongNameSTRINGTerminalRuleCall_4_1_0; }
+
+		//ENDLINE
+		public RuleCall getENDLINEParserRuleCall_4_2() { return cENDLINEParserRuleCall_4_2; }
+
+		//("involves" OPENCURLY involvedResources+=ResourceInvolvement* CLOSEDCURLY)?
+		public Group getGroup_5() { return cGroup_5; }
+
 		//"involves"
-		public Keyword getInvolvesKeyword_4_0() { return cInvolvesKeyword_4_0; }
+		public Keyword getInvolvesKeyword_5_0() { return cInvolvesKeyword_5_0; }
 
 		//OPENCURLY
-		public RuleCall getOPENCURLYTerminalRuleCall_4_1() { return cOPENCURLYTerminalRuleCall_4_1; }
+		public RuleCall getOPENCURLYTerminalRuleCall_5_1() { return cOPENCURLYTerminalRuleCall_5_1; }
 
 		//involvedResources+=ResourceInvolvement*
-		public Assignment getInvolvedResourcesAssignment_4_2() { return cInvolvedResourcesAssignment_4_2; }
+		public Assignment getInvolvedResourcesAssignment_5_2() { return cInvolvedResourcesAssignment_5_2; }
 
 		//ResourceInvolvement
-		public RuleCall getInvolvedResourcesResourceInvolvementParserRuleCall_4_2_0() { return cInvolvedResourcesResourceInvolvementParserRuleCall_4_2_0; }
+		public RuleCall getInvolvedResourcesResourceInvolvementParserRuleCall_5_2_0() { return cInvolvedResourcesResourceInvolvementParserRuleCall_5_2_0; }
 
 		//CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_4_3() { return cCLOSEDCURLYTerminalRuleCall_4_3; }
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_5_3() { return cCLOSEDCURLYTerminalRuleCall_5_3; }
 
 		//("starts" start=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & ("ends"
 		//
 		//end=STRING ENDLINE | "duration" duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE & ("dependsOn"
 		//
 		//dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
-		public UnorderedGroup getUnorderedGroup_5() { return cUnorderedGroup_5; }
+		public UnorderedGroup getUnorderedGroup_6() { return cUnorderedGroup_6; }
 
 		//"starts" start=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE
-		public Alternatives getAlternatives_5_0() { return cAlternatives_5_0; }
+		public Alternatives getAlternatives_6_0() { return cAlternatives_6_0; }
 
 		//"starts" start=STRING ENDLINE
-		public Group getGroup_5_0_0() { return cGroup_5_0_0; }
+		public Group getGroup_6_0_0() { return cGroup_6_0_0; }
 
 		//"starts"
-		public Keyword getStartsKeyword_5_0_0_0() { return cStartsKeyword_5_0_0_0; }
+		public Keyword getStartsKeyword_6_0_0_0() { return cStartsKeyword_6_0_0_0; }
 
 		//start=STRING
-		public Assignment getStartAssignment_5_0_0_1() { return cStartAssignment_5_0_0_1; }
+		public Assignment getStartAssignment_6_0_0_1() { return cStartAssignment_6_0_0_1; }
 
 		//STRING
-		public RuleCall getStartSTRINGTerminalRuleCall_5_0_0_1_0() { return cStartSTRINGTerminalRuleCall_5_0_0_1_0; }
+		public RuleCall getStartSTRINGTerminalRuleCall_6_0_0_1_0() { return cStartSTRINGTerminalRuleCall_6_0_0_1_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_5_0_0_2() { return cENDLINEParserRuleCall_5_0_0_2; }
+		public RuleCall getENDLINEParserRuleCall_6_0_0_2() { return cENDLINEParserRuleCall_6_0_0_2; }
 
 		//"after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE
-		public Group getGroup_5_0_1() { return cGroup_5_0_1; }
+		public Group getGroup_6_0_1() { return cGroup_6_0_1; }
 
 		//"after"
-		public Keyword getAfterKeyword_5_0_1_0() { return cAfterKeyword_5_0_1_0; }
+		public Keyword getAfterKeyword_6_0_1_0() { return cAfterKeyword_6_0_1_0; }
 
 		//after=[ActivityElement|QualifiedName]
-		public Assignment getAfterAssignment_5_0_1_1() { return cAfterAssignment_5_0_1_1; }
+		public Assignment getAfterAssignment_6_0_1_1() { return cAfterAssignment_6_0_1_1; }
 
 		//[ActivityElement|QualifiedName]
-		public CrossReference getAfterActivityElementCrossReference_5_0_1_1_0() { return cAfterActivityElementCrossReference_5_0_1_1_0; }
+		public CrossReference getAfterActivityElementCrossReference_6_0_1_1_0() { return cAfterActivityElementCrossReference_6_0_1_1_0; }
 
 		//QualifiedName
-		public RuleCall getAfterActivityElementQualifiedNameParserRuleCall_5_0_1_1_0_1() { return cAfterActivityElementQualifiedNameParserRuleCall_5_0_1_1_0_1; }
+		public RuleCall getAfterActivityElementQualifiedNameParserRuleCall_6_0_1_1_0_1() { return cAfterActivityElementQualifiedNameParserRuleCall_6_0_1_1_0_1; }
 
 		//"offset"
-		public Keyword getOffsetKeyword_5_0_1_2() { return cOffsetKeyword_5_0_1_2; }
+		public Keyword getOffsetKeyword_6_0_1_2() { return cOffsetKeyword_6_0_1_2; }
 
 		//offset=INT
-		public Assignment getOffsetAssignment_5_0_1_3() { return cOffsetAssignment_5_0_1_3; }
+		public Assignment getOffsetAssignment_6_0_1_3() { return cOffsetAssignment_6_0_1_3; }
 
 		//INT
-		public RuleCall getOffsetINTTerminalRuleCall_5_0_1_3_0() { return cOffsetINTTerminalRuleCall_5_0_1_3_0; }
+		public RuleCall getOffsetINTTerminalRuleCall_6_0_1_3_0() { return cOffsetINTTerminalRuleCall_6_0_1_3_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_5_0_1_4() { return cENDLINEParserRuleCall_5_0_1_4; }
+		public RuleCall getENDLINEParserRuleCall_6_0_1_4() { return cENDLINEParserRuleCall_6_0_1_4; }
 
 		//("ends" end=STRING ENDLINE | "duration" duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE
-		public Group getGroup_5_1() { return cGroup_5_1; }
+		public Group getGroup_6_1() { return cGroup_6_1; }
 
 		//"ends" end=STRING ENDLINE | "duration" duration=INT ENDLINE
-		public Alternatives getAlternatives_5_1_0() { return cAlternatives_5_1_0; }
+		public Alternatives getAlternatives_6_1_0() { return cAlternatives_6_1_0; }
 
 		//"ends" end=STRING ENDLINE
-		public Group getGroup_5_1_0_0() { return cGroup_5_1_0_0; }
+		public Group getGroup_6_1_0_0() { return cGroup_6_1_0_0; }
 
 		//"ends"
-		public Keyword getEndsKeyword_5_1_0_0_0() { return cEndsKeyword_5_1_0_0_0; }
+		public Keyword getEndsKeyword_6_1_0_0_0() { return cEndsKeyword_6_1_0_0_0; }
 
 		//end=STRING
-		public Assignment getEndAssignment_5_1_0_0_1() { return cEndAssignment_5_1_0_0_1; }
+		public Assignment getEndAssignment_6_1_0_0_1() { return cEndAssignment_6_1_0_0_1; }
 
 		//STRING
-		public RuleCall getEndSTRINGTerminalRuleCall_5_1_0_0_1_0() { return cEndSTRINGTerminalRuleCall_5_1_0_0_1_0; }
+		public RuleCall getEndSTRINGTerminalRuleCall_6_1_0_0_1_0() { return cEndSTRINGTerminalRuleCall_6_1_0_0_1_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_5_1_0_0_2() { return cENDLINEParserRuleCall_5_1_0_0_2; }
+		public RuleCall getENDLINEParserRuleCall_6_1_0_0_2() { return cENDLINEParserRuleCall_6_1_0_0_2; }
 
 		//"duration" duration=INT ENDLINE
-		public Group getGroup_5_1_0_1() { return cGroup_5_1_0_1; }
+		public Group getGroup_6_1_0_1() { return cGroup_6_1_0_1; }
 
 		//"duration"
-		public Keyword getDurationKeyword_5_1_0_1_0() { return cDurationKeyword_5_1_0_1_0; }
+		public Keyword getDurationKeyword_6_1_0_1_0() { return cDurationKeyword_6_1_0_1_0; }
 
 		//duration=INT
-		public Assignment getDurationAssignment_5_1_0_1_1() { return cDurationAssignment_5_1_0_1_1; }
+		public Assignment getDurationAssignment_6_1_0_1_1() { return cDurationAssignment_6_1_0_1_1; }
 
 		//INT
-		public RuleCall getDurationINTTerminalRuleCall_5_1_0_1_1_0() { return cDurationINTTerminalRuleCall_5_1_0_1_1_0; }
+		public RuleCall getDurationINTTerminalRuleCall_6_1_0_1_1_0() { return cDurationINTTerminalRuleCall_6_1_0_1_1_0; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_5_1_0_1_2() { return cENDLINEParserRuleCall_5_1_0_1_2; }
+		public RuleCall getENDLINEParserRuleCall_6_1_0_1_2() { return cENDLINEParserRuleCall_6_1_0_1_2; }
 
 		//"completeness"
-		public Keyword getCompletenessKeyword_5_1_1() { return cCompletenessKeyword_5_1_1; }
+		public Keyword getCompletenessKeyword_6_1_1() { return cCompletenessKeyword_6_1_1; }
 
 		//completeness=INT
-		public Assignment getCompletenessAssignment_5_1_2() { return cCompletenessAssignment_5_1_2; }
+		public Assignment getCompletenessAssignment_6_1_2() { return cCompletenessAssignment_6_1_2; }
 
 		//INT
-		public RuleCall getCompletenessINTTerminalRuleCall_5_1_2_0() { return cCompletenessINTTerminalRuleCall_5_1_2_0; }
+		public RuleCall getCompletenessINTTerminalRuleCall_6_1_2_0() { return cCompletenessINTTerminalRuleCall_6_1_2_0; }
 
 		//"%"
-		public Keyword getPercentSignKeyword_5_1_3() { return cPercentSignKeyword_5_1_3; }
+		public Keyword getPercentSignKeyword_6_1_3() { return cPercentSignKeyword_6_1_3; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_5_1_4() { return cENDLINEParserRuleCall_5_1_4; }
+		public RuleCall getENDLINEParserRuleCall_6_1_4() { return cENDLINEParserRuleCall_6_1_4; }
 
 		//("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?
-		public Group getGroup_5_2() { return cGroup_5_2; }
+		public Group getGroup_6_2() { return cGroup_6_2; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_5_2_0() { return cDependsOnKeyword_5_2_0; }
+		public Keyword getDependsOnKeyword_6_2_0() { return cDependsOnKeyword_6_2_0; }
 
 		//dependencies+=[ActivityElement|QualifiedName]*
-		public Assignment getDependenciesAssignment_5_2_1() { return cDependenciesAssignment_5_2_1; }
+		public Assignment getDependenciesAssignment_6_2_1() { return cDependenciesAssignment_6_2_1; }
 
 		//[ActivityElement|QualifiedName]
-		public CrossReference getDependenciesActivityElementCrossReference_5_2_1_0() { return cDependenciesActivityElementCrossReference_5_2_1_0; }
+		public CrossReference getDependenciesActivityElementCrossReference_6_2_1_0() { return cDependenciesActivityElementCrossReference_6_2_1_0; }
 
 		//QualifiedName
-		public RuleCall getDependenciesActivityElementQualifiedNameParserRuleCall_5_2_1_0_1() { return cDependenciesActivityElementQualifiedNameParserRuleCall_5_2_1_0_1; }
+		public RuleCall getDependenciesActivityElementQualifiedNameParserRuleCall_6_2_1_0_1() { return cDependenciesActivityElementQualifiedNameParserRuleCall_6_2_1_0_1; }
 
 		//ENDLINE
-		public RuleCall getENDLINEParserRuleCall_5_2_2() { return cENDLINEParserRuleCall_5_2_2; }
+		public RuleCall getENDLINEParserRuleCall_6_2_2() { return cENDLINEParserRuleCall_6_2_2; }
 
 		//CLOSEDCURLY
-		public RuleCall getCLOSEDCURLYTerminalRuleCall_6() { return cCLOSEDCURLYTerminalRuleCall_6; }
+		public RuleCall getCLOSEDCURLYTerminalRuleCall_7() { return cCLOSEDCURLYTerminalRuleCall_7; }
 	}
 
 	public class DateElements extends AbstractParserRuleElementFinder {
@@ -1201,9 +1322,9 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Program:
 	//
-	//	description=ML_COMMENT? ("Program" name=ID OPENCURLY (plans+=PlanImport ENDLINE)* ("project"
+	//	description=ML_COMMENT? ("Program" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (plans+=PlanImport ENDLINE)*
 	//
-	//	referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY) | projects+=Project;
+	//	("project" referencedProjects+=[Project|QualifiedName] ENDLINE)* projects+=Project* CLOSEDCURLY) | projects+=Project;
 	public ProgramElements getProgramAccess() {
 		return (pProgram != null) ? pProgram : (pProgram = new ProgramElements());
 	}
@@ -1214,11 +1335,13 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Project:
 	//
-	//	description=ML_COMMENT? "Project" name=ID OPENCURLY (wbs=WBSImport ENDLINE)? (resources=ResourcesImport ENDLINE)?
+	//	description=ML_COMMENT? "Project" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (wbs=WBSImport ENDLINE)?
 	//
-	//	(plans+=PlanImport ENDLINE)* ("assumptions" OPENCURLY assumptions+=Assumption* CLOSEDCURLY)? ("constraints" OPENCURLY
+	//	(resources=ResourcesImport ENDLINE)? (plans+=PlanImport ENDLINE)* ("assumptions" OPENCURLY assumptions+=Assumption*
 	//
-	//	constraints+=Constraint* CLOSEDCURLY)? activities+=ActivityElement* CLOSEDCURLY;
+	//	CLOSEDCURLY)? ("constraints" OPENCURLY constraints+=Constraint* CLOSEDCURLY)? activities+=ActivityElement*
+	//
+	//	CLOSEDCURLY;
 	public ProjectElements getProjectAccess() {
 		return (pProject != null) ? pProject : (pProject = new ProjectElements());
 	}
@@ -1251,10 +1374,12 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ActivityGroup:
 	//
-	//	description=ML_COMMENT? "Group" name=ID OPENCURLY ("dependsOn" dependencies+=[ActivityElement|QualifiedName]*
+	//	description=ML_COMMENT? "Group" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? ("dependsOn"
 	//
-	//	ENDLINE)? activities+=ActivityElement* //groups += ActivityGroup*
-	// CLOSEDCURLY;
+	//	dependencies+=[ActivityElement|QualifiedName]* ENDLINE)? activities+=ActivityElement* //groups += ActivityGroup*
+	//
+	//
+	//	CLOSEDCURLY;
 	public ActivityGroupElements getActivityGroupAccess() {
 		return (pActivityGroup != null) ? pActivityGroup : (pActivityGroup = new ActivityGroupElements());
 	}
@@ -1345,11 +1470,11 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 
 	//CheckPoint:
 	//
-	//	description=ML_COMMENT? "CheckPoint" name=ID OPENCURLY (("date" end=STRING ENDLINE | "after"
+	//	description=ML_COMMENT? "CheckPoint" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? (("date" end=STRING ENDLINE
 	//
-	//	after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness" completeness=INT "%" ENDLINE &
+	//	| "after" after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & "completeness" completeness=INT "%"
 	//
-	//	("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
+	//	ENDLINE & ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
 	public CheckPointElements getCheckPointAccess() {
 		return (pCheckPoint != null) ? pCheckPoint : (pCheckPoint = new CheckPointElements());
 	}
@@ -1371,13 +1496,15 @@ public class PlanGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Activity:
 	//
-	//	description=ML_COMMENT? "Activity" name=ID OPENCURLY ("involves" OPENCURLY involvedResources+=ResourceInvolvement*
+	//	description=ML_COMMENT? "Activity" name=ID OPENCURLY ("name" longName=STRING ENDLINE)? ("involves" OPENCURLY
 	//
-	//	CLOSEDCURLY)? (("starts" start=STRING ENDLINE | "after" after=[ActivityElement|QualifiedName] "offset" offset=INT
+	//	involvedResources+=ResourceInvolvement* CLOSEDCURLY)? (("starts" start=STRING ENDLINE | "after"
 	//
-	//	ENDLINE) & ("ends" end=STRING ENDLINE | "duration" duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE
+	//	after=[ActivityElement|QualifiedName] "offset" offset=INT ENDLINE) & ("ends" end=STRING ENDLINE | "duration"
 	//
-	//	& ("dependsOn" dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
+	//	duration=INT ENDLINE) "completeness" completeness=INT "%" ENDLINE & ("dependsOn"
+	//
+	//	dependencies+=[ActivityElement|QualifiedName]* ENDLINE)?) CLOSEDCURLY;
 	public ActivityElements getActivityAccess() {
 		return (pActivity != null) ? pActivity : (pActivity = new ActivityElements());
 	}

@@ -2,12 +2,11 @@
  */
 package com.lowcoupling.mdpm.lng.pbs.pBS.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import com.lowcoupling.mdpm.lng.pbs.pBS.PBS;
 import com.lowcoupling.mdpm.lng.pbs.pBS.PBSPackage;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->

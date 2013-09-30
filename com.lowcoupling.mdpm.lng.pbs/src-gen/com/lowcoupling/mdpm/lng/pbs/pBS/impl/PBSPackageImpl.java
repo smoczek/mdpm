@@ -2,17 +2,16 @@
  */
 package com.lowcoupling.mdpm.lng.pbs.pBS.impl;
 
-import com.lowcoupling.mdpm.lng.pbs.pBS.PBSFactory;
-import com.lowcoupling.mdpm.lng.pbs.pBS.PBSPackage;
-import com.lowcoupling.mdpm.lng.pbs.pBS.Part;
-import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import com.lowcoupling.mdpm.lng.pbs.pBS.PBSFactory;
+import com.lowcoupling.mdpm.lng.pbs.pBS.PBSPackage;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Part;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
 
 /**
  * <!-- begin-user-doc -->

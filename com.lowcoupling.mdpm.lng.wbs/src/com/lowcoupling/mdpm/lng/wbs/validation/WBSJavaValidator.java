@@ -1,6 +1,5 @@
 package com.lowcoupling.mdpm.lng.wbs.validation;
 
-import com.lowcoupling.mdpm.lng.wbs.validation.AbstractWBSJavaValidator;
  
 
 public class WBSJavaValidator extends AbstractWBSJavaValidator {

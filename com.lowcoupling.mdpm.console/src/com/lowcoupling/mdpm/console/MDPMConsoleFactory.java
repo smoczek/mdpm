@@ -1,13 +1,9 @@
 package com.lowcoupling.mdpm.console;
  
-import java.io.IOException;
-
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleFactory;
 import org.eclipse.ui.console.IConsoleManager;
-import org.eclipse.ui.console.IOConsoleOutputStream;
-import org.eclipse.ui.console.MessageConsole;
 
 public class MDPMConsoleFactory implements IConsoleFactory {
 

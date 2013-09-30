@@ -2,12 +2,14 @@
  */
 package com.lowcoupling.mdpm.lng.pbs.pBS.util;
 
-import com.lowcoupling.mdpm.lng.pbs.pBS.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+
+import com.lowcoupling.mdpm.lng.pbs.pBS.PBS;
+import com.lowcoupling.mdpm.lng.pbs.pBS.PBSPackage;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Part;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
 
 /**
  * <!-- begin-user-doc -->

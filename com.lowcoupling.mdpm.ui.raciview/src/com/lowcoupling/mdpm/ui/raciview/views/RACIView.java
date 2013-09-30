@@ -17,7 +17,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Point; 
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -37,8 +37,8 @@ import com.lowcoupling.mdpm.commons.util.PlanUtil;
 import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.Program;
+import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
 import com.lowcoupling.mdpm.lng.resources.resources.Resource;
 

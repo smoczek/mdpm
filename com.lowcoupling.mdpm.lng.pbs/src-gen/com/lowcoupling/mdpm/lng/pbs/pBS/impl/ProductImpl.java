@@ -2,24 +2,20 @@
  */
 package com.lowcoupling.mdpm.lng.pbs.pBS.impl;
 
-import com.lowcoupling.mdpm.lng.pbs.pBS.PBSPackage;
-import com.lowcoupling.mdpm.lng.pbs.pBS.Part;
-import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.lowcoupling.mdpm.lng.pbs.pBS.PBSPackage;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Part;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
 
 /**
  * <!-- begin-user-doc -->

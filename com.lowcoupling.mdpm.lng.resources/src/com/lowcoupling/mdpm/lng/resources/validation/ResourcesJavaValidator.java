@@ -1,6 +1,5 @@
 package com.lowcoupling.mdpm.lng.resources.validation;
 
-import com.lowcoupling.mdpm.lng.resources.validation.AbstractResourcesJavaValidator;
  
 
 public class ResourcesJavaValidator extends AbstractResourcesJavaValidator {

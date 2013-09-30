@@ -11,7 +11,6 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.zest.core.viewers.GraphViewer;
-import org.eclipse.zest.core.widgets.Graph;
 
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
 

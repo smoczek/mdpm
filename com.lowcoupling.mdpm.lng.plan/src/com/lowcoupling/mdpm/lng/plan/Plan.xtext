@@ -6,6 +6,7 @@ import "http://www.lowcoupling.com/mdpm/lng/resources/Resources" as res
 Program:
 	(description=ML_COMMENT)?
 	('Program' name = ID OPENCURLY	
+		 ('name' longName= STRING ENDLINE)?
 		(plans += PlanImport ENDLINE)*
 		('project' referencedProjects+=[Project|QualifiedName] ENDLINE)*
 		projects+=Project*
@@ -16,6 +17,7 @@ Program:
 Project:
 	(description=ML_COMMENT)?
 	'Project' name = ID OPENCURLY
+		 ('name' longName= STRING ENDLINE)?
 		 (wbs = WBSImport ENDLINE)? 
 		 (resources = ResourcesImport ENDLINE)?
 		 (plans += PlanImport ENDLINE)*
@@ -37,6 +39,7 @@ Constraint:
 ActivityGroup:
 	(description=ML_COMMENT)?
 	'Group'name=ID OPENCURLY
+	('name' longName= STRING ENDLINE)?
 	('dependsOn' dependencies += ([ActivityElement|QualifiedName])*ENDLINE)?
 	activities += ActivityElement*
 		//groups += ActivityGroup*
@@ -72,6 +75,7 @@ ENDLINE:
 CheckPoint:
 	(description=ML_COMMENT)?
 	'CheckPoint' name= ID OPENCURLY
+	('name' longName= STRING ENDLINE)?
 	(
 	(('date'  end = STRING ENDLINE) | ('after' after = [ActivityElement|QualifiedName] 'offset' offset = INT ENDLINE)) &
 	'completeness' completeness = INT '%' ENDLINE&
@@ -87,6 +91,7 @@ ResourceInvolvement:
 Activity :
 	(description=ML_COMMENT)?
 	'Activity' name=ID OPENCURLY	
+	('name' longName= STRING ENDLINE)?
 	('involves' OPENCURLY (involvedResources+=ResourceInvolvement)* CLOSEDCURLY)?
 	(
 	 (('starts' start = STRING ENDLINE)

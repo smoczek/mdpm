@@ -1,8 +1,6 @@
 package com.lowcoupling.mdpm.m2t.plan2html.main;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -15,13 +13,10 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.inject.Injector;
-import com.lowcoupling.mdpm.commons.util.PlanUtil;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
-import com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl;
 import com.lowcoupling.mdpm.lng.wbs.WBSStandaloneSetup;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
-import com.lowcoupling.mdpm.m2t.plan2html.main.GanttImageExporter.GanttCreator;
 import com.lowcoupling.mdpm.ui.wbstreeview.views.WBSTreeImageExporter;
 
 public class WBSImageExporter {
@@ -118,7 +113,6 @@ public class WBSImageExporter {
 		Display display = Display.getDefault();
 		WBSCreator wc = new WBSCreator((Project)plan,name);
 		wc.setCurrentModel(currentModel);
-		System.out.println("yuhuuu");
 		display.syncExec(
 				wc
 

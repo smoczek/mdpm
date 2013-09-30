@@ -5,8 +5,9 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.zest.core.viewers.ISelfStyleProvider;
 import org.eclipse.zest.core.widgets.GraphConnection;
 import org.eclipse.zest.core.widgets.GraphNode;
-import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
+
 import com.lowcoupling.mdpm.lng.pbs.pBS.Part;
+import com.lowcoupling.mdpm.lng.pbs.pBS.Product;
 
 public class PBSLabelProvider extends LabelProvider implements ISelfStyleProvider{
 	@Override

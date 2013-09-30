@@ -2,6 +2,12 @@
  */
 package com.lowcoupling.mdpm.lng.wbs.wBS.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSDeliverable;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSFactory;
@@ -10,13 +16,6 @@ import com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProgram;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSWorkPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,27 +2,23 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import com.lowcoupling.mdpm.lng.plan.plan.PlanImport;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
-import com.lowcoupling.mdpm.lng.plan.plan.Program;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.lowcoupling.mdpm.lng.plan.plan.PlanImport;
+import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
+import com.lowcoupling.mdpm.lng.plan.plan.Program;
+import com.lowcoupling.mdpm.lng.plan.plan.Project;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl#getLongName <em>Long Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl#getPlans <em>Plans</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl#getReferencedProjects <em>Referenced Projects</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl#getProjects <em>Projects</em>}</li>
@@ -82,6 +79,26 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLongName()
+   * @generated
+   * @ordered
+   */
+  protected static final String LONG_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLongName()
+   * @generated
+   * @ordered
+   */
+  protected String longName = LONG_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPlans() <em>Plans</em>}' containment reference list.
@@ -185,6 +202,29 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getLongName()
+  {
+    return longName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLongName(String newLongName)
+  {
+    String oldLongName = longName;
+    longName = newLongName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanPackage.PROGRAM__LONG_NAME, oldLongName, longName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<PlanImport> getPlans()
   {
     if (plans == null)
@@ -254,6 +294,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return getDescription();
       case PlanPackage.PROGRAM__NAME:
         return getName();
+      case PlanPackage.PROGRAM__LONG_NAME:
+        return getLongName();
       case PlanPackage.PROGRAM__PLANS:
         return getPlans();
       case PlanPackage.PROGRAM__REFERENCED_PROJECTS:
@@ -280,6 +322,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return;
       case PlanPackage.PROGRAM__NAME:
         setName((String)newValue);
+        return;
+      case PlanPackage.PROGRAM__LONG_NAME:
+        setLongName((String)newValue);
         return;
       case PlanPackage.PROGRAM__PLANS:
         getPlans().clear();
@@ -313,6 +358,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case PlanPackage.PROGRAM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case PlanPackage.PROGRAM__LONG_NAME:
+        setLongName(LONG_NAME_EDEFAULT);
+        return;
       case PlanPackage.PROGRAM__PLANS:
         getPlans().clear();
         return;
@@ -340,6 +388,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case PlanPackage.PROGRAM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PlanPackage.PROGRAM__LONG_NAME:
+        return LONG_NAME_EDEFAULT == null ? longName != null : !LONG_NAME_EDEFAULT.equals(longName);
       case PlanPackage.PROGRAM__PLANS:
         return plans != null && !plans.isEmpty();
       case PlanPackage.PROGRAM__REFERENCED_PROJECTS:
@@ -365,6 +415,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     result.append(description);
     result.append(", name: ");
     result.append(name);
+    result.append(", longName: ");
+    result.append(longName);
     result.append(')');
     return result.toString();
   }

@@ -2,9 +2,9 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan;
 
-import com.lowcoupling.mdpm.lng.resources.resources.Resource;
-
 import org.eclipse.emf.ecore.EObject;
+
+import com.lowcoupling.mdpm.lng.resources.resources.Resource;
 
 /**
  * <!-- begin-user-doc -->

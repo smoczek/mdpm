@@ -2,24 +2,20 @@
  */
 package com.lowcoupling.mdpm.lng.resources.resources.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import com.lowcoupling.mdpm.lng.resources.resources.Resource;
 import com.lowcoupling.mdpm.lng.resources.resources.ResourceGroup;
 import com.lowcoupling.mdpm.lng.resources.resources.Resources;
 import com.lowcoupling.mdpm.lng.resources.resources.ResourcesPackage;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Acceleo Plan2text Module Runtime Plug-in
 Bundle-SymbolicName: com.lowcoupling.mdpm.m2t.plan2html
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.lowcoupling.mdpm.m2t.plan2html.Activator
-Bundle-Vendor: Eclipse Modeling Project
+Bundle-Vendor: LowCoupling
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore,

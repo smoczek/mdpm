@@ -3,7 +3,6 @@
 package com.lowcoupling.mdpm.lng.plan.plan;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getDescription <em>Description</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getName <em>Name</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getLongName <em>Long Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getPlans <em>Plans</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getReferencedProjects <em>Referenced Projects</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getProjects <em>Projects</em>}</li>
@@ -79,6 +79,32 @@ public interface Program extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Long Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Long Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Long Name</em>' attribute.
+   * @see #setLongName(String)
+   * @see com.lowcoupling.mdpm.lng.plan.plan.PlanPackage#getProgram_LongName()
+   * @model
+   * @generated
+   */
+  String getLongName();
+
+  /**
+   * Sets the value of the '{@link com.lowcoupling.mdpm.lng.plan.plan.Program#getLongName <em>Long Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Long Name</em>' attribute.
+   * @see #getLongName()
+   * @generated
+   */
+  void setLongName(String value);
 
   /**
    * Returns the value of the '<em><b>Plans</b></em>' containment reference list.

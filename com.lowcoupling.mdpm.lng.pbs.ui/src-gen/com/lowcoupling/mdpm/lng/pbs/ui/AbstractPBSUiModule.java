@@ -4,8 +4,8 @@
  */
 package com.lowcoupling.mdpm.lng.pbs.ui;
 
-import org.eclipse.xtext.ui.DefaultUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.DefaultUiModule;
 
 /**
  * Manual modifications go to {com.lowcoupling.mdpm.lng.pbs.ui.PBSUiModule}

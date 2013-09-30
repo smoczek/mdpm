@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Pbstreeview
 Bundle-SymbolicName: com.lowcoupling.mdpm.ui.pbstreeview;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.lowcoupling.mdpm.ui.pbstreeview.Activator
-Bundle-Vendor: LOWCOUPLING
+Bundle-Vendor: LowCoupling
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- com.lowcoupling.mdpm.lng.pbs;bundle-version="1.0.0"
+ com.lowcoupling.mdpm.lng.pbs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.draw2d,

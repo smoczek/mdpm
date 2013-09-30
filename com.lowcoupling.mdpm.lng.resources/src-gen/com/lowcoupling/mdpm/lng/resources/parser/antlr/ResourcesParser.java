@@ -3,9 +3,9 @@
 */
 package com.lowcoupling.mdpm.lng.resources.parser.antlr;
 
-import com.google.inject.Inject;
-
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+
+import com.google.inject.Inject;
 import com.lowcoupling.mdpm.lng.resources.services.ResourcesGrammarAccess;
 
 public class ResourcesParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser {

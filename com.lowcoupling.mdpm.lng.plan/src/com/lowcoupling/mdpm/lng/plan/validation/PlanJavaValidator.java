@@ -1,6 +1,5 @@
 package com.lowcoupling.mdpm.lng.plan.validation;
 
-import com.lowcoupling.mdpm.lng.plan.validation.AbstractPlanJavaValidator;
  
 
 public class PlanJavaValidator extends AbstractPlanJavaValidator {

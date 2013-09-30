@@ -1,7 +1,6 @@
 
 package com.lowcoupling.mdpm.lng.wbs;
 
-import com.lowcoupling.mdpm.lng.wbs.WBSStandaloneSetupGenerated;
 
 /**
  * Initialization support for running Xtext languages 

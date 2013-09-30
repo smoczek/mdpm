@@ -5,12 +5,8 @@ package com.lowcoupling.mdpm.lng.plan.ui.outline;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
@@ -20,8 +16,8 @@ import org.osgi.framework.Bundle;
 import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.Program;
+import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
 
 /**

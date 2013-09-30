@@ -4,9 +4,11 @@
 package com.lowcoupling.mdpm.lng.plan.ui.contentassist;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.*;
-import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 /**
  * Represents a generated, default implementation of superclass {@link org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider}.
@@ -22,6 +24,9 @@ public class AbstractPlanProposalProvider extends org.eclipse.xtext.common.ui.co
 	public void completeProgram_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeProgram_LongName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
 	public void completeProgram_Plans(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
@@ -35,6 +40,9 @@ public class AbstractPlanProposalProvider extends org.eclipse.xtext.common.ui.co
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeProject_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeProject_LongName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeProject_Wbs(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -67,6 +75,9 @@ public class AbstractPlanProposalProvider extends org.eclipse.xtext.common.ui.co
 	public void completeActivityGroup_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeActivityGroup_LongName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
 	public void completeActivityGroup_Dependencies(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
@@ -86,6 +97,9 @@ public class AbstractPlanProposalProvider extends org.eclipse.xtext.common.ui.co
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeCheckPoint_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeCheckPoint_LongName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeCheckPoint_End(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -116,6 +130,9 @@ public class AbstractPlanProposalProvider extends org.eclipse.xtext.common.ui.co
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeActivity_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeActivity_LongName(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeActivity_InvolvedResources(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {

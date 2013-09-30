@@ -2,7 +2,6 @@ package com.lowcoupling.mdpm.m2t.plan2html.main;
 
 import java.io.File;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
@@ -69,6 +68,7 @@ public class GanttImageExporter {
 			while(planIterator.hasNext()){
 				Project plan = planIterator.next();
 				EList<ActivityElement> activities = plan.getActivities();
+				//System.out.println("\t *"+plan.getName());
 				handlePlan(plan,activities,eventsMap);
 			}
 			planIterator  = plans.iterator();
@@ -79,19 +79,20 @@ public class GanttImageExporter {
 				EList<ActivityElement> activities = plan.getActivities();
 				handleDependencies(plan,activities,eventsMap,null);
 			}
-
 			return eventsMap;
 		}
 
 		public GanttEvent handleActivity(ActivityElement element, Project plan, GanttSection gs, String qualifiedName, LinkedHashMap<String,GanttEvent>tmpEventsMap){
 			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			GanttEvent evt = null;
+
 			//if the current element is an activity
 			if(element instanceof Activity){	
 				Activity act = (Activity)element;
 				ActivityElementDecorator activity  = new ActivityElementDecorator(act);
 				Calendar start = activity.getStartByCalendar();
 				Calendar end = activity.getEndByCalendar();
+
 				evt= new GanttEvent(ganttChart, act.getName(), start, end,act.getCompleteness());	
 				//gs.addGanttEvent(evt);
 				tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
@@ -100,20 +101,18 @@ public class GanttImageExporter {
 			}else if (element instanceof CheckPoint){
 				CheckPoint checkPoint = (CheckPoint)element;
 				Calendar start = GregorianCalendar.getInstance();
-				try {
-					start.setTime(formatter.parse(checkPoint.getEnd()));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+
+				//start.setTime(formatter.parse(checkPoint.getEnd()));
+				start = (new ActivityElementDecorator(element)).getStartByCalendar();
+
 				Calendar end = GregorianCalendar.getInstance();
-				try {
-					end.setTime(formatter.parse(checkPoint.getEnd()));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				end = (new ActivityElementDecorator(element)).getEndByCalendar();
 				evt= new GanttEvent(ganttChart, checkPoint.getName(), start, end, checkPoint.getCompleteness());
 				evt.setCheckpoint(true);
+				//gs.addGanttEvent(evt);
 				tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
+				//System.out.println(qualifiedName+"."+element.getName());
+
 				//if the current element is group		
 			}else if (element instanceof ActivityGroup){
 				ActivityGroup group = (ActivityGroup)element;
@@ -158,12 +157,20 @@ public class GanttImageExporter {
 			return evt;
 		}
 		public void handlePlan(Project plan,EList<ActivityElement> activities, LinkedHashMap<String,GanttEvent>eventsMap){
+			Iterator<ActivityElement> activityIterator = activities.iterator();
 			GanttSection gs = new GanttSection(ganttChart, plan.getName());
+			//System.out.println("Creating GanttSection "+gs.getName());
 			LinkedHashMap<String,GanttEvent> tmpEventsMap = new LinkedHashMap<String, GanttEvent>();
+			while(activityIterator.hasNext()){
+				ActivityElement element = activityIterator.next();
+				//System.out.println("\t\t ! handling"+element.getName());
+				GanttEvent evt = handleActivity(element,plan,gs,plan.getName(),tmpEventsMap);
+			}
 			Iterator<GanttEvent> events  = tmpEventsMap.values().iterator();
 			while (events.hasNext()){
 				GanttEvent event = events.next();
 				gs.addGanttEvent(event);
+
 			}
 			eventsMap.putAll(tmpEventsMap);
 
@@ -208,6 +215,7 @@ public class GanttImageExporter {
 				}
 			}
 		}
+
 
 		@Override
 		public void run() {

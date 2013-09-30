@@ -2,6 +2,18 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.Assumption;
 import com.lowcoupling.mdpm.lng.plan.plan.Constraint;
@@ -10,22 +22,6 @@ import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
 import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getLongName <em>Long Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getWbs <em>Wbs</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getPlans <em>Plans</em>}</li>
@@ -88,6 +85,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLongName()
+   * @generated
+   * @ordered
+   */
+  protected static final String LONG_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLongName() <em>Long Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLongName()
+   * @generated
+   * @ordered
+   */
+  protected String longName = LONG_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getWbs() <em>Wbs</em>}' containment reference.
@@ -214,6 +231,29 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PlanPackage.PROJECT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getLongName()
+  {
+    return longName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLongName(String newLongName)
+  {
+    String oldLongName = longName;
+    longName = newLongName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanPackage.PROJECT__LONG_NAME, oldLongName, longName));
   }
 
   /**
@@ -408,6 +448,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return getDescription();
       case PlanPackage.PROJECT__NAME:
         return getName();
+      case PlanPackage.PROJECT__LONG_NAME:
+        return getLongName();
       case PlanPackage.PROJECT__WBS:
         return getWbs();
       case PlanPackage.PROJECT__RESOURCES:
@@ -440,6 +482,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return;
       case PlanPackage.PROJECT__NAME:
         setName((String)newValue);
+        return;
+      case PlanPackage.PROJECT__LONG_NAME:
+        setLongName((String)newValue);
         return;
       case PlanPackage.PROJECT__WBS:
         setWbs((WBSImport)newValue);
@@ -483,6 +528,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
       case PlanPackage.PROJECT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case PlanPackage.PROJECT__LONG_NAME:
+        setLongName(LONG_NAME_EDEFAULT);
+        return;
       case PlanPackage.PROJECT__WBS:
         setWbs((WBSImport)null);
         return;
@@ -519,6 +567,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case PlanPackage.PROJECT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PlanPackage.PROJECT__LONG_NAME:
+        return LONG_NAME_EDEFAULT == null ? longName != null : !LONG_NAME_EDEFAULT.equals(longName);
       case PlanPackage.PROJECT__WBS:
         return wbs != null;
       case PlanPackage.PROJECT__RESOURCES:
@@ -550,6 +600,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
     result.append(description);
     result.append(", name: ");
     result.append(name);
+    result.append(", longName: ");
+    result.append(longName);
     result.append(')');
     return result.toString();
   }

@@ -1,7 +1,6 @@
 
 package com.lowcoupling.mdpm.lng.resources;
 
-import com.lowcoupling.mdpm.lng.resources.ResourcesStandaloneSetupGenerated;
 
 /**
  * Initialization support for running Xtext languages 

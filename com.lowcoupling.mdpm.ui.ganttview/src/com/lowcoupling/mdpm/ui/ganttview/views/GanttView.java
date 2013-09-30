@@ -2,7 +2,6 @@ package com.lowcoupling.mdpm.ui.ganttview.views;
 
 import java.net.URL;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,15 +31,12 @@ import org.eclipse.nebula.widgets.ganttchart.GanttSection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseWheelListener;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
@@ -58,10 +54,9 @@ import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.Program;
+import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.util.ActivityElementDecorator;
-import com.lowcoupling.mdpm.ui.ganttview.Activator;
 
 public class GanttView extends ViewPart implements ISelectionListener{
 

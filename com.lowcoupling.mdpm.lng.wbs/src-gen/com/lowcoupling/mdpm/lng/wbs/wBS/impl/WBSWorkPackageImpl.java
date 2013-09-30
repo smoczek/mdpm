@@ -2,10 +2,10 @@
  */
 package com.lowcoupling.mdpm.lng.wbs.wBS.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSWorkPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

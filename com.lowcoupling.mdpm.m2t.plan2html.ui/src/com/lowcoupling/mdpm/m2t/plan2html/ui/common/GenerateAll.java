@@ -18,6 +18,9 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Shell;
 
 
 /**
@@ -54,6 +57,7 @@ public class GenerateAll {
 	 * @generated
 	 */
 	public GenerateAll(URI modelURI, IContainer targetFolder, List<? extends Object> arguments) {
+		 
 		this.modelURI = modelURI;
 		this.targetFolder = targetFolder;
 		this.arguments = arguments;
@@ -69,6 +73,15 @@ public class GenerateAll {
 	 * @generated
 	 */
 	public void doGenerate(IProgressMonitor monitor) throws IOException {
+		
+		Display display = Display.getCurrent();
+    	System.out.println(display);
+//    	
+//    	Shell shell = new Shell(display);
+//    	System.out.println(shell);
+////    	
+//    	FileDialog fileDialog = new FileDialog(shell);
+//  		fileDialog.open();
 		if (!targetFolder.getLocation().toFile().exists()) {
 			targetFolder.getLocation().toFile().mkdirs();
 		}
@@ -81,6 +94,8 @@ public class GenerateAll {
 		//};
 		//gen0.doGenerate(BasicMonitor.toMonitor(monitor));
 		monitor.subTask("Loading...");
+	 
+//			System.out.println(result); 
 		com.lowcoupling.mdpm.m2t.plan2html.main.Generate gen0 = new com.lowcoupling.mdpm.m2t.plan2html.main.Generate(modelURI, targetFolder.getLocation().toFile(), arguments);
 		monitor.worked(1);
 		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("com.lowcoupling.mdpm.m2t.plan2html", "com.lowcoupling.mdpm.m2t.plan2html.main.Generate", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());

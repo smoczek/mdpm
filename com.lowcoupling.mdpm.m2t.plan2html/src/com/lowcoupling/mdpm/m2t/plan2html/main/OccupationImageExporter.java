@@ -23,7 +23,6 @@ import com.lowcoupling.charthelper.ChartToPngRenderer;
 import com.lowcoupling.charthelper.LineChart;
 import com.lowcoupling.mdpm.commons.util.PlanUtil;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
-import com.lowcoupling.mdpm.lng.plan.plan.impl.ProgramImpl;
 import com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl;
 import com.lowcoupling.mdpm.lng.plan.util.ActivityElementDecorator;
 import com.lowcoupling.mdpm.lng.resources.resources.Resource;

@@ -5,11 +5,12 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.zest.core.viewers.ISelfStyleProvider;
 import org.eclipse.zest.core.widgets.GraphConnection;
 import org.eclipse.zest.core.widgets.GraphNode;
-import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProgram;
+
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity;
-import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
 import com.lowcoupling.mdpm.lng.wbs.wBS.WBSDeliverable;
-import com.lowcoupling.mdpm.lng.wbs.wBS.WBSWorkPackage; 
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProgram;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSWorkPackage;
 
 public class WBSLabelProvider extends LabelProvider implements ISelfStyleProvider{
 	@Override

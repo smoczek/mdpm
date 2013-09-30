@@ -2,15 +2,17 @@
  */
 package com.lowcoupling.mdpm.lng.resources.resources.impl;
 
-import com.lowcoupling.mdpm.lng.resources.resources.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import com.lowcoupling.mdpm.lng.resources.resources.Resource;
+import com.lowcoupling.mdpm.lng.resources.resources.ResourceGroup;
+import com.lowcoupling.mdpm.lng.resources.resources.Resources;
+import com.lowcoupling.mdpm.lng.resources.resources.ResourcesFactory;
+import com.lowcoupling.mdpm.lng.resources.resources.ResourcesPackage;
 
 /**
  * <!-- begin-user-doc -->

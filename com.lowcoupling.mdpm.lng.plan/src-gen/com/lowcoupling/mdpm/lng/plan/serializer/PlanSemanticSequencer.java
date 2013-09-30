@@ -1,7 +1,12 @@
 package com.lowcoupling.mdpm.lng.plan.serializer;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
+import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.Assumption;
@@ -15,17 +20,6 @@ import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
 import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
 import com.lowcoupling.mdpm.lng.plan.services.PlanGrammarAccess;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
-import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
-import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
-import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
-import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class PlanSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -110,7 +104,7 @@ public class PlanSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (description=ML_COMMENT? name=ID dependencies+=[ActivityElement|QualifiedName]* activities+=ActivityElement*)
+	 *     (description=ML_COMMENT? name=ID longName=STRING? dependencies+=[ActivityElement|QualifiedName]* activities+=ActivityElement*)
 	 */
 	protected void sequence_ActivityGroup(EObject context, ActivityGroup semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -122,6 +116,7 @@ public class PlanSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         description=ML_COMMENT? 
 	 *         name=ID 
+	 *         longName=STRING? 
 	 *         involvedResources+=ResourceInvolvement* 
 	 *         (start=STRING | (after=[ActivityElement|QualifiedName] offset=INT)) 
 	 *         (end=STRING | duration=INT) 
@@ -155,6 +150,7 @@ public class PlanSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         description=ML_COMMENT? 
 	 *         name=ID 
+	 *         longName=STRING? 
 	 *         (end=STRING | (after=[ActivityElement|QualifiedName] offset=INT)) 
 	 *         completeness=INT 
 	 *         dependencies+=[ActivityElement|QualifiedName]*
@@ -199,7 +195,17 @@ public class PlanSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((description=ML_COMMENT? name=ID plans+=PlanImport* referencedProjects+=[Project|QualifiedName]* projects+=Project*) | projects+=Project)
+	 *     (
+	 *         (
+	 *             description=ML_COMMENT? 
+	 *             name=ID 
+	 *             longName=STRING? 
+	 *             plans+=PlanImport* 
+	 *             referencedProjects+=[Project|QualifiedName]* 
+	 *             projects+=Project*
+	 *         ) | 
+	 *         projects+=Project
+	 *     )
 	 */
 	protected void sequence_Program(EObject context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -211,6 +217,7 @@ public class PlanSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         description=ML_COMMENT? 
 	 *         name=ID 
+	 *         longName=STRING? 
 	 *         wbs=WBSImport? 
 	 *         resources=ResourcesImport? 
 	 *         plans+=PlanImport* 

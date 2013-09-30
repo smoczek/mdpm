@@ -1,7 +1,6 @@
 
 package com.lowcoupling.mdpm.lng.plan;
 
-import com.lowcoupling.mdpm.lng.plan.PlanStandaloneSetupGenerated;
 
 /**
  * Initialization support for running Xtext languages 

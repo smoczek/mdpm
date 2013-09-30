@@ -3,9 +3,9 @@
 */
 package com.lowcoupling.mdpm.lng.plan.parser.antlr;
 
-import com.google.inject.Inject;
-
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+
+import com.google.inject.Inject;
 import com.lowcoupling.mdpm.lng.plan.services.PlanGrammarAccess;
 
 public class PlanParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser {

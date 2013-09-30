@@ -2,25 +2,21 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import com.lowcoupling.mdpm.lng.plan.plan.Activity;
-import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
-import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.lowcoupling.mdpm.lng.plan.plan.Activity;
+import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
+import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
+import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
 
 /**
  * <!-- begin-user-doc -->

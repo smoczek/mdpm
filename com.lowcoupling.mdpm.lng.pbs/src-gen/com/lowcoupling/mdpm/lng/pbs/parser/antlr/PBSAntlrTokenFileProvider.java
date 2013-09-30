@@ -4,6 +4,7 @@
 package com.lowcoupling.mdpm.lng.pbs.parser.antlr;
 
 import java.io.InputStream;
+
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 
 public class PBSAntlrTokenFileProvider implements IAntlrTokenFileProvider {
