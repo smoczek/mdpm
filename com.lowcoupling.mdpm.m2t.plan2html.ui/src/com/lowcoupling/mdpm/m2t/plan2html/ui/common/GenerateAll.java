@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 
 
 /**
@@ -76,6 +77,7 @@ public class GenerateAll {
 		
 		Display display = Display.getCurrent();
     	System.out.println(display);
+    	PlatformUI.getWorkbench().getDisplay();
 //    	
 //    	Shell shell = new Shell(display);
 //    	System.out.println(shell);
