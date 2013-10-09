@@ -75,15 +75,16 @@ public class GenerateAll {
 	 */
 	public void doGenerate(IProgressMonitor monitor) throws IOException {
 		
-		Display display = Display.getCurrent();
-    	System.out.println(display);
-    	PlatformUI.getWorkbench().getDisplay();
+		Display display = PlatformUI.getWorkbench().getDisplay();
+		System.out.println(display);
+		//PMPGenerationDialog dialog = new PMPGenerationDialog(display.getActiveShell());
+		//dialog.open();
 //    	
-//    	Shell shell = new Shell(display);
-//    	System.out.println(shell);
+    	//Shell shell = display.getActiveShell();
+    	//System.out.println(shell);
 ////    	
-//    	FileDialog fileDialog = new FileDialog(shell);
-//  		fileDialog.open();
+    	//FileDialog fileDialog = new FileDialog(display.getActiveShell());
+  		//fileDialog.open();
 		if (!targetFolder.getLocation().toFile().exists()) {
 			targetFolder.getLocation().toFile().mkdirs();
 		}

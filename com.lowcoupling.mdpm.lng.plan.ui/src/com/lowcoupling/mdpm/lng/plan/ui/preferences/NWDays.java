@@ -100,7 +100,6 @@ public class NWDays extends PreferencePage implements IWorkbenchPreferencePage {
 	@Override
 	protected Control createContents(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
-		// Define layout rules for widget placement
 		GridLayout compositeLayout = new GridLayout();
 		compositeLayout.numColumns = 4;
 		compositeLayout.horizontalSpacing = 30;
@@ -114,7 +113,8 @@ public class NWDays extends PreferencePage implements IWorkbenchPreferencePage {
 		
 		
 		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.mdpm.lng.plan.preferences");
-		 Label lb = new Label(composite, SWT.BORDER);
+		 
+		Label lb = new Label(composite, SWT.BORDER);
 		 lb.setText("Please check the non working days of the week");
 		 GridData oneElementData = new GridData();
 		 oneElementData.horizontalSpan = 4;

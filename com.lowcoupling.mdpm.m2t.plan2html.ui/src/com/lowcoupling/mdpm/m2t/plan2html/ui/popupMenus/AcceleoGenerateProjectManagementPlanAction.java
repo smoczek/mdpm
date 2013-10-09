@@ -29,6 +29,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
@@ -38,6 +40,7 @@ import com.lowcoupling.mdpm.m2t.plan2html.main.OccupationImageExporter;
 import com.lowcoupling.mdpm.m2t.plan2html.main.WBSImageExporter;
 import com.lowcoupling.mdpm.m2t.plan2html.ui.Activator;
 import com.lowcoupling.mdpm.m2t.plan2html.ui.common.GenerateAll;
+import com.lowcoupling.mdpm.m2t.plan2html.ui.common.PMPGenerationDialog;
 
 /**
  * Project Management Plan code generation.
@@ -67,6 +70,9 @@ public class AcceleoGenerateProjectManagementPlanAction extends ActionDelegate i
 	 * @generated
 	 */
 	public void run(IAction action) {
+		Display display = PlatformUI.getWorkbench().getDisplay();
+		PMPGenerationDialog dialog = new PMPGenerationDialog(display.getActiveShell());
+		dialog.open();
 		if (files != null) {
 			IRunnableWithProgress operation = new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) {
