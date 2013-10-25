@@ -295,6 +295,7 @@ public class PMPGenerationDialog extends Dialog {
 		//      }
 		//    });
 		
+		
 		//composite.pack();
 		composite.getShell().pack();
 		return composite;

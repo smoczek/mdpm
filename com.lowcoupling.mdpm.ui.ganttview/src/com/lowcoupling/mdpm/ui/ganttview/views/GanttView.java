@@ -193,8 +193,14 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			ActivityElementDecorator activity  = new ActivityElementDecorator(act);
 			Calendar start = activity.getStartByCalendar();
 			Calendar end = activity.getEndByCalendar();
-
-			evt= new GanttEvent(ganttChart, act.getName(), start, end,act.getCompleteness());	
+			String name="";
+			if (act.getLongName()!=null){
+				name=act.getLongName();
+			}else{
+				name=act.getName();
+			}
+			
+			evt= new GanttEvent(ganttChart, name, start, end,act.getCompleteness());	
 			//gs.addGanttEvent(evt);
 			tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
 			//System.out.println(qualifiedName+"."+element.getName());
@@ -202,13 +208,18 @@ public class GanttView extends ViewPart implements ISelectionListener{
 		}else if (element instanceof CheckPoint){
 			CheckPoint checkPoint = (CheckPoint)element;
 			Calendar start = GregorianCalendar.getInstance();
-
+			String name="";
+			if (checkPoint.getLongName()!=null){
+				name=checkPoint.getLongName();
+			}else{
+				name=checkPoint.getName();
+			}
 			//start.setTime(formatter.parse(checkPoint.getEnd()));
 			start = (new ActivityElementDecorator(element)).getStartByCalendar();
 
 			Calendar end = GregorianCalendar.getInstance();
 			end = (new ActivityElementDecorator(element)).getEndByCalendar();
-			evt= new GanttEvent(ganttChart, checkPoint.getName(), start, end, checkPoint.getCompleteness());
+			evt= new GanttEvent(ganttChart, name, start, end, checkPoint.getCompleteness());
 			evt.setCheckpoint(true);
 			//gs.addGanttEvent(evt);
 			tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
@@ -217,7 +228,13 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			//if the current element is group		
 		}else if (element instanceof ActivityGroup){
 			ActivityGroup group = (ActivityGroup)element;
-			GanttEvent scope = new GanttEvent(ganttChart, group.getName());
+			String name="";
+			if (group.getLongName()!=null){
+				name=group.getLongName();
+			}else{
+				name=group.getName();
+			}
+			GanttEvent scope = new GanttEvent(ganttChart,name);
 			Iterator<ActivityElement>activityIterator = group.getActivities().iterator();
 			tmpEventsMap.put(qualifiedName+"."+scope.getName(), scope);
 			//System.out.println(qualifiedName+"."+scope.getName());
@@ -259,7 +276,13 @@ public class GanttView extends ViewPart implements ISelectionListener{
 	}
 	public void handlePlan(Project plan,EList<ActivityElement> activities, LinkedHashMap<String,GanttEvent>eventsMap){
 		Iterator<ActivityElement> activityIterator = activities.iterator();
-		GanttSection gs = new GanttSection(ganttChart, plan.getName());
+		String name ="";
+		if (plan.getLongName()!=null){
+			name = plan.getLongName();
+		}else{
+			name = plan.getName();
+		}
+		GanttSection gs = new GanttSection(ganttChart, name);
 		//System.out.println("Creating GanttSection "+gs.getName());
 		LinkedHashMap<String,GanttEvent> tmpEventsMap = new LinkedHashMap<String, GanttEvent>();
 		while(activityIterator.hasNext()){

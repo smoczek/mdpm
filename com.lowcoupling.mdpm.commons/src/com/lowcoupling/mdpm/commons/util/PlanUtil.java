@@ -77,10 +77,10 @@ public class PlanUtil {
 		Iterator<Project> planIt = plans.iterator();
 		Collection<ActivityElement> activities = new ArrayList<ActivityElement>();
 		if (dependencies){
-		while(planIt.hasNext()){
-			Project cp = planIt.next();
-			activities.addAll(cp.getActivities());
-		}
+			while(planIt.hasNext()){
+				Project cp = planIt.next();
+				activities.addAll(cp.getActivities());
+			}
 		}else{
 			activities = plan.getActivities();
 		}
@@ -99,10 +99,10 @@ public class PlanUtil {
 		return activityElements;
 	}
 
-	
 
- 
-	
+
+
+
 	public Map<String, Resource> getInvolvedResources(Program plans, boolean dependencies){
 		LinkedHashMap<String, Resource> resources = new LinkedHashMap<String,Resource>();
 		Iterator<Project> planIterator = plans.getProjects().iterator();
@@ -136,7 +136,7 @@ public class PlanUtil {
 		return resources;
 	}
 
-	
+
 
 	/*
 	 * it returns the Project containing the ActivityElement passed as parameter
@@ -157,7 +157,7 @@ public class PlanUtil {
 		}
 	}
 
-	 
+
 
 	public Activity getFirstActivity(Program plans, boolean dependencies){
 		Iterator<Project> planIterator = plans.getProjects().iterator();
@@ -165,20 +165,23 @@ public class PlanUtil {
 		while(planIterator.hasNext()){
 			Project plan = planIterator.next();
 			Activity current = PlanUtil.getInstance().getFirstActivity(plan, dependencies);
-			if (first !=null){
-				ActivityElementDecorator firstActivity = new ActivityElementDecorator(first);
-				ActivityElementDecorator currentActivity = new ActivityElementDecorator(current);
-				if(currentActivity.getStartByCalendar().before(firstActivity.getStartByCalendar())){
-					first=current;
+			if (current!=null){
+				if (first !=null){
+					ActivityElementDecorator firstActivity = new ActivityElementDecorator(first);
+					ActivityElementDecorator currentActivity = new ActivityElementDecorator(current);
+					if(currentActivity.getStartByCalendar().before(firstActivity.getStartByCalendar())){
+						first=current;
+					}
+				}else{
+					first = current;
 				}
 			}else{
-				first = current;
+				continue;
 			}
-
 		}
 		return first;
 	}
-	
+
 	public Activity getFirstActivity(Collection<Project> plans, boolean dependencies){
 		Iterator<Project> planIterator = plans.iterator();
 		Activity first = null;
@@ -202,7 +205,7 @@ public class PlanUtil {
 	public Activity getLastActivity(Program plans, boolean dependencies){
 		Iterator<Project> planIterator = plans.getProjects().iterator();
 		Activity last = null;
-		
+
 		while(planIterator.hasNext()){
 			Project plan = planIterator.next();
 			Activity current = PlanUtil.getInstance().getLastActivity(plan, dependencies);
@@ -221,11 +224,11 @@ public class PlanUtil {
 		}
 		return last;
 	}
-	
+
 	public Activity getLastActivity(Collection<Project> plans, boolean dependencies){
 		Iterator<Project> planIterator = plans.iterator();
 		Activity last = null;
-		
+
 		while(planIterator.hasNext()){
 			Project plan = planIterator.next();
 			Activity current = PlanUtil.getInstance().getLastActivity(plan, dependencies);
@@ -244,9 +247,9 @@ public class PlanUtil {
 		}
 		return last;
 	}
-	
-	 
-	
+
+
+
 	//returns the first activity (to begin) of the plan passed as parameter
 	//Also dependencies shall be taken into account
 	public Activity getFirstActivity(Project plan, boolean dependencies){
@@ -270,11 +273,15 @@ public class PlanUtil {
 				}
 			}
 		}
-		return (Activity)first.getActivityElement();
+		if (first!=null ){
+			return (Activity)first.getActivityElement();
+		}else{
+			return null;
+		}
 	}
-	
-	 
-	
+
+
+
 	//returns the last activity (to end) of the plan passed as parameter
 	//Also dependencies shall be taken into account
 	public Activity getLastActivity(Project plan, boolean dependencies){
@@ -357,7 +364,7 @@ public class PlanUtil {
 							if(current.isAfter(interval.getEnd())){
 								break;
 							}
-								
+
 							//break;
 						}
 
