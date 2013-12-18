@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.lowcoupling.mdpm.defaultFeatures_0.0.1.201310301649.jar" id="com.lowcoupling.mdpm.defaultFeatures" version="0.0.1.201310301649">
+   <feature url="features/com.lowcoupling.mdpm.defaultFeatures_0.0.1.201312211218.jar" id="com.lowcoupling.mdpm.defaultFeatures" version="0.0.1.201312211218">
       <category name="mdpm"/>
    </feature>
    <category-def name="mdpm" label="Model Driven Project Management"/>

@@ -7,8 +7,8 @@ Bundle-Activator: com.lowcoupling.mdpm.console.Activator
 Bundle-Vendor: LowCoupling
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.xtext;bundle-version="2.4.2",
- org.eclipse.xtext.ui;bundle-version="2.4.2",
+ org.eclipse.xtext,
+ org.eclipse.xtext.ui,
  org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

@@ -4,8 +4,8 @@
 package com.lowcoupling.mdpm.lng.plan.ui.contentassist.antlr;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.xtext.AbstractElement;
@@ -14,6 +14,7 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.FollowElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
 
 import com.google.inject.Inject;
+
 import com.lowcoupling.mdpm.lng.plan.services.PlanGrammarAccess;
 
 public class PlanParser extends AbstractContentAssistParser {
@@ -38,9 +39,9 @@ public class PlanParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getProgramAccess().getAlternatives(), "rule__Program__Alternatives");
 					put(grammarAccess.getActivityElementAccess().getAlternatives(), "rule__ActivityElement__Alternatives");
-					put(grammarAccess.getCheckPointAccess().getAlternatives_5_0(), "rule__CheckPoint__Alternatives_5_0");
-					put(grammarAccess.getActivityAccess().getAlternatives_6_0(), "rule__Activity__Alternatives_6_0");
-					put(grammarAccess.getActivityAccess().getAlternatives_6_1_0(), "rule__Activity__Alternatives_6_1_0");
+					put(grammarAccess.getCheckPointAccess().getAlternatives_1_0_0(), "rule__CheckPoint__Alternatives_1_0_0");
+					put(grammarAccess.getActivityAccess().getAlternatives_7_0(), "rule__Activity__Alternatives_7_0");
+					put(grammarAccess.getActivityAccess().getAlternatives_7_1_0(), "rule__Activity__Alternatives_7_1_0");
 					put(grammarAccess.getResponsibilityAccess().getAlternatives(), "rule__Responsibility__Alternatives");
 					put(grammarAccess.getProgramAccess().getGroup_0(), "rule__Program__Group_0__0");
 					put(grammarAccess.getProgramAccess().getGroup_0_1(), "rule__Program__Group_0_1__0");
@@ -59,30 +60,34 @@ public class PlanParser extends AbstractContentAssistParser {
 					put(grammarAccess.getActivityGroupAccess().getGroup(), "rule__ActivityGroup__Group__0");
 					put(grammarAccess.getActivityGroupAccess().getGroup_4(), "rule__ActivityGroup__Group_4__0");
 					put(grammarAccess.getActivityGroupAccess().getGroup_5(), "rule__ActivityGroup__Group_5__0");
+					put(grammarAccess.getActivityGroupAccess().getGroup_6(), "rule__ActivityGroup__Group_6__0");
 					put(grammarAccess.getWBSImportAccess().getGroup(), "rule__WBSImport__Group__0");
 					put(grammarAccess.getResourcesImportAccess().getGroup(), "rule__ResourcesImport__Group__0");
 					put(grammarAccess.getPlanImportAccess().getGroup(), "rule__PlanImport__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getQualifiedNameWithWildCardAccess().getGroup(), "rule__QualifiedNameWithWildCard__Group__0");
-					put(grammarAccess.getCheckPointAccess().getGroup(), "rule__CheckPoint__Group__0");
-					put(grammarAccess.getCheckPointAccess().getGroup_4(), "rule__CheckPoint__Group_4__0");
-					put(grammarAccess.getCheckPointAccess().getGroup_5_0_0(), "rule__CheckPoint__Group_5_0_0__0");
-					put(grammarAccess.getCheckPointAccess().getGroup_5_0_1(), "rule__CheckPoint__Group_5_0_1__0");
-					put(grammarAccess.getCheckPointAccess().getGroup_5_1(), "rule__CheckPoint__Group_5_1__0");
-					put(grammarAccess.getCheckPointAccess().getGroup_5_2(), "rule__CheckPoint__Group_5_2__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_0(), "rule__CheckPoint__Group_0__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_0_4(), "rule__CheckPoint__Group_0_4__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_0_5(), "rule__CheckPoint__Group_0_5__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_1(), "rule__CheckPoint__Group_1__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_1_0_0_0(), "rule__CheckPoint__Group_1_0_0_0__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_1_0_0_1(), "rule__CheckPoint__Group_1_0_0_1__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_1_0_1(), "rule__CheckPoint__Group_1_0_1__0");
+					put(grammarAccess.getCheckPointAccess().getGroup_1_0_1_4(), "rule__CheckPoint__Group_1_0_1_4__0");
 					put(grammarAccess.getResourceInvolvementAccess().getGroup(), "rule__ResourceInvolvement__Group__0");
 					put(grammarAccess.getResourceInvolvementAccess().getGroup_1(), "rule__ResourceInvolvement__Group_1__0");
 					put(grammarAccess.getResourceInvolvementAccess().getGroup_2(), "rule__ResourceInvolvement__Group_2__0");
 					put(grammarAccess.getActivityAccess().getGroup(), "rule__Activity__Group__0");
 					put(grammarAccess.getActivityAccess().getGroup_4(), "rule__Activity__Group_4__0");
 					put(grammarAccess.getActivityAccess().getGroup_5(), "rule__Activity__Group_5__0");
-					put(grammarAccess.getActivityAccess().getGroup_6_0_0(), "rule__Activity__Group_6_0_0__0");
-					put(grammarAccess.getActivityAccess().getGroup_6_0_1(), "rule__Activity__Group_6_0_1__0");
-					put(grammarAccess.getActivityAccess().getGroup_6_1(), "rule__Activity__Group_6_1__0");
-					put(grammarAccess.getActivityAccess().getGroup_6_1_0_0(), "rule__Activity__Group_6_1_0_0__0");
-					put(grammarAccess.getActivityAccess().getGroup_6_1_0_1(), "rule__Activity__Group_6_1_0_1__0");
-					put(grammarAccess.getActivityAccess().getGroup_6_2(), "rule__Activity__Group_6_2__0");
+					put(grammarAccess.getActivityAccess().getGroup_6(), "rule__Activity__Group_6__0");
+					put(grammarAccess.getActivityAccess().getGroup_7_0_0(), "rule__Activity__Group_7_0_0__0");
+					put(grammarAccess.getActivityAccess().getGroup_7_0_1(), "rule__Activity__Group_7_0_1__0");
+					put(grammarAccess.getActivityAccess().getGroup_7_1(), "rule__Activity__Group_7_1__0");
+					put(grammarAccess.getActivityAccess().getGroup_7_1_0_0(), "rule__Activity__Group_7_1_0_0__0");
+					put(grammarAccess.getActivityAccess().getGroup_7_1_0_1(), "rule__Activity__Group_7_1_0_1__0");
+					put(grammarAccess.getActivityAccess().getGroup_7_2(), "rule__Activity__Group_7_2__0");
 					put(grammarAccess.getDateAccess().getGroup(), "rule__Date__Group__0");
 					put(grammarAccess.getProgramAccess().getDescriptionAssignment_0_0(), "rule__Program__DescriptionAssignment_0_0");
 					put(grammarAccess.getProgramAccess().getNameAssignment_0_1_1(), "rule__Program__NameAssignment_0_1_1");
@@ -95,6 +100,7 @@ public class PlanParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProjectAccess().getNameAssignment_2(), "rule__Project__NameAssignment_2");
 					put(grammarAccess.getProjectAccess().getLongNameAssignment_4_1(), "rule__Project__LongNameAssignment_4_1");
 					put(grammarAccess.getProjectAccess().getWbsAssignment_5_0(), "rule__Project__WbsAssignment_5_0");
+					put(grammarAccess.getProjectAccess().getWbsProjectAssignment_5_2(), "rule__Project__WbsProjectAssignment_5_2");
 					put(grammarAccess.getProjectAccess().getResourcesAssignment_6_0(), "rule__Project__ResourcesAssignment_6_0");
 					put(grammarAccess.getProjectAccess().getPlansAssignment_7_0(), "rule__Project__PlansAssignment_7_0");
 					put(grammarAccess.getProjectAccess().getAssumptionsAssignment_8_2(), "rule__Project__AssumptionsAssignment_8_2");
@@ -105,19 +111,21 @@ public class PlanParser extends AbstractContentAssistParser {
 					put(grammarAccess.getActivityGroupAccess().getDescriptionAssignment_0(), "rule__ActivityGroup__DescriptionAssignment_0");
 					put(grammarAccess.getActivityGroupAccess().getNameAssignment_2(), "rule__ActivityGroup__NameAssignment_2");
 					put(grammarAccess.getActivityGroupAccess().getLongNameAssignment_4_1(), "rule__ActivityGroup__LongNameAssignment_4_1");
-					put(grammarAccess.getActivityGroupAccess().getDependenciesAssignment_5_1(), "rule__ActivityGroup__DependenciesAssignment_5_1");
-					put(grammarAccess.getActivityGroupAccess().getActivitiesAssignment_6(), "rule__ActivityGroup__ActivitiesAssignment_6");
+					put(grammarAccess.getActivityGroupAccess().getWbsActivityAssignment_5_1(), "rule__ActivityGroup__WbsActivityAssignment_5_1");
+					put(grammarAccess.getActivityGroupAccess().getDependenciesAssignment_6_1(), "rule__ActivityGroup__DependenciesAssignment_6_1");
+					put(grammarAccess.getActivityGroupAccess().getActivitiesAssignment_7(), "rule__ActivityGroup__ActivitiesAssignment_7");
 					put(grammarAccess.getWBSImportAccess().getImportURIAssignment_1(), "rule__WBSImport__ImportURIAssignment_1");
 					put(grammarAccess.getResourcesImportAccess().getImportURIAssignment_1(), "rule__ResourcesImport__ImportURIAssignment_1");
 					put(grammarAccess.getPlanImportAccess().getImportURIAssignment_1(), "rule__PlanImport__ImportURIAssignment_1");
-					put(grammarAccess.getCheckPointAccess().getDescriptionAssignment_0(), "rule__CheckPoint__DescriptionAssignment_0");
-					put(grammarAccess.getCheckPointAccess().getNameAssignment_2(), "rule__CheckPoint__NameAssignment_2");
-					put(grammarAccess.getCheckPointAccess().getLongNameAssignment_4_1(), "rule__CheckPoint__LongNameAssignment_4_1");
-					put(grammarAccess.getCheckPointAccess().getEndAssignment_5_0_0_1(), "rule__CheckPoint__EndAssignment_5_0_0_1");
-					put(grammarAccess.getCheckPointAccess().getAfterAssignment_5_0_1_1(), "rule__CheckPoint__AfterAssignment_5_0_1_1");
-					put(grammarAccess.getCheckPointAccess().getOffsetAssignment_5_0_1_3(), "rule__CheckPoint__OffsetAssignment_5_0_1_3");
-					put(grammarAccess.getCheckPointAccess().getCompletenessAssignment_5_1_1(), "rule__CheckPoint__CompletenessAssignment_5_1_1");
-					put(grammarAccess.getCheckPointAccess().getDependenciesAssignment_5_2_1(), "rule__CheckPoint__DependenciesAssignment_5_2_1");
+					put(grammarAccess.getCheckPointAccess().getDescriptionAssignment_0_0(), "rule__CheckPoint__DescriptionAssignment_0_0");
+					put(grammarAccess.getCheckPointAccess().getNameAssignment_0_2(), "rule__CheckPoint__NameAssignment_0_2");
+					put(grammarAccess.getCheckPointAccess().getLongNameAssignment_0_4_1(), "rule__CheckPoint__LongNameAssignment_0_4_1");
+					put(grammarAccess.getCheckPointAccess().getWbsDeliverableAssignment_0_5_1(), "rule__CheckPoint__WbsDeliverableAssignment_0_5_1");
+					put(grammarAccess.getCheckPointAccess().getEndAssignment_1_0_0_0_1(), "rule__CheckPoint__EndAssignment_1_0_0_0_1");
+					put(grammarAccess.getCheckPointAccess().getAfterAssignment_1_0_0_1_1(), "rule__CheckPoint__AfterAssignment_1_0_0_1_1");
+					put(grammarAccess.getCheckPointAccess().getOffsetAssignment_1_0_0_1_3(), "rule__CheckPoint__OffsetAssignment_1_0_0_1_3");
+					put(grammarAccess.getCheckPointAccess().getCompletenessAssignment_1_0_1_1(), "rule__CheckPoint__CompletenessAssignment_1_0_1_1");
+					put(grammarAccess.getCheckPointAccess().getDependenciesAssignment_1_0_1_4_1(), "rule__CheckPoint__DependenciesAssignment_1_0_1_4_1");
 					put(grammarAccess.getResourceInvolvementAccess().getResourceAssignment_0(), "rule__ResourceInvolvement__ResourceAssignment_0");
 					put(grammarAccess.getResourceInvolvementAccess().getOccupationAssignment_1_1(), "rule__ResourceInvolvement__OccupationAssignment_1_1");
 					put(grammarAccess.getResourceInvolvementAccess().getResponsibilityAssignment_2_1(), "rule__ResourceInvolvement__ResponsibilityAssignment_2_1");
@@ -125,15 +133,17 @@ public class PlanParser extends AbstractContentAssistParser {
 					put(grammarAccess.getActivityAccess().getNameAssignment_2(), "rule__Activity__NameAssignment_2");
 					put(grammarAccess.getActivityAccess().getLongNameAssignment_4_1(), "rule__Activity__LongNameAssignment_4_1");
 					put(grammarAccess.getActivityAccess().getInvolvedResourcesAssignment_5_2(), "rule__Activity__InvolvedResourcesAssignment_5_2");
-					put(grammarAccess.getActivityAccess().getStartAssignment_6_0_0_1(), "rule__Activity__StartAssignment_6_0_0_1");
-					put(grammarAccess.getActivityAccess().getAfterAssignment_6_0_1_1(), "rule__Activity__AfterAssignment_6_0_1_1");
-					put(grammarAccess.getActivityAccess().getOffsetAssignment_6_0_1_3(), "rule__Activity__OffsetAssignment_6_0_1_3");
-					put(grammarAccess.getActivityAccess().getEndAssignment_6_1_0_0_1(), "rule__Activity__EndAssignment_6_1_0_0_1");
-					put(grammarAccess.getActivityAccess().getDurationAssignment_6_1_0_1_1(), "rule__Activity__DurationAssignment_6_1_0_1_1");
-					put(grammarAccess.getActivityAccess().getCompletenessAssignment_6_1_2(), "rule__Activity__CompletenessAssignment_6_1_2");
-					put(grammarAccess.getActivityAccess().getDependenciesAssignment_6_2_1(), "rule__Activity__DependenciesAssignment_6_2_1");
-					put(grammarAccess.getCheckPointAccess().getUnorderedGroup_5(), "rule__CheckPoint__UnorderedGroup_5");
-					put(grammarAccess.getActivityAccess().getUnorderedGroup_6(), "rule__Activity__UnorderedGroup_6");
+					put(grammarAccess.getActivityAccess().getWbsActivityAssignment_6_1(), "rule__Activity__WbsActivityAssignment_6_1");
+					put(grammarAccess.getActivityAccess().getStartAssignment_7_0_0_1(), "rule__Activity__StartAssignment_7_0_0_1");
+					put(grammarAccess.getActivityAccess().getAfterAssignment_7_0_1_1(), "rule__Activity__AfterAssignment_7_0_1_1");
+					put(grammarAccess.getActivityAccess().getOffsetAssignment_7_0_1_3(), "rule__Activity__OffsetAssignment_7_0_1_3");
+					put(grammarAccess.getActivityAccess().getEndAssignment_7_1_0_0_1(), "rule__Activity__EndAssignment_7_1_0_0_1");
+					put(grammarAccess.getActivityAccess().getDurationAssignment_7_1_0_1_1(), "rule__Activity__DurationAssignment_7_1_0_1_1");
+					put(grammarAccess.getActivityAccess().getCompletenessAssignment_7_1_2(), "rule__Activity__CompletenessAssignment_7_1_2");
+					put(grammarAccess.getActivityAccess().getDependenciesAssignment_7_2_1(), "rule__Activity__DependenciesAssignment_7_2_1");
+					put(grammarAccess.getCheckPointAccess().getUnorderedGroup(), "rule__CheckPoint__UnorderedGroup");
+					put(grammarAccess.getCheckPointAccess().getUnorderedGroup_1_0(), "rule__CheckPoint__UnorderedGroup_1_0");
+					put(grammarAccess.getActivityAccess().getUnorderedGroup_7(), "rule__Activity__UnorderedGroup_7");
 				}
 			};
 		}

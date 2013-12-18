@@ -2,24 +2,14 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.util;
 
+import com.lowcoupling.mdpm.lng.plan.plan.*;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
 
-import com.lowcoupling.mdpm.lng.plan.plan.Activity;
-import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
-import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
-import com.lowcoupling.mdpm.lng.plan.plan.Assumption;
-import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
-import com.lowcoupling.mdpm.lng.plan.plan.Constraint;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanImport;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
-import com.lowcoupling.mdpm.lng.plan.plan.Program;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
-import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
-import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
-import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

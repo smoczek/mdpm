@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies="${target.folder}/../../com.lowcoupling.mdpm.commons;${target.folder}/../../com.lowcoupling.mdpm.lng.plan;${target.folder}/../../com.lowcoupling.mdpm.lng.resources;${target.folder}/../../com.lowcoupling.chartHelper;${target.folder}/../../com.lowcoupling.mdpm.lng.wbs;${target.folder}/../../com.lowcoupling.mdpm.ui.occupationview;${target.folder}/../../com.lowcoupling.mdpm.ui.wbstreeview;"
+            dependencies="${target.folder}/../../com.lowcoupling.mdpm.commons;${target.folder}/../../com.lowcoupling.mdpm.lng.plan;${target.folder}/../../com.lowcoupling.mdpm.lng.resources;${target.folder}/../../com.lowcoupling.mdpm.lng.wbs;${target.folder}/../../com.lowcoupling.chartHelper;${target.folder}/../../com.lowcoupling.mdpm.ui.occupationview;${target.folder}/../../com.lowcoupling.mdpm.ui.wbstreeview;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>

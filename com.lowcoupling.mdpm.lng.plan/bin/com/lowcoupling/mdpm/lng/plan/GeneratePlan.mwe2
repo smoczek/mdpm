@@ -18,6 +18,8 @@ Workflow {
             registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
             registerGeneratedEPackage = "com.lowcoupling.mdpm.lng.resources.resources.ResourcesPackage"
             registerGenModelFile = "platform:/resource/com.lowcoupling.mdpm.lng.resources/src-gen/com/lowcoupling/mdpm/lng/resources/Resources.genmodel"
+       		registerGeneratedEPackage = "com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage"
+       		registerGenModelFile = "platform:/resource/com.lowcoupling.mdpm.lng.wbs/src-gen/com/lowcoupling/mdpm/lng/wbs/WBS.genModel"
         }
     
         component = DirectoryCleaner {

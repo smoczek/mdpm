@@ -177,13 +177,22 @@ public interface PlanPackage extends EPackage
   int PROJECT__WBS = 3;
 
   /**
+   * The feature id for the '<em><b>Wbs Project</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__WBS_PROJECT = 4;
+
+  /**
    * The feature id for the '<em><b>Resources</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT__RESOURCES = 4;
+  int PROJECT__RESOURCES = 5;
 
   /**
    * The feature id for the '<em><b>Plans</b></em>' containment reference list.
@@ -192,7 +201,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__PLANS = 5;
+  int PROJECT__PLANS = 6;
 
   /**
    * The feature id for the '<em><b>Assumptions</b></em>' containment reference list.
@@ -201,7 +210,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__ASSUMPTIONS = 6;
+  int PROJECT__ASSUMPTIONS = 7;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -210,7 +219,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__CONSTRAINTS = 7;
+  int PROJECT__CONSTRAINTS = 8;
 
   /**
    * The feature id for the '<em><b>Activities</b></em>' containment reference list.
@@ -219,7 +228,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT__ACTIVITIES = 8;
+  int PROJECT__ACTIVITIES = 9;
 
   /**
    * The number of structural features of the '<em>Project</em>' class.
@@ -228,7 +237,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT_FEATURE_COUNT = 9;
+  int PROJECT_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.impl.AssumptionImpl <em>Assumption</em>}' class.
@@ -388,13 +397,22 @@ public interface PlanPackage extends EPackage
   int ACTIVITY_GROUP__DEPENDENCIES = ACTIVITY_ELEMENT__DEPENDENCIES;
 
   /**
+   * The feature id for the '<em><b>Wbs Activity</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_GROUP__WBS_ACTIVITY = ACTIVITY_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Activities</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVITY_GROUP__ACTIVITIES = ACTIVITY_ELEMENT_FEATURE_COUNT + 0;
+  int ACTIVITY_GROUP__ACTIVITIES = ACTIVITY_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Activity Group</em>' class.
@@ -403,7 +421,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY_GROUP_FEATURE_COUNT = ACTIVITY_ELEMENT_FEATURE_COUNT + 1;
+  int ACTIVITY_GROUP_FEATURE_COUNT = ACTIVITY_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.impl.WBSImportImpl <em>WBS Import</em>}' class.
@@ -536,13 +554,22 @@ public interface PlanPackage extends EPackage
   int CHECK_POINT__DEPENDENCIES = ACTIVITY_ELEMENT__DEPENDENCIES;
 
   /**
+   * The feature id for the '<em><b>Wbs Deliverable</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_POINT__WBS_DELIVERABLE = ACTIVITY_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>End</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECK_POINT__END = ACTIVITY_ELEMENT_FEATURE_COUNT + 0;
+  int CHECK_POINT__END = ACTIVITY_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>After</b></em>' reference.
@@ -551,7 +578,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_POINT__AFTER = ACTIVITY_ELEMENT_FEATURE_COUNT + 1;
+  int CHECK_POINT__AFTER = ACTIVITY_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Offset</b></em>' attribute.
@@ -560,7 +587,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_POINT__OFFSET = ACTIVITY_ELEMENT_FEATURE_COUNT + 2;
+  int CHECK_POINT__OFFSET = ACTIVITY_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Completeness</b></em>' attribute.
@@ -569,7 +596,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_POINT__COMPLETENESS = ACTIVITY_ELEMENT_FEATURE_COUNT + 3;
+  int CHECK_POINT__COMPLETENESS = ACTIVITY_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Check Point</em>' class.
@@ -578,7 +605,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECK_POINT_FEATURE_COUNT = ACTIVITY_ELEMENT_FEATURE_COUNT + 4;
+  int CHECK_POINT_FEATURE_COUNT = ACTIVITY_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ResourceInvolvementImpl <em>Resource Involvement</em>}' class.
@@ -682,13 +709,22 @@ public interface PlanPackage extends EPackage
   int ACTIVITY__INVOLVED_RESOURCES = ACTIVITY_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Wbs Activity</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY__WBS_ACTIVITY = ACTIVITY_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Start</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTIVITY__START = ACTIVITY_ELEMENT_FEATURE_COUNT + 1;
+  int ACTIVITY__START = ACTIVITY_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>After</b></em>' reference.
@@ -697,7 +733,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY__AFTER = ACTIVITY_ELEMENT_FEATURE_COUNT + 2;
+  int ACTIVITY__AFTER = ACTIVITY_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Offset</b></em>' attribute.
@@ -706,7 +742,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY__OFFSET = ACTIVITY_ELEMENT_FEATURE_COUNT + 3;
+  int ACTIVITY__OFFSET = ACTIVITY_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>End</b></em>' attribute.
@@ -715,7 +751,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY__END = ACTIVITY_ELEMENT_FEATURE_COUNT + 4;
+  int ACTIVITY__END = ACTIVITY_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -724,7 +760,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY__DURATION = ACTIVITY_ELEMENT_FEATURE_COUNT + 5;
+  int ACTIVITY__DURATION = ACTIVITY_ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Completeness</b></em>' attribute.
@@ -733,7 +769,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY__COMPLETENESS = ACTIVITY_ELEMENT_FEATURE_COUNT + 6;
+  int ACTIVITY__COMPLETENESS = ACTIVITY_ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Activity</em>' class.
@@ -742,7 +778,7 @@ public interface PlanPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTIVITY_FEATURE_COUNT = ACTIVITY_ELEMENT_FEATURE_COUNT + 7;
+  int ACTIVITY_FEATURE_COUNT = ACTIVITY_ELEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link com.lowcoupling.mdpm.lng.plan.plan.Responsibility <em>Responsibility</em>}' enum.
@@ -886,6 +922,17 @@ public interface PlanPackage extends EPackage
   EReference getProject_Wbs();
 
   /**
+   * Returns the meta object for the reference '{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getWbsProject <em>Wbs Project</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Wbs Project</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.Project#getWbsProject()
+   * @see #getProject()
+   * @generated
+   */
+  EReference getProject_WbsProject();
+
+  /**
    * Returns the meta object for the containment reference '{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getResources <em>Resources</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -991,6 +1038,17 @@ public interface PlanPackage extends EPackage
    * @generated
    */
   EClass getActivityGroup();
+
+  /**
+   * Returns the meta object for the reference list '{@link com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup#getWbsActivity <em>Wbs Activity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Wbs Activity</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup#getWbsActivity()
+   * @see #getActivityGroup()
+   * @generated
+   */
+  EReference getActivityGroup_WbsActivity();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup#getActivities <em>Activities</em>}'.
@@ -1131,6 +1189,17 @@ public interface PlanPackage extends EPackage
   EClass getCheckPoint();
 
   /**
+   * Returns the meta object for the reference list '{@link com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getWbsDeliverable <em>Wbs Deliverable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Wbs Deliverable</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getWbsDeliverable()
+   * @see #getCheckPoint()
+   * @generated
+   */
+  EReference getCheckPoint_WbsDeliverable();
+
+  /**
    * Returns the meta object for the attribute '{@link com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getEnd <em>End</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1237,6 +1306,17 @@ public interface PlanPackage extends EPackage
    * @generated
    */
   EReference getActivity_InvolvedResources();
+
+  /**
+   * Returns the meta object for the reference list '{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getWbsActivity <em>Wbs Activity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Wbs Activity</em>'.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.Activity#getWbsActivity()
+   * @see #getActivity()
+   * @generated
+   */
+  EReference getActivity_WbsActivity();
 
   /**
    * Returns the meta object for the attribute '{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getStart <em>Start</em>}'.
@@ -1438,6 +1518,14 @@ public interface PlanPackage extends EPackage
     EReference PROJECT__WBS = eINSTANCE.getProject_Wbs();
 
     /**
+     * The meta object literal for the '<em><b>Wbs Project</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROJECT__WBS_PROJECT = eINSTANCE.getProject_WbsProject();
+
+    /**
      * The meta object literal for the '<em><b>Resources</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1522,6 +1610,14 @@ public interface PlanPackage extends EPackage
      * @generated
      */
     EClass ACTIVITY_GROUP = eINSTANCE.getActivityGroup();
+
+    /**
+     * The meta object literal for the '<em><b>Wbs Activity</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTIVITY_GROUP__WBS_ACTIVITY = eINSTANCE.getActivityGroup_WbsActivity();
 
     /**
      * The meta object literal for the '<em><b>Activities</b></em>' containment reference list feature.
@@ -1638,6 +1734,14 @@ public interface PlanPackage extends EPackage
     EClass CHECK_POINT = eINSTANCE.getCheckPoint();
 
     /**
+     * The meta object literal for the '<em><b>Wbs Deliverable</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHECK_POINT__WBS_DELIVERABLE = eINSTANCE.getCheckPoint_WbsDeliverable();
+
+    /**
      * The meta object literal for the '<em><b>End</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1720,6 +1824,14 @@ public interface PlanPackage extends EPackage
      * @generated
      */
     EReference ACTIVITY__INVOLVED_RESOURCES = eINSTANCE.getActivity_InvolvedResources();
+
+    /**
+     * The meta object literal for the '<em><b>Wbs Activity</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTIVITY__WBS_ACTIVITY = eINSTANCE.getActivity_WbsActivity();
 
     /**
      * The meta object literal for the '<em><b>Start</b></em>' attribute feature.

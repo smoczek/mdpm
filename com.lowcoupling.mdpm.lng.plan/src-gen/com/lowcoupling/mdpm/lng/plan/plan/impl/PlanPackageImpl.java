@@ -2,13 +2,6 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
@@ -24,7 +17,18 @@ import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
 import com.lowcoupling.mdpm.lng.plan.plan.Responsibility;
 import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
+
 import com.lowcoupling.mdpm.lng.resources.resources.ResourcesPackage;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -175,6 +179,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
 
     // Initialize simple dependencies
     ResourcesPackage.eINSTANCE.eClass();
+    WBSPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     thePlanPackage.createPackageContents();
@@ -316,7 +321,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Resources()
+  public EReference getProject_WbsProject()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(4);
   }
@@ -326,7 +331,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Plans()
+  public EReference getProject_Resources()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(5);
   }
@@ -336,7 +341,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Assumptions()
+  public EReference getProject_Plans()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(6);
   }
@@ -346,7 +351,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Constraints()
+  public EReference getProject_Assumptions()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(7);
   }
@@ -356,9 +361,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProject_Activities()
+  public EReference getProject_Constraints()
   {
     return (EReference)projectEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProject_Activities()
+  {
+    return (EReference)projectEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -416,9 +431,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getActivityGroup_Activities()
+  public EReference getActivityGroup_WbsActivity()
   {
     return (EReference)activityGroupEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getActivityGroup_Activities()
+  {
+    return (EReference)activityGroupEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -546,9 +571,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCheckPoint_WbsDeliverable()
+  {
+    return (EReference)checkPointEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getCheckPoint_End()
   {
-    return (EAttribute)checkPointEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)checkPointEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -558,7 +593,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EReference getCheckPoint_After()
   {
-    return (EReference)checkPointEClass.getEStructuralFeatures().get(1);
+    return (EReference)checkPointEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -568,7 +603,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EAttribute getCheckPoint_Offset()
   {
-    return (EAttribute)checkPointEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)checkPointEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -578,7 +613,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EAttribute getCheckPoint_Completeness()
   {
-    return (EAttribute)checkPointEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)checkPointEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -646,9 +681,19 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getActivity_WbsActivity()
+  {
+    return (EReference)activityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getActivity_Start()
   {
-    return (EAttribute)activityEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)activityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -658,7 +703,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EReference getActivity_After()
   {
-    return (EReference)activityEClass.getEStructuralFeatures().get(2);
+    return (EReference)activityEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -668,7 +713,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EAttribute getActivity_Offset()
   {
-    return (EAttribute)activityEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)activityEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -678,7 +723,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EAttribute getActivity_End()
   {
-    return (EAttribute)activityEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)activityEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -688,7 +733,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EAttribute getActivity_Duration()
   {
-    return (EAttribute)activityEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)activityEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -698,7 +743,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
    */
   public EAttribute getActivity_Completeness()
   {
-    return (EAttribute)activityEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)activityEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -754,6 +799,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     createEAttribute(projectEClass, PROJECT__NAME);
     createEAttribute(projectEClass, PROJECT__LONG_NAME);
     createEReference(projectEClass, PROJECT__WBS);
+    createEReference(projectEClass, PROJECT__WBS_PROJECT);
     createEReference(projectEClass, PROJECT__RESOURCES);
     createEReference(projectEClass, PROJECT__PLANS);
     createEReference(projectEClass, PROJECT__ASSUMPTIONS);
@@ -767,6 +813,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     createEAttribute(constraintEClass, CONSTRAINT__VALUE);
 
     activityGroupEClass = createEClass(ACTIVITY_GROUP);
+    createEReference(activityGroupEClass, ACTIVITY_GROUP__WBS_ACTIVITY);
     createEReference(activityGroupEClass, ACTIVITY_GROUP__ACTIVITIES);
 
     wbsImportEClass = createEClass(WBS_IMPORT);
@@ -785,6 +832,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     createEReference(activityElementEClass, ACTIVITY_ELEMENT__DEPENDENCIES);
 
     checkPointEClass = createEClass(CHECK_POINT);
+    createEReference(checkPointEClass, CHECK_POINT__WBS_DELIVERABLE);
     createEAttribute(checkPointEClass, CHECK_POINT__END);
     createEReference(checkPointEClass, CHECK_POINT__AFTER);
     createEAttribute(checkPointEClass, CHECK_POINT__OFFSET);
@@ -797,6 +845,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
 
     activityEClass = createEClass(ACTIVITY);
     createEReference(activityEClass, ACTIVITY__INVOLVED_RESOURCES);
+    createEReference(activityEClass, ACTIVITY__WBS_ACTIVITY);
     createEAttribute(activityEClass, ACTIVITY__START);
     createEReference(activityEClass, ACTIVITY__AFTER);
     createEAttribute(activityEClass, ACTIVITY__OFFSET);
@@ -833,6 +882,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
+    WBSPackage theWBSPackage = (WBSPackage)EPackage.Registry.INSTANCE.getEPackage(WBSPackage.eNS_URI);
     ResourcesPackage theResourcesPackage = (ResourcesPackage)EPackage.Registry.INSTANCE.getEPackage(ResourcesPackage.eNS_URI);
 
     // Create type parameters
@@ -858,6 +908,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProject_LongName(), ecorePackage.getEString(), "longName", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Wbs(), this.getWBSImport(), null, "wbs", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProject_WbsProject(), theWBSPackage.getWBSProject(), null, "wbsProject", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Resources(), this.getResourcesImport(), null, "resources", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Plans(), this.getPlanImport(), null, "plans", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProject_Assumptions(), this.getAssumption(), null, "assumptions", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -871,6 +922,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     initEAttribute(getConstraint_Value(), ecorePackage.getEString(), "value", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(activityGroupEClass, ActivityGroup.class, "ActivityGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getActivityGroup_WbsActivity(), theWBSPackage.getWBSActivity(), null, "wbsActivity", null, 0, -1, ActivityGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActivityGroup_Activities(), this.getActivityElement(), null, "activities", null, 0, -1, ActivityGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(wbsImportEClass, WBSImport.class, "WBSImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -889,6 +941,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
     initEReference(getActivityElement_Dependencies(), this.getActivityElement(), null, "dependencies", null, 0, -1, ActivityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkPointEClass, CheckPoint.class, "CheckPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCheckPoint_WbsDeliverable(), theWBSPackage.getWBSDeliverable(), null, "wbsDeliverable", null, 0, -1, CheckPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCheckPoint_End(), ecorePackage.getEString(), "end", null, 0, 1, CheckPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCheckPoint_After(), this.getActivityElement(), null, "after", null, 0, 1, CheckPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCheckPoint_Offset(), ecorePackage.getEInt(), "offset", null, 0, 1, CheckPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -901,6 +954,7 @@ public class PlanPackageImpl extends EPackageImpl implements PlanPackage
 
     initEClass(activityEClass, Activity.class, "Activity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getActivity_InvolvedResources(), this.getResourceInvolvement(), null, "involvedResources", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getActivity_WbsActivity(), theWBSPackage.getWBSActivity(), null, "wbsActivity", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActivity_Start(), ecorePackage.getEString(), "start", null, 0, 1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActivity_After(), this.getActivityElement(), null, "after", null, 0, 1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getActivity_Offset(), ecorePackage.getEInt(), "offset", null, 0, 1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2,6 +2,7 @@ grammar com.lowcoupling.mdpm.lng.plan.Plan with org.eclipse.xtext.common.Termina
 
 generate plan "http://www.lowcoupling.com/mdpm/lng/plan/Plan"
 import "http://www.lowcoupling.com/mdpm/lng/resources/Resources" as res
+import "http://www.lowcoupling.com/mdpm/lng/wbs/WBS" as wbs
 
 Program:
 	(description=ML_COMMENT)?
@@ -18,7 +19,7 @@ Project:
 	(description=ML_COMMENT)?
 	'Project' name = ID OPENCURLY
 		 ('name' longName= STRING ENDLINE)?
-		 (wbs = WBSImport ENDLINE)? 
+		 (wbs = WBSImport  'project' wbsProject = [wbs::WBSProject|QualifiedName] ENDLINE)? 
 		 (resources = ResourcesImport ENDLINE)?
 		 (plans += PlanImport ENDLINE)*
 		('assumptions' OPENCURLY assumptions+=Assumption* CLOSEDCURLY)?
@@ -40,6 +41,7 @@ ActivityGroup:
 	(description=ML_COMMENT)?
 	'Group'name=ID OPENCURLY
 	('name' longName= STRING ENDLINE)?
+	('wbsActivity' wbsActivity+=[wbs::WBSActivity|QualifiedName]* ENDLINE)?
 	('dependsOn' dependencies += ([ActivityElement|QualifiedName])*ENDLINE)?
 	activities += ActivityElement*
 		//groups += ActivityGroup*
@@ -76,9 +78,10 @@ CheckPoint:
 	(description=ML_COMMENT)?
 	'CheckPoint' name= ID OPENCURLY
 	('name' longName= STRING ENDLINE)?
+	('wbsDeliverable' wbsDeliverable+=[wbs::WBSDeliverable|QualifiedName]* ENDLINE)?&
 	(
 	(('date'  end = STRING ENDLINE) | ('after' after = [ActivityElement|QualifiedName] 'offset' offset = INT ENDLINE)) &
-	'completeness' completeness = INT '%' ENDLINE&
+	'completeness' completeness = INT '%' ENDLINE
 	('dependsOn' dependencies += ([ActivityElement|QualifiedName])*ENDLINE)?
 	)
 	CLOSEDCURLY
@@ -93,6 +96,7 @@ Activity :
 	'Activity' name=ID OPENCURLY	
 	('name' longName= STRING ENDLINE)?
 	('involves' OPENCURLY (involvedResources+=ResourceInvolvement)* CLOSEDCURLY)?
+	('wbsActivity' wbsActivity+=[wbs::WBSActivity|QualifiedName]* ENDLINE)?
 	(
 	 (('starts' start = STRING ENDLINE)
 	 |('after' after=[ActivityElement|QualifiedName] 'offset' offset = INT ENDLINE)

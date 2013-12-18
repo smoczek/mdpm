@@ -2,7 +2,10 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan;
 
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getName <em>Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getLongName <em>Long Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getWbs <em>Wbs</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getWbsProject <em>Wbs Project</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getResources <em>Resources</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getPlans <em>Plans</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getAssumptions <em>Assumptions</em>}</li>
@@ -134,6 +138,32 @@ public interface Project extends EObject
    * @generated
    */
   void setWbs(WBSImport value);
+
+  /**
+   * Returns the value of the '<em><b>Wbs Project</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Wbs Project</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Wbs Project</em>' reference.
+   * @see #setWbsProject(WBSProject)
+   * @see com.lowcoupling.mdpm.lng.plan.plan.PlanPackage#getProject_WbsProject()
+   * @model
+   * @generated
+   */
+  WBSProject getWbsProject();
+
+  /**
+   * Sets the value of the '{@link com.lowcoupling.mdpm.lng.plan.plan.Project#getWbsProject <em>Wbs Project</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Wbs Project</em>' reference.
+   * @see #getWbsProject()
+   * @generated
+   */
+  void setWbsProject(WBSProject value);
 
   /**
    * Returns the value of the '<em><b>Resources</b></em>' containment reference.

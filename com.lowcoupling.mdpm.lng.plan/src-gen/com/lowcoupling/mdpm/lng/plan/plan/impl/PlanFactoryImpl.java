@@ -2,28 +2,16 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
+import com.lowcoupling.mdpm.lng.plan.plan.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import com.lowcoupling.mdpm.lng.plan.plan.Activity;
-import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
-import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
-import com.lowcoupling.mdpm.lng.plan.plan.Assumption;
-import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
-import com.lowcoupling.mdpm.lng.plan.plan.Constraint;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanFactory;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanImport;
-import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
-import com.lowcoupling.mdpm.lng.plan.plan.Program;
-import com.lowcoupling.mdpm.lng.plan.plan.Project;
-import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
-import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
-import com.lowcoupling.mdpm.lng.plan.plan.Responsibility;
-import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->

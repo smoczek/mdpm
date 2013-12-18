@@ -4,7 +4,6 @@
 package com.lowcoupling.mdpm.lng.plan.parser.antlr;
 
 import java.io.InputStream;
-
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 
 public class PlanAntlrTokenFileProvider implements IAntlrTokenFileProvider {

@@ -26,6 +26,7 @@ import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.joda.time.DateTime;
 import org.joda.time.Months;
 
@@ -34,6 +35,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
+import com.lowcoupling.mdpm.lng.plan.plan.Program;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.util.ActivityElementDecorator;
 //import org.eclipse.swt.SWT;
@@ -60,7 +62,6 @@ public class GanttImageExporter {
 		public GanttCreator(Collection<Project> plans){
 			this.plans= plans;
 		}
-
 		public LinkedHashMap<String,GanttEvent> updateContents(Collection<Project> plans){
 			ganttChart.getGanttComposite().clearChart();
 			LinkedHashMap<String,GanttEvent> eventsMap = new LinkedHashMap<String, GanttEvent>();
@@ -83,63 +84,52 @@ public class GanttImageExporter {
 		}
 
 		public GanttEvent handleActivity(ActivityElement element, Project plan, GanttSection gs, String qualifiedName, LinkedHashMap<String,GanttEvent>tmpEventsMap){
-			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			GanttEvent evt = null;
-
-			//if the current element is an activity
 			if(element instanceof Activity){	
 				Activity act = (Activity)element;
 				ActivityElementDecorator activity  = new ActivityElementDecorator(act);
 				Calendar start = activity.getStartByCalendar();
 				Calendar end = activity.getEndByCalendar();
-
-				evt= new GanttEvent(ganttChart, act.getName(), start, end,act.getCompleteness());	
-				//gs.addGanttEvent(evt);
+				String name="";
+				if (act.getLongName()!=null){
+					name=act.getLongName();
+				}else{
+					name=act.getName();
+				}
+				evt= new GanttEvent(ganttChart, name, start, end,act.getCompleteness());	
+				gs.addGanttEvent(evt);
 				tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
-				//System.out.println(qualifiedName+"."+element.getName());
-				//if the current element is a checkpoint		
 			}else if (element instanceof CheckPoint){
 				CheckPoint checkPoint = (CheckPoint)element;
 				Calendar start = GregorianCalendar.getInstance();
-
-				//start.setTime(formatter.parse(checkPoint.getEnd()));
+				String name="";
+				if (checkPoint.getLongName()!=null){
+					name=checkPoint.getLongName();
+				}else{
+					name=checkPoint.getName();
+				}
 				start = (new ActivityElementDecorator(element)).getStartByCalendar();
-
 				Calendar end = GregorianCalendar.getInstance();
 				end = (new ActivityElementDecorator(element)).getEndByCalendar();
-				evt= new GanttEvent(ganttChart, checkPoint.getName(), start, end, checkPoint.getCompleteness());
+				evt= new GanttEvent(ganttChart, name, start, end, checkPoint.getCompleteness());
 				evt.setCheckpoint(true);
-				//gs.addGanttEvent(evt);
+				gs.addGanttEvent(evt);
 				tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
-				//System.out.println(qualifiedName+"."+element.getName());
-
-				//if the current element is group		
 			}else if (element instanceof ActivityGroup){
 				ActivityGroup group = (ActivityGroup)element;
-				GanttEvent scope = new GanttEvent(ganttChart, group.getName());
+				String name="";
+				if (group.getLongName()!=null){
+					name=group.getLongName();
+				}else{
+					name=group.getName();
+				}
+				GanttEvent scope = new GanttEvent(ganttChart,name);
 				Iterator<ActivityElement>activityIterator = group.getActivities().iterator();
 				tmpEventsMap.put(qualifiedName+"."+scope.getName(), scope);
-				//System.out.println(qualifiedName+"."+scope.getName());
 				gs.addGanttEvent(scope);
 				qualifiedName= qualifiedName+"."+scope.getName();
 				while(activityIterator.hasNext()){
 					ActivityElement activity = activityIterator.next();
-					if(activity instanceof ActivityGroup){
-						GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
-						if(innerEvent!=null){
-							if(scope!=null){
-								scope.addScopeEvent(innerEvent);
-
-							}else{
-							}
-						}else{
-						}
-					}
-				}
-				activityIterator = group.getActivities().iterator();
-				while(activityIterator.hasNext()){
-					ActivityElement activity = activityIterator.next();
-					if(!(activity instanceof ActivityGroup)){
 						GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
 						if(innerEvent!=null){
 							if(scope!=null){
@@ -148,30 +138,28 @@ public class GanttImageExporter {
 							}
 						}else{
 						}
-					}
 				}
+		
 				return scope;
 
 			}
-
 			return evt;
 		}
 		public void handlePlan(Project plan,EList<ActivityElement> activities, LinkedHashMap<String,GanttEvent>eventsMap){
 			Iterator<ActivityElement> activityIterator = activities.iterator();
-			GanttSection gs = new GanttSection(ganttChart, plan.getName());
-			//System.out.println("Creating GanttSection "+gs.getName());
+			String name ="";
+			if (plan.getLongName()!=null){
+				name = plan.getLongName();
+			}else{
+				name = plan.getName();
+			}
+			GanttSection gs = new GanttSection(ganttChart, name);
 			LinkedHashMap<String,GanttEvent> tmpEventsMap = new LinkedHashMap<String, GanttEvent>();
 			while(activityIterator.hasNext()){
 				ActivityElement element = activityIterator.next();
-				//System.out.println("\t\t ! handling"+element.getName());
 				GanttEvent evt = handleActivity(element,plan,gs,plan.getName(),tmpEventsMap);
 			}
 			Iterator<GanttEvent> events  = tmpEventsMap.values().iterator();
-			while (events.hasNext()){
-				GanttEvent event = events.next();
-				gs.addGanttEvent(event);
-
-			}
 			eventsMap.putAll(tmpEventsMap);
 
 		}
@@ -217,6 +205,7 @@ public class GanttImageExporter {
 		}
 
 
+
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
@@ -227,12 +216,14 @@ public class GanttImageExporter {
 			public final boolean drawFillsToBottomWhenUsingGanttSections() {
 				return true;
 			}};
+			
 			shell = new Shell(Display.getDefault());
 			ganttChart = new GanttChart( shell, SWT.MULTI, settings);
-			updateContents(plans);
-			ganttChart.getGanttComposite().jumpToEarliestEvent();
+			LinkedHashMap<String,GanttEvent> eventsMap = updateContents(plans);
 			ActivityElementDecorator first = new ActivityElementDecorator(PlanUtil.getInstance().getFirstActivity(plans,true));
 			ActivityElementDecorator last =  new ActivityElementDecorator(PlanUtil.getInstance().getLastActivity(plans,true));
+			GanttEvent evt = eventsMap.get(first.getFullQualifiedName());
+			ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
 			Months months= Months.monthsBetween(new DateTime(first.getStartByCalendar()), new DateTime(last.getEndByCalendar()));
 			int monthsCount= months.getMonths();
 			ganttChart.getGanttComposite().setZoomLevel(11);
@@ -255,7 +246,7 @@ public class GanttImageExporter {
 
 
 	public String generateGanttDiagram(com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl plan,String name){
-		Display display = Display.getDefault();
+		Display display = PlatformUI.getWorkbench().getDisplay();
 		Collection<Project> plans = PlanUtil.getInstance().getRelatedPlans(plan);
 		GanttCreator gcreator = new GanttCreator(plans);
 		display.syncExec(
@@ -264,6 +255,7 @@ public class GanttImageExporter {
 				);
 		String planName= plan.getName();
 		IFolder planFolder = currentModel.getProject().getFolder("/docs/"+planName+"Data/");
+		
 		if(!planFolder.exists()){
 			try {
 				planFolder.create(true, true, null);
@@ -291,13 +283,12 @@ public class GanttImageExporter {
 			}
 		}
 		GanttImageExporter.path = currentModel.getProject().getFolder("/docs/"+planName+"Data/img/ganttCharts").getRawLocation().makeAbsolute();
-		
 		out = new File(path.toString()+"/"+name+".png");
 		Image img = gcreator.img; 
 		ImageLoader loader = new ImageLoader();
 		loader.data = new ImageData[] {img.getImageData()};
 		loader.save(this.out.getAbsolutePath(), SWT.IMAGE_PNG);
-		return "Test "; //+param;
+		return "<p></p>"; //+param;
 	}
 	public GanttImageExporter(){
 

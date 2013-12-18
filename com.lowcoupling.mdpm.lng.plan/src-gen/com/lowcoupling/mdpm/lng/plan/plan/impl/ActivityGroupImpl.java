@@ -2,18 +2,24 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +28,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityGroupImpl#getWbsActivity <em>Wbs Activity</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityGroupImpl#getActivities <em>Activities</em>}</li>
  * </ul>
  * </p>
@@ -30,6 +37,16 @@ import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
  */
 public class ActivityGroupImpl extends ActivityElementImpl implements ActivityGroup
 {
+  /**
+   * The cached value of the '{@link #getWbsActivity() <em>Wbs Activity</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWbsActivity()
+   * @generated
+   * @ordered
+   */
+  protected EList<WBSActivity> wbsActivity;
+
   /**
    * The cached value of the '{@link #getActivities() <em>Activities</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -59,6 +76,20 @@ public class ActivityGroupImpl extends ActivityElementImpl implements ActivityGr
   protected EClass eStaticClass()
   {
     return PlanPackage.Literals.ACTIVITY_GROUP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<WBSActivity> getWbsActivity()
+  {
+    if (wbsActivity == null)
+    {
+      wbsActivity = new EObjectResolvingEList<WBSActivity>(WBSActivity.class, this, PlanPackage.ACTIVITY_GROUP__WBS_ACTIVITY);
+    }
+    return wbsActivity;
   }
 
   /**
@@ -101,6 +132,8 @@ public class ActivityGroupImpl extends ActivityElementImpl implements ActivityGr
   {
     switch (featureID)
     {
+      case PlanPackage.ACTIVITY_GROUP__WBS_ACTIVITY:
+        return getWbsActivity();
       case PlanPackage.ACTIVITY_GROUP__ACTIVITIES:
         return getActivities();
     }
@@ -118,6 +151,10 @@ public class ActivityGroupImpl extends ActivityElementImpl implements ActivityGr
   {
     switch (featureID)
     {
+      case PlanPackage.ACTIVITY_GROUP__WBS_ACTIVITY:
+        getWbsActivity().clear();
+        getWbsActivity().addAll((Collection<? extends WBSActivity>)newValue);
+        return;
       case PlanPackage.ACTIVITY_GROUP__ACTIVITIES:
         getActivities().clear();
         getActivities().addAll((Collection<? extends ActivityElement>)newValue);
@@ -136,6 +173,9 @@ public class ActivityGroupImpl extends ActivityElementImpl implements ActivityGr
   {
     switch (featureID)
     {
+      case PlanPackage.ACTIVITY_GROUP__WBS_ACTIVITY:
+        getWbsActivity().clear();
+        return;
       case PlanPackage.ACTIVITY_GROUP__ACTIVITIES:
         getActivities().clear();
         return;
@@ -153,6 +193,8 @@ public class ActivityGroupImpl extends ActivityElementImpl implements ActivityGr
   {
     switch (featureID)
     {
+      case PlanPackage.ACTIVITY_GROUP__WBS_ACTIVITY:
+        return wbsActivity != null && !wbsActivity.isEmpty();
       case PlanPackage.ACTIVITY_GROUP__ACTIVITIES:
         return activities != null && !activities.isEmpty();
     }

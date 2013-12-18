@@ -2,6 +2,8 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan;
 
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getInvolvedResources <em>Involved Resources</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getWbsActivity <em>Wbs Activity</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getStart <em>Start</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getAfter <em>After</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.Activity#getOffset <em>Offset</em>}</li>
@@ -43,6 +46,22 @@ public interface Activity extends ActivityElement
    * @generated
    */
   EList<ResourceInvolvement> getInvolvedResources();
+
+  /**
+   * Returns the value of the '<em><b>Wbs Activity</b></em>' reference list.
+   * The list contents are of type {@link com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Wbs Activity</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Wbs Activity</em>' reference list.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.PlanPackage#getActivity_WbsActivity()
+   * @model
+   * @generated
+   */
+  EList<WBSActivity> getWbsActivity();
 
   /**
    * Returns the value of the '<em><b>Start</b></em>' attribute.

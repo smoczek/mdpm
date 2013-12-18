@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.common,
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- com.lowcoupling.mdpm.lng.resources
+ com.lowcoupling.mdpm.lng.resources,
+ com.lowcoupling.mdpm.lng.wbs;bundle-version="0.0.1"
 Import-Package: org.apache.log4j,
  org.eclipse.core.runtime.preferences;version="3.3.0",
  org.eclipse.xtext.xbase.lib,

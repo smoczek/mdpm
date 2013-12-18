@@ -27,7 +27,7 @@ implements IWorkbenchPreferencePage {
 	public MDPMPreferencePage() {
 		super(GRID);
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		setDescription("MELT Preferences");
+		setDescription("MDPM Preferences");
 	}
 
 	/**

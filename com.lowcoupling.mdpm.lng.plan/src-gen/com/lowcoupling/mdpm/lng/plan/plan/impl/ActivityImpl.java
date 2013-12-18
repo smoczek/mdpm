@@ -2,21 +2,28 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import com.lowcoupling.mdpm.lng.plan.plan.Activity;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSActivity;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +33,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.ResourceInvolvement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityImpl#getInvolvedResources <em>Involved Resources</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityImpl#getWbsActivity <em>Wbs Activity</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityImpl#getStart <em>Start</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityImpl#getAfter <em>After</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ActivityImpl#getOffset <em>Offset</em>}</li>
@@ -48,6 +56,16 @@ public class ActivityImpl extends ActivityElementImpl implements Activity
    * @ordered
    */
   protected EList<ResourceInvolvement> involvedResources;
+
+  /**
+   * The cached value of the '{@link #getWbsActivity() <em>Wbs Activity</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWbsActivity()
+   * @generated
+   * @ordered
+   */
+  protected EList<WBSActivity> wbsActivity;
 
   /**
    * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
@@ -192,6 +210,20 @@ public class ActivityImpl extends ActivityElementImpl implements Activity
       involvedResources = new EObjectContainmentEList<ResourceInvolvement>(ResourceInvolvement.class, this, PlanPackage.ACTIVITY__INVOLVED_RESOURCES);
     }
     return involvedResources;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<WBSActivity> getWbsActivity()
+  {
+    if (wbsActivity == null)
+    {
+      wbsActivity = new EObjectResolvingEList<WBSActivity>(WBSActivity.class, this, PlanPackage.ACTIVITY__WBS_ACTIVITY);
+    }
+    return wbsActivity;
   }
 
   /**
@@ -380,6 +412,8 @@ public class ActivityImpl extends ActivityElementImpl implements Activity
     {
       case PlanPackage.ACTIVITY__INVOLVED_RESOURCES:
         return getInvolvedResources();
+      case PlanPackage.ACTIVITY__WBS_ACTIVITY:
+        return getWbsActivity();
       case PlanPackage.ACTIVITY__START:
         return getStart();
       case PlanPackage.ACTIVITY__AFTER:
@@ -411,6 +445,10 @@ public class ActivityImpl extends ActivityElementImpl implements Activity
       case PlanPackage.ACTIVITY__INVOLVED_RESOURCES:
         getInvolvedResources().clear();
         getInvolvedResources().addAll((Collection<? extends ResourceInvolvement>)newValue);
+        return;
+      case PlanPackage.ACTIVITY__WBS_ACTIVITY:
+        getWbsActivity().clear();
+        getWbsActivity().addAll((Collection<? extends WBSActivity>)newValue);
         return;
       case PlanPackage.ACTIVITY__START:
         setStart((String)newValue);
@@ -447,6 +485,9 @@ public class ActivityImpl extends ActivityElementImpl implements Activity
       case PlanPackage.ACTIVITY__INVOLVED_RESOURCES:
         getInvolvedResources().clear();
         return;
+      case PlanPackage.ACTIVITY__WBS_ACTIVITY:
+        getWbsActivity().clear();
+        return;
       case PlanPackage.ACTIVITY__START:
         setStart(START_EDEFAULT);
         return;
@@ -481,6 +522,8 @@ public class ActivityImpl extends ActivityElementImpl implements Activity
     {
       case PlanPackage.ACTIVITY__INVOLVED_RESOURCES:
         return involvedResources != null && !involvedResources.isEmpty();
+      case PlanPackage.ACTIVITY__WBS_ACTIVITY:
+        return wbsActivity != null && !wbsActivity.isEmpty();
       case PlanPackage.ACTIVITY__START:
         return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
       case PlanPackage.ACTIVITY__AFTER:

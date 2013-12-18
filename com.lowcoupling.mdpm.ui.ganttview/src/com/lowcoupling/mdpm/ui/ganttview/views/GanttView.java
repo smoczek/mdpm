@@ -184,10 +184,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 	}
 
 	public GanttEvent handleActivity(ActivityElement element, Project plan, GanttSection gs, String qualifiedName, LinkedHashMap<String,GanttEvent>tmpEventsMap){
-		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		GanttEvent evt = null;
-
-		//if the current element is an activity
 		if(element instanceof Activity){	
 			Activity act = (Activity)element;
 			ActivityElementDecorator activity  = new ActivityElementDecorator(act);
@@ -199,12 +196,9 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			}else{
 				name=act.getName();
 			}
-			
 			evt= new GanttEvent(ganttChart, name, start, end,act.getCompleteness());	
-			//gs.addGanttEvent(evt);
+			gs.addGanttEvent(evt);
 			tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
-			//System.out.println(qualifiedName+"."+element.getName());
-			//if the current element is a checkpoint		
 		}else if (element instanceof CheckPoint){
 			CheckPoint checkPoint = (CheckPoint)element;
 			Calendar start = GregorianCalendar.getInstance();
@@ -214,18 +208,13 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			}else{
 				name=checkPoint.getName();
 			}
-			//start.setTime(formatter.parse(checkPoint.getEnd()));
 			start = (new ActivityElementDecorator(element)).getStartByCalendar();
-
 			Calendar end = GregorianCalendar.getInstance();
 			end = (new ActivityElementDecorator(element)).getEndByCalendar();
 			evt= new GanttEvent(ganttChart, name, start, end, checkPoint.getCompleteness());
 			evt.setCheckpoint(true);
-			//gs.addGanttEvent(evt);
+			gs.addGanttEvent(evt);
 			tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
-			//System.out.println(qualifiedName+"."+element.getName());
-
-			//if the current element is group		
 		}else if (element instanceof ActivityGroup){
 			ActivityGroup group = (ActivityGroup)element;
 			String name="";
@@ -237,27 +226,10 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			GanttEvent scope = new GanttEvent(ganttChart,name);
 			Iterator<ActivityElement>activityIterator = group.getActivities().iterator();
 			tmpEventsMap.put(qualifiedName+"."+scope.getName(), scope);
-			//System.out.println(qualifiedName+"."+scope.getName());
 			gs.addGanttEvent(scope);
 			qualifiedName= qualifiedName+"."+scope.getName();
 			while(activityIterator.hasNext()){
 				ActivityElement activity = activityIterator.next();
-				if(activity instanceof ActivityGroup){
-					GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
-					if(innerEvent!=null){
-						if(scope!=null){
-							scope.addScopeEvent(innerEvent);
-
-						}else{
-						}
-					}else{
-					}
-				}
-			}
-			activityIterator = group.getActivities().iterator();
-			while(activityIterator.hasNext()){
-				ActivityElement activity = activityIterator.next();
-				if(!(activity instanceof ActivityGroup)){
 					GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
 					if(innerEvent!=null){
 						if(scope!=null){
@@ -266,12 +238,11 @@ public class GanttView extends ViewPart implements ISelectionListener{
 						}
 					}else{
 					}
-				}
 			}
+	
 			return scope;
 
 		}
-
 		return evt;
 	}
 	public void handlePlan(Project plan,EList<ActivityElement> activities, LinkedHashMap<String,GanttEvent>eventsMap){
@@ -283,19 +254,12 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			name = plan.getName();
 		}
 		GanttSection gs = new GanttSection(ganttChart, name);
-		//System.out.println("Creating GanttSection "+gs.getName());
 		LinkedHashMap<String,GanttEvent> tmpEventsMap = new LinkedHashMap<String, GanttEvent>();
 		while(activityIterator.hasNext()){
 			ActivityElement element = activityIterator.next();
-			//System.out.println("\t\t ! handling"+element.getName());
 			GanttEvent evt = handleActivity(element,plan,gs,plan.getName(),tmpEventsMap);
 		}
 		Iterator<GanttEvent> events  = tmpEventsMap.values().iterator();
-		while (events.hasNext()){
-			GanttEvent event = events.next();
-			gs.addGanttEvent(event);
-
-		}
 		eventsMap.putAll(tmpEventsMap);
 
 	}

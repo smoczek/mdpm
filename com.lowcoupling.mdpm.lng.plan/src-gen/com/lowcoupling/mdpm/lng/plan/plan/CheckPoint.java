@@ -2,6 +2,9 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan;
 
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSDeliverable;
+
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,6 +14,7 @@ package com.lowcoupling.mdpm.lng.plan.plan;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getWbsDeliverable <em>Wbs Deliverable</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getEnd <em>End</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getAfter <em>After</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.CheckPoint#getOffset <em>Offset</em>}</li>
@@ -24,6 +28,22 @@ package com.lowcoupling.mdpm.lng.plan.plan;
  */
 public interface CheckPoint extends ActivityElement
 {
+  /**
+   * Returns the value of the '<em><b>Wbs Deliverable</b></em>' reference list.
+   * The list contents are of type {@link com.lowcoupling.mdpm.lng.wbs.wBS.WBSDeliverable}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Wbs Deliverable</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Wbs Deliverable</em>' reference list.
+   * @see com.lowcoupling.mdpm.lng.plan.plan.PlanPackage#getCheckPoint_WbsDeliverable()
+   * @model
+   * @generated
+   */
+  EList<WBSDeliverable> getWbsDeliverable();
+
   /**
    * Returns the value of the '<em><b>End</b></em>' attribute.
    * <!-- begin-user-doc -->

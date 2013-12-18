@@ -2,14 +2,24 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
 import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSDeliverable;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +28,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.CheckPointImpl#getWbsDeliverable <em>Wbs Deliverable</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.CheckPointImpl#getEnd <em>End</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.CheckPointImpl#getAfter <em>After</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.CheckPointImpl#getOffset <em>Offset</em>}</li>
@@ -29,6 +40,16 @@ import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
  */
 public class CheckPointImpl extends ActivityElementImpl implements CheckPoint
 {
+  /**
+   * The cached value of the '{@link #getWbsDeliverable() <em>Wbs Deliverable</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWbsDeliverable()
+   * @generated
+   * @ordered
+   */
+  protected EList<WBSDeliverable> wbsDeliverable;
+
   /**
    * The default value of the '{@link #getEnd() <em>End</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -118,6 +139,20 @@ public class CheckPointImpl extends ActivityElementImpl implements CheckPoint
   protected EClass eStaticClass()
   {
     return PlanPackage.Literals.CHECK_POINT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<WBSDeliverable> getWbsDeliverable()
+  {
+    if (wbsDeliverable == null)
+    {
+      wbsDeliverable = new EObjectResolvingEList<WBSDeliverable>(WBSDeliverable.class, this, PlanPackage.CHECK_POINT__WBS_DELIVERABLE);
+    }
+    return wbsDeliverable;
   }
 
   /**
@@ -242,6 +277,8 @@ public class CheckPointImpl extends ActivityElementImpl implements CheckPoint
   {
     switch (featureID)
     {
+      case PlanPackage.CHECK_POINT__WBS_DELIVERABLE:
+        return getWbsDeliverable();
       case PlanPackage.CHECK_POINT__END:
         return getEnd();
       case PlanPackage.CHECK_POINT__AFTER:
@@ -260,11 +297,16 @@ public class CheckPointImpl extends ActivityElementImpl implements CheckPoint
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case PlanPackage.CHECK_POINT__WBS_DELIVERABLE:
+        getWbsDeliverable().clear();
+        getWbsDeliverable().addAll((Collection<? extends WBSDeliverable>)newValue);
+        return;
       case PlanPackage.CHECK_POINT__END:
         setEnd((String)newValue);
         return;
@@ -291,6 +333,9 @@ public class CheckPointImpl extends ActivityElementImpl implements CheckPoint
   {
     switch (featureID)
     {
+      case PlanPackage.CHECK_POINT__WBS_DELIVERABLE:
+        getWbsDeliverable().clear();
+        return;
       case PlanPackage.CHECK_POINT__END:
         setEnd(END_EDEFAULT);
         return;
@@ -317,6 +362,8 @@ public class CheckPointImpl extends ActivityElementImpl implements CheckPoint
   {
     switch (featureID)
     {
+      case PlanPackage.CHECK_POINT__WBS_DELIVERABLE:
+        return wbsDeliverable != null && !wbsDeliverable.isEmpty();
       case PlanPackage.CHECK_POINT__END:
         return END_EDEFAULT == null ? end != null : !END_EDEFAULT.equals(end);
       case PlanPackage.CHECK_POINT__AFTER:

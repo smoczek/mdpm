@@ -2,18 +2,6 @@
  */
 package com.lowcoupling.mdpm.lng.plan.plan.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.Assumption;
 import com.lowcoupling.mdpm.lng.plan.plan.Constraint;
@@ -22,6 +10,24 @@ import com.lowcoupling.mdpm.lng.plan.plan.PlanPackage;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.plan.ResourcesImport;
 import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
+
+import com.lowcoupling.mdpm.lng.wbs.wBS.WBSProject;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +40,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.WBSImport;
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getLongName <em>Long Name</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getWbs <em>Wbs</em>}</li>
+ *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getWbsProject <em>Wbs Project</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getPlans <em>Plans</em>}</li>
  *   <li>{@link com.lowcoupling.mdpm.lng.plan.plan.impl.ProjectImpl#getAssumptions <em>Assumptions</em>}</li>
@@ -115,6 +122,16 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * @ordered
    */
   protected WBSImport wbs;
+
+  /**
+   * The cached value of the '{@link #getWbsProject() <em>Wbs Project</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWbsProject()
+   * @generated
+   * @ordered
+   */
+  protected WBSProject wbsProject;
 
   /**
    * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference.
@@ -309,6 +326,49 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * <!-- end-user-doc -->
    * @generated
    */
+  public WBSProject getWbsProject()
+  {
+    if (wbsProject != null && wbsProject.eIsProxy())
+    {
+      InternalEObject oldWbsProject = (InternalEObject)wbsProject;
+      wbsProject = (WBSProject)eResolveProxy(oldWbsProject);
+      if (wbsProject != oldWbsProject)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, PlanPackage.PROJECT__WBS_PROJECT, oldWbsProject, wbsProject));
+      }
+    }
+    return wbsProject;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WBSProject basicGetWbsProject()
+  {
+    return wbsProject;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWbsProject(WBSProject newWbsProject)
+  {
+    WBSProject oldWbsProject = wbsProject;
+    wbsProject = newWbsProject;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanPackage.PROJECT__WBS_PROJECT, oldWbsProject, wbsProject));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ResourcesImport getResources()
   {
     return resources;
@@ -452,6 +512,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return getLongName();
       case PlanPackage.PROJECT__WBS:
         return getWbs();
+      case PlanPackage.PROJECT__WBS_PROJECT:
+        if (resolve) return getWbsProject();
+        return basicGetWbsProject();
       case PlanPackage.PROJECT__RESOURCES:
         return getResources();
       case PlanPackage.PROJECT__PLANS:
@@ -488,6 +551,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return;
       case PlanPackage.PROJECT__WBS:
         setWbs((WBSImport)newValue);
+        return;
+      case PlanPackage.PROJECT__WBS_PROJECT:
+        setWbsProject((WBSProject)newValue);
         return;
       case PlanPackage.PROJECT__RESOURCES:
         setResources((ResourcesImport)newValue);
@@ -534,6 +600,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
       case PlanPackage.PROJECT__WBS:
         setWbs((WBSImport)null);
         return;
+      case PlanPackage.PROJECT__WBS_PROJECT:
+        setWbsProject((WBSProject)null);
+        return;
       case PlanPackage.PROJECT__RESOURCES:
         setResources((ResourcesImport)null);
         return;
@@ -571,6 +640,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return LONG_NAME_EDEFAULT == null ? longName != null : !LONG_NAME_EDEFAULT.equals(longName);
       case PlanPackage.PROJECT__WBS:
         return wbs != null;
+      case PlanPackage.PROJECT__WBS_PROJECT:
+        return wbsProject != null;
       case PlanPackage.PROJECT__RESOURCES:
         return resources != null;
       case PlanPackage.PROJECT__PLANS:

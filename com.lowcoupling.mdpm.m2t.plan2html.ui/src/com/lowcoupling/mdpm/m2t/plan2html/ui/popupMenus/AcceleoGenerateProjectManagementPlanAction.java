@@ -29,6 +29,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IActionDelegate;
@@ -46,7 +48,7 @@ import com.lowcoupling.mdpm.m2t.plan2html.ui.common.PMPGenerationDialog;
  * Project Management Plan code generation.
  */
 public class AcceleoGenerateProjectManagementPlanAction extends ActionDelegate implements IActionDelegate {
-	
+
 	/**
 	 * Selected model files.
 	 */
@@ -72,61 +74,64 @@ public class AcceleoGenerateProjectManagementPlanAction extends ActionDelegate i
 	public void run(IAction action) {
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		PMPGenerationDialog dialog = new PMPGenerationDialog(display.getActiveShell());
-		dialog.open();
-		if (files != null) {
-			IRunnableWithProgress operation = new IRunnableWithProgress() {
-				public void run(IProgressMonitor monitor) {
-					try {
-						Iterator<IFile> filesIt = files.iterator();
-						while (filesIt.hasNext()) {
-							IFile model = (IFile)filesIt.next();
-							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
-							try {
-								GanttImageExporter.setCurrentModel(model);
-								OccupationImageExporter.setCurrentModel(model);	
-								WBSImageExporter.setCurrentModel(model);;
-								
-								IFolder docsFolder = model.getProject().getFolder("/docs");
-								if(docsFolder.exists()){
-									docsFolder.delete(true, null);
+		int result = dialog.open();
+		//System.out.println("RESULT "+result);
+		if (result==0){
+			if (files != null) {
+				IRunnableWithProgress operation = new IRunnableWithProgress() {
+					public void run(IProgressMonitor monitor) {
+						try {
+							Iterator<IFile> filesIt = files.iterator();
+							while (filesIt.hasNext()) {
+								IFile model = (IFile)filesIt.next();
+								URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
+								try {
+									GanttImageExporter.setCurrentModel(model);
+									OccupationImageExporter.setCurrentModel(model);	
+									WBSImageExporter.setCurrentModel(model);;
+
+									IFolder docsFolder = model.getProject().getFolder("/docs");
+									if(docsFolder.exists()){
+										docsFolder.delete(true, null);
+									}
+									docsFolder.create(true,false,null);
+
+									IContainer target = model.getProject().getFolder("docs");
+
+									GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
+									generator.doGenerate(monitor);
+
+									//URL fileURL =  Platform.getBundle("com.lowcoupling.mdpm.m2t.plan2html.ui").getEntry("css/bootstrap.css");
+									//InputStream in = fileURL.openConnection().getInputStream();
+									//IFolder planFolder = model.getProject().getFolder("/docs/css");
+									//planFolder.create(true,false,null);
+									//IFile planFile = model.getProject().getFile("/docs/css/bootstrap.css");
+									//planFile.create(in, true, null);
+									//in.close();
+
+
+								} catch (IOException e) {
+									IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+									Activator.getDefault().getLog().log(status);
+								} finally {
+									model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
 								}
-								docsFolder.create(true,false,null);
-								
-								IContainer target = model.getProject().getFolder("docs");
-																
-								GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
-								generator.doGenerate(monitor);
-								
-								//URL fileURL =  Platform.getBundle("com.lowcoupling.mdpm.m2t.plan2html.ui").getEntry("css/bootstrap.css");
-								//InputStream in = fileURL.openConnection().getInputStream();
-								//IFolder planFolder = model.getProject().getFolder("/docs/css");
-								//planFolder.create(true,false,null);
-								//IFile planFile = model.getProject().getFile("/docs/css/bootstrap.css");
-								//planFile.create(in, true, null);
-								//in.close();
-								
-								
-							} catch (IOException e) {
-								IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-								Activator.getDefault().getLog().log(status);
-							} finally {
-								model.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
 							}
+						} catch (CoreException e) {
+							IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+							Activator.getDefault().getLog().log(status);
 						}
-					} catch (CoreException e) {
-						IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-						Activator.getDefault().getLog().log(status);
 					}
+				};
+				try {
+					PlatformUI.getWorkbench().getProgressService().run(true, true, operation);
+				} catch (InvocationTargetException e) {
+					IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+					Activator.getDefault().getLog().log(status);
+				} catch (InterruptedException e) {
+					IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
+					Activator.getDefault().getLog().log(status);
 				}
-			};
-			try {
-				PlatformUI.getWorkbench().getProgressService().run(true, true, operation);
-			} catch (InvocationTargetException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-				Activator.getDefault().getLog().log(status);
-			} catch (InterruptedException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);
-				Activator.getDefault().getLog().log(status);
 			}
 		}
 	}
