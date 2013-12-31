@@ -128,7 +128,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			ActivityElementDecorator dec= new ActivityElementDecorator(fact);
 			GanttEvent evt = eventsMap.get(dec.getFullQualifiedName());
 			ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
-			
+
 		}
 
 		if (eobject instanceof Project){
@@ -139,7 +139,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			ActivityElementDecorator dec= new ActivityElementDecorator(fact);
 			GanttEvent evt = eventsMap.get(dec.getFullQualifiedName());
 			ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
-			
+
 		}
 
 		if (eobject instanceof ActivityGroup){
@@ -179,6 +179,11 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			Project plan = planIterator.next();
 			EList<ActivityElement> activities = plan.getActivities();
 			handleDependencies(plan,activities,eventsMap,null);
+		}
+		Iterator<String> keys = eventsMap.keySet().iterator();
+		while (keys.hasNext()){
+			String key = keys.next();
+			System.out.println("KEY "+key);
 		}
 		return eventsMap;
 	}
@@ -228,18 +233,23 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			tmpEventsMap.put(qualifiedName+"."+scope.getName(), scope);
 			gs.addGanttEvent(scope);
 			qualifiedName= qualifiedName+"."+scope.getName();
+			boolean check= false;
 			while(activityIterator.hasNext()){
 				ActivityElement activity = activityIterator.next();
-					GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
-					if(innerEvent!=null){
-						if(scope!=null){
-							scope.addScopeEvent(innerEvent);
-						}else{
-						}
+				GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
+				if(innerEvent!=null){
+					if(scope!=null){
+						scope.addScopeEvent(innerEvent);
+						check = true;
 					}else{
 					}
+				}else{
+				}
 			}
-	
+			if(!check){
+				scope=null;
+			}
+
 			return scope;
 
 		}
@@ -296,7 +306,11 @@ public class GanttView extends ViewPart implements ISelectionListener{
 
 				GanttEvent targetEvent = (GanttEvent) eventsMap.get(dependencyQualifiedName);
 				GanttEvent dependentEvent = eventsMap.get(elementQualifiedName);
-				ganttChart.addConnection(targetEvent, dependentEvent);
+				if(targetEvent!=null){
+					if (dependentEvent!=null){
+						ganttChart.addConnection(targetEvent, dependentEvent);
+					}
+				}
 			}
 			if (element instanceof ActivityGroup){
 				handleDependencies(plan,((ActivityGroup)element).getActivities(),eventsMap,scope);

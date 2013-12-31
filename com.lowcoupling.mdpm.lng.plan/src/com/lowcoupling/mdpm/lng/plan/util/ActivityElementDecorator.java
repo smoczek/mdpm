@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.emf.ecore.EObject;
@@ -85,6 +86,12 @@ public class ActivityElementDecorator {
 			}
 		}
 		return start;
+	}
+	private Calendar getEndByCalendar(HashMap ancestors){
+		return getEndByCalendar();
+	}
+	private Calendar getStartByCalendar(HashMap ancestors){
+		return getStartByCalendar();
 	}
 	public Calendar getEndByCalendar(){
 		Calendar start = this.getStartByCalendar();
