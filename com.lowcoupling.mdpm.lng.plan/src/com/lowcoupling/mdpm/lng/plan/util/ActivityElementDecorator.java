@@ -87,12 +87,15 @@ public class ActivityElementDecorator {
 		}
 		return start;
 	}
+	
 	private Calendar getEndByCalendar(HashMap ancestors){
 		return getEndByCalendar();
 	}
+	
 	private Calendar getStartByCalendar(HashMap ancestors){
 		return getStartByCalendar();
 	}
+	
 	public Calendar getEndByCalendar(){
 		Calendar start = this.getStartByCalendar();
 		Calendar end = GregorianCalendar.getInstance();

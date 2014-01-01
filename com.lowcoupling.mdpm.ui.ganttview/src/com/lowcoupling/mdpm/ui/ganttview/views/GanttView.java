@@ -183,7 +183,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 		Iterator<String> keys = eventsMap.keySet().iterator();
 		while (keys.hasNext()){
 			String key = keys.next();
-			System.out.println("KEY "+key);
+			//System.out.println("KEY "+key);
 		}
 		return eventsMap;
 	}
