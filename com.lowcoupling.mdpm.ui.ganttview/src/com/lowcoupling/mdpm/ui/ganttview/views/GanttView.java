@@ -178,7 +178,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 		while(planIterator.hasNext()){
 			Project plan = planIterator.next();
 			EList<ActivityElement> activities = plan.getActivities();
-			//handleDependencies(plan,activities,eventsMap,null);
+			handleDependencies(plan,activities,eventsMap,null);
 		}
 		Iterator<String> keys = eventsMap.keySet().iterator();
 		while (keys.hasNext()){
