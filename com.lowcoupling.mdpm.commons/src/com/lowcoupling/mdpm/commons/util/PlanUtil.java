@@ -263,9 +263,14 @@ public class PlanUtil {
 				Activity act = (Activity)element;
 				ActivityElementDecorator activity = new ActivityElementDecorator(act);
 				if (first!=null){
-
-					if(activity.getStartByCalendar().before(first.getStart())){
-						first = activity;
+					if( (activity.getStartByCalendar()!=null)){
+						if(first.getStartByCalendar()!=null){
+							if(activity.getStartByCalendar().before(first.getStart())){
+								first = activity;
+							}
+						}else{
+							first = activity;
+						}
 					}
 
 				}else{
@@ -276,6 +281,7 @@ public class PlanUtil {
 		if (first!=null ){
 			return (Activity)first.getActivityElement();
 		}else{
+			System.out.println("First activity is null!");
 			return null;
 		}
 	}

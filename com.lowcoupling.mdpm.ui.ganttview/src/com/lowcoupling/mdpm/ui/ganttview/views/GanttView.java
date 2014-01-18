@@ -6,9 +6,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
@@ -47,6 +49,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.xtext.validation.CheckMode;
 import org.osgi.framework.Bundle;
 
 import com.lowcoupling.mdpm.commons.util.PlanUtil;
@@ -57,6 +60,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
 import com.lowcoupling.mdpm.lng.plan.plan.Program;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
 import com.lowcoupling.mdpm.lng.plan.util.ActivityElementDecorator;
+import com.lowcoupling.mdpm.lng.plan.validation.PlanJavaValidator;
 
 public class GanttView extends ViewPart implements ISelectionListener{
 
@@ -127,7 +131,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			Activity fact= PlanUtil.getInstance().getFirstActivity((Program)eobject, true);
 			ActivityElementDecorator dec= new ActivityElementDecorator(fact);
 			GanttEvent evt = eventsMap.get(dec.getFullQualifiedName());
-			ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
+			if(evt!=null) ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
 
 		}
 
@@ -138,7 +142,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			Activity fact= PlanUtil.getInstance().getFirstActivity((Project)eobject, true);
 			ActivityElementDecorator dec= new ActivityElementDecorator(fact);
 			GanttEvent evt = eventsMap.get(dec.getFullQualifiedName());
-			ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
+			if(evt!=null) ganttChart.getGanttComposite().jumpToEvent(evt, true, 0);
 
 		}
 
@@ -169,7 +173,6 @@ public class GanttView extends ViewPart implements ISelectionListener{
 		while(planIterator.hasNext()){
 			Project plan = planIterator.next();
 			EList<ActivityElement> activities = plan.getActivities();
-			//System.out.println("\t *"+plan.getName());
 			handlePlan(plan,activities,eventsMap);
 		}
 		planIterator  = plans.iterator();
@@ -179,11 +182,6 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			Project plan = planIterator.next();
 			EList<ActivityElement> activities = plan.getActivities();
 			handleDependencies(plan,activities,eventsMap,null);
-		}
-		Iterator<String> keys = eventsMap.keySet().iterator();
-		while (keys.hasNext()){
-			String key = keys.next();
-			//System.out.println("KEY "+key);
 		}
 		return eventsMap;
 	}
@@ -204,6 +202,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			evt= new GanttEvent(ganttChart, name, start, end,act.getCompleteness());	
 			gs.addGanttEvent(evt);
 			tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
+			//System.out.println("name: "+qualifiedName+"."+element.getName());
 		}else if (element instanceof CheckPoint){
 			CheckPoint checkPoint = (CheckPoint)element;
 			Calendar start = GregorianCalendar.getInstance();
@@ -220,6 +219,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			evt.setCheckpoint(true);
 			gs.addGanttEvent(evt);
 			tmpEventsMap.put(qualifiedName+"."+element.getName(), evt);
+			//System.out.println("name: "+qualifiedName+"."+element.getName());
 		}else if (element instanceof ActivityGroup){
 			ActivityGroup group = (ActivityGroup)element;
 			String name="";
@@ -231,23 +231,19 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			GanttEvent scope = new GanttEvent(ganttChart,name);
 			Iterator<ActivityElement>activityIterator = group.getActivities().iterator();
 			tmpEventsMap.put(qualifiedName+"."+scope.getName(), scope);
+			//System.out.println("name: "+qualifiedName+"."+scope.getName());
 			gs.addGanttEvent(scope);
 			qualifiedName= qualifiedName+"."+scope.getName();
-			boolean check= false;
 			while(activityIterator.hasNext()){
 				ActivityElement activity = activityIterator.next();
 				GanttEvent innerEvent = handleActivity(activity,plan,gs,qualifiedName,tmpEventsMap);
 				if(innerEvent!=null){
 					if(scope!=null){
 						scope.addScopeEvent(innerEvent);
-						check = true;
 					}else{
 					}
 				}else{
 				}
-			}
-			if(!check){
-				scope=null;
 			}
 
 			return scope;
@@ -256,6 +252,22 @@ public class GanttView extends ViewPart implements ISelectionListener{
 		return evt;
 	}
 	public void handlePlan(Project plan,EList<ActivityElement> activities, LinkedHashMap<String,GanttEvent>eventsMap){
+		PlanJavaValidator validator = new PlanJavaValidator();
+		Iterator<EObject> contents = plan.eAllContents();
+		while(contents.hasNext()){
+			EObject element = (EObject) contents.next();
+			if (element instanceof ActivityGroup){
+				if (validator.checkNestedGroups((ActivityGroup)element)){
+					return;
+				}
+			}
+			if (element instanceof ActivityElement){
+				if (validator.checkForLoops((ActivityElement)element)){
+					return;
+				}
+			}
+		}
+		contents = plan.eAllContents();
 		Iterator<ActivityElement> activityIterator = activities.iterator();
 		String name ="";
 		if (plan.getLongName()!=null){
@@ -305,11 +317,9 @@ public class GanttView extends ViewPart implements ISelectionListener{
 				}
 
 				GanttEvent targetEvent = (GanttEvent) eventsMap.get(dependencyQualifiedName);
-				GanttEvent dependentEvent = eventsMap.get(elementQualifiedName);
 				if(targetEvent!=null){
-					if (dependentEvent!=null){
-						ganttChart.addConnection(targetEvent, dependentEvent);
-					}
+					GanttEvent dependentEvent = eventsMap.get(elementQualifiedName);
+					ganttChart.addConnection(targetEvent, dependentEvent);
 				}
 			}
 			if (element instanceof ActivityGroup){
@@ -465,7 +475,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 		public void run() { 
 			//new Rectangle(0,0,640,480)
 			Image img = ganttChart.getGanttComposite().getImage();
-			FileDialog fileDialog = new FileDialog(Display.getCurrent().getActiveShell());
+			FileDialog fileDialog = new FileDialog(Display.getCurrent().getActiveShell(),SWT.SAVE);
 			// Set the text
 			fileDialog.setText("Select File");
 			// Set filter on .txt files
@@ -474,7 +484,7 @@ public class GanttView extends ViewPart implements ISelectionListener{
 			// fileDialog.setFilterNames(new String[] { "Textfiles(*.txt)" });
 			// Open Dialog and save result of selection
 			String selected = fileDialog.open();
-			System.out.println("SELECTED: "+selected);
+			//System.out.println("SELECTED: "+selected);
 			ImageLoader loader = new ImageLoader();
 			loader.data = new ImageData[] {img.getImageData()};
 			loader.save(selected, SWT.IMAGE_PNG);

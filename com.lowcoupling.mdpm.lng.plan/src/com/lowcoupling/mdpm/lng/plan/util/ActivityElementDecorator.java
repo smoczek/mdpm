@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.emf.ecore.EObject;
@@ -16,6 +15,7 @@ import com.lowcoupling.mdpm.lng.plan.plan.ActivityElement;
 import com.lowcoupling.mdpm.lng.plan.plan.ActivityGroup;
 import com.lowcoupling.mdpm.lng.plan.plan.CheckPoint;
 import com.lowcoupling.mdpm.lng.plan.plan.Project;
+import com.lowcoupling.mdpm.lng.plan.validation.PlanJavaValidator;
 
 public class ActivityElementDecorator {
 
@@ -64,6 +64,8 @@ public class ActivityElementDecorator {
 					e.printStackTrace();
 				}	
 			}else{
+				PlanJavaValidator validator = new PlanJavaValidator();
+				if (validator.checkForLoops(activity)) return null;
 				start = (new ActivityElementDecorator((ActivityElement)activity.getAfter())).getEndByCalendar();
 				start.add(Calendar.DAY_OF_MONTH, activity.getOffset());
 			}
@@ -81,21 +83,14 @@ public class ActivityElementDecorator {
 				e.printStackTrace();
 			}
 			}else{
+				PlanJavaValidator validator = new PlanJavaValidator();
+				if (validator.checkForLoops(checkpoint)) return null;
 				start = (new ActivityElementDecorator((ActivityElement)checkpoint.getAfter())).getEndByCalendar();
 				start.add(Calendar.DAY_OF_MONTH, checkpoint.getOffset());
 			}
 		}
 		return start;
 	}
-	
-	private Calendar getEndByCalendar(HashMap ancestors){
-		return getEndByCalendar();
-	}
-	
-	private Calendar getStartByCalendar(HashMap ancestors){
-		return getStartByCalendar();
-	}
-	
 	public Calendar getEndByCalendar(){
 		Calendar start = this.getStartByCalendar();
 		Calendar end = GregorianCalendar.getInstance();
@@ -127,6 +122,8 @@ public class ActivityElementDecorator {
 				e.printStackTrace();
 			}
 				}else{
+					PlanJavaValidator validator = new PlanJavaValidator();
+					if (validator.checkForLoops(checkpoint)) return null;
 					end = (new ActivityElementDecorator((ActivityElement)checkpoint.getAfter())).getEndByCalendar();
 					end.add(Calendar.DAY_OF_MONTH, checkpoint.getOffset());
 				}
